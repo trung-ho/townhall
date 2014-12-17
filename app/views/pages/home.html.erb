@@ -1,0 +1,11 @@
+<h1>Townhall Social</h1>
+<p>Welcome to the Townhall Social Web App v2.0</p>
+
+<h2>Login</h2>
+<ul>
+	<li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
+	<li><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></li>
+	<li><%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %></li>
+	<li><%= link_to "Sign in with LinkedIn", user_omniauth_authorize_path(:linkedin) %></li>
+	<li>Login with Email</li>
+</ul>
