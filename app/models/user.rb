@@ -13,8 +13,6 @@ class User < ActiveRecord::Base
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
-    binding.pry
-
     # Get the identity and user if they exist
     identity = Identity.find_for_oauth(auth)
 
@@ -41,13 +39,14 @@ class User < ActiveRecord::Base
           name = auth.info.name
           firstname = auth.info.first_name
           last_name = auth.info.last_name
-          gender = auth.info.gender
+          gender = auth.info.gender if auth.info.gender.present?
+          age = auth.info.age_range if auth.info.age_range.present?
 
         when 'twitter'
           name = auth.info.name
           location = auth.info.location
 
-        when 'google'
+        when 'google_oauth2'
           name = auth.info.name
           firstname = auth.info.given_name
           last_name = auth.info.family_name
@@ -64,8 +63,8 @@ class User < ActiveRecord::Base
         user = User.new(
           # name: auth.extra.raw_info.name,
           name: name,
-          #username: auth.info.nickname || auth.uid,
           email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
+          gender: gender ? gender : '',
           password: Devise.friendly_token[0,20]
         )
 
@@ -80,7 +79,7 @@ class User < ActiveRecord::Base
       identity.save!
     end
 
-    binding.pry
+    identity.user
 
   end
 
