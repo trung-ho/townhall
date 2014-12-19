@@ -28,6 +28,11 @@ class UsersController < ApplicationController
 
   # GET/PATCH /users/:id/finish_signup
   def finish_signup
+
+    # Loads the user
+    @user = User.find(params[:id])
+
+    binding.pry
     # authorize! :update, @user
     if request.patch? && params[:user] #&& params[:user][:email]
       if @user.update(user_params)
@@ -37,12 +42,12 @@ class UsersController < ApplicationController
         # @user.skip_reconfirmation!
 
         sign_in(@user, :bypass => true)
+        binding.pry
         redirect_to @user, notice: 'Your profile was successfully updated.'
       else
         @show_errors = true
       end
     end
-    @user = User.find(params[:id])
   end
 
   # DELETE /users/:id.:format

@@ -1,8 +1,8 @@
 # class User < ActiveRecord::Base
 
 class User < ActiveRecord::Base
-  TEMP_EMAIL_PREFIX = 'ths'
-  TEMP_EMAIL_REGEX = /\Aths/
+  TEMP_EMAIL_PREFIX = 'temp.email'
+  TEMP_EMAIL_REGEX = /\Atemp.email/
 
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable
@@ -63,7 +63,7 @@ class User < ActiveRecord::Base
         user = User.new(
           # name: auth.extra.raw_info.name,
           name: name,
-          email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
+          email: email.present? ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}@townhallsocial.com",
           gender: gender ? gender : '',
           password: Devise.friendly_token[0,20]
         )
