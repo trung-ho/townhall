@@ -1,5 +1,3 @@
-# class User < ActiveRecord::Base
-
 class User < ActiveRecord::Base
   TEMP_EMAIL_PREFIX = 'temp.email'
   TEMP_EMAIL_REGEX = /\Atemp.email/
@@ -10,6 +8,8 @@ class User < ActiveRecord::Base
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook, :twitter, :linkedin, :google_oauth2]
 
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
+
+  has_many :identities, :dependent => :destroy
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
@@ -37,34 +37,37 @@ class User < ActiveRecord::Base
         case auth.provider
         when 'facebook'
           name = auth.info.name
-          firstname = auth.info.first_name
-          last_name = auth.info.last_name
+          firstname = auth.info.first_name if auth.info.first_name.present?
+          last_name = auth.info.last_name if auth.info.last_name.present?
           gender = auth.info.gender if auth.info.gender.present?
           age = auth.info.age_range if auth.info.age_range.present?
 
         when 'twitter'
           name = auth.info.name
-          location = auth.info.location
+          location = auth.info.location if auth.info.location.present?
 
         when 'google_oauth2'
           name = auth.info.name
-          firstname = auth.info.given_name
-          last_name = auth.info.family_name
-          gender = auth.info.gender
+          firstname = auth.info.given_name if auth.info.given_name.present?
+          last_name = auth.info.family_name if auth.info.family_name.present?
+          gender = auth.info.gender if auth.info.gender.present?
 
         when 'linkedin'
           name = auth.info.name
-          firstname = auth.info.first_name
-          last_name = auth.info.last_name
-          location = auth.info.location.name
-          country = auth.info.location.country.code
+          first_name = auth.info.first_name if auth.info.first_name.present?
+          last_name = auth.info.last_name if auth.info.last_name.present?
+          location = auth.info.location.name if auth.info.location.name.present?
+          country = auth.info.location.country.code if auth.info.location.country.code.present?
         end
 
         user = User.new(
           # name: auth.extra.raw_info.name,
           name: name,
+          first_name: first_name.present? ? first_name : '',
+          last_name: last_name.present? ? last_name : '',
           email: email.present? ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}@townhallsocial.com",
-          gender: gender ? gender : '',
+          gender: gender.present? ? gender : '',
+          location: location.present? ? location : '',
           password: Devise.friendly_token[0,20]
         )
 
