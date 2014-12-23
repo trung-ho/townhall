@@ -1,13 +1,19 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", sessions: "users/sessions" }
 
-
   get 'pages/home'
   get 'pages/member_home'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+
+  namespace :organizer do
+    resources :organizations do
+      resources :questions
+    end
+  end
+
 
   ActiveAdmin.routes(self)
 
@@ -19,7 +25,7 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
+  # Example, of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141219141601) do
+ActiveRecord::Schema.define(version: 20141223044130) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -50,6 +50,28 @@ ActiveRecord::Schema.define(version: 20141219141601) do
     t.integer  "user_id"
     t.string   "provider"
     t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "organizations", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "status"
+    t.boolean  "show_recommendations"
+    t.boolean  "show_subscriptions"
+    t.string   "subscription_label"
+    t.string   "subscription_issue_label"
+    t.integer  "report_number"
+    t.string   "page_alias"
+    t.string   "facebook_page_url"
+    t.string   "facebook_page_id"
+    t.string   "facebook_page_access_token"
+    t.string   "user_id"
+    t.text     "twitter_feed"
+    t.string   "contact_email"
+    t.string   "contact_website"
+    t.string   "contact_telephone"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
