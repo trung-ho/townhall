@@ -3,7 +3,7 @@ module Organizer
     before_action :authenticate_user!
 
     def index
-      render html: "dashboard"
+      @organization = current_user.organizations.last
     end
 
     def show
