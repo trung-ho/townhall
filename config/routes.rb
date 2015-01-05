@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   namespace :organizer do
     resources :dashboard
     resources :organizations 
+    resources :questions
   end
 
 
