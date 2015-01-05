@@ -9,9 +9,8 @@ Rails.application.routes.draw do
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
 
   namespace :organizer do
-    resources :organizations do
-      resources :questions
-    end
+    resources :dashboard
+    resources :organizations 
   end
 
 

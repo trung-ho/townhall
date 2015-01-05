@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
 
   has_many :identities, :dependent => :destroy
 
+  has_many :organizations, :dependent => :destroy
+
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
     # Get the identity and user if they exist
