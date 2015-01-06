@@ -4,6 +4,7 @@ module Organizer
 
     def index
       @organization = current_user.organizations.last
+      @questions = @organization.questions 
     end
 
     def show
