@@ -1,0 +1,4 @@
+<h1><%= @organization.name %></h1>
+<ul class='questions'>
+  <%= render partial: 'organizer/dashboard/question', collection: @questions %>
+</ul>
