@@ -58,8 +58,9 @@ gem "omniauth-google-oauth2"
 # Omniauth-linkedin used with devise for Linkedin login integration
 gem 'omniauth-linkedin-oauth2'
 
-# Foundation for Rails
-gem 'foundation-rails'
+# Bootstrap for Rails (SASS version)
+gem 'bootstrap-sass', '~> 3.3.1'
+gem 'autoprefixer-rails'
 
 group :development do
   gem 'rails_layout'
