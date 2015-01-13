@@ -7,6 +7,7 @@ class CreateQuestions < ActiveRecord::Migration
       t.datetime :end_date
       t.boolean :published
       
+      t.string :type
       t.belongs_to :organization
 
       t.timestamps

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :dashboard
     resources :organizations 
     resources :questions
+    resources :votes
   end
 
 
