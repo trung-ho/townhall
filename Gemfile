@@ -14,6 +14,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
+gem 'haml'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -27,6 +28,8 @@ gem 'spring',        group: :development
 
 #for creating forms without all the foundation markup overhead
 gem 'simple_form', '~> 3.1'
+#making nested forms easier
+gem "cocoon"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -68,4 +71,6 @@ group :development do
   gem 'sqlite3'
   # Used for Debugging with Pry
   gem 'pry'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
