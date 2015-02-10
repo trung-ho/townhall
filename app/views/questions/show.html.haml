@@ -1,0 +1,18 @@
+%div#question
+  %h2= @question.title
+  %p= @question.description
+
+  = link_to "Yes", questions_vote_path(question_id: @question.id, vote: 'yes'), remote: true, method: :post 
+
+  = link_to "No", questions_vote_path(question_id: @question.id, vote: 'no'), remote: true, method: :post
+
+%div#reasons_for
+  %h5 Reasons for
+  %ul
+    = render partial: 'questions/reason', collection: @reasons_for
+
+%div#reasons_against
+  %h5 Reasons against
+  %ul
+    = render partial: 'questions/reason', collection: @reasons_against
+

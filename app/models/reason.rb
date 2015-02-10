@@ -1,4 +1,4 @@
 class Reason < ActiveRecord::Base
-  belongs_to :vote
+  belongs_to :voting
   
 end

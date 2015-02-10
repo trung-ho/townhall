@@ -1,0 +1,9 @@
+//$('#question').hide();
+switch('<%= params[:vote] %>') {
+  case 'yes':
+    $('#reasons_for').show();
+    break;
+  case 'no':
+    $('#reasons_against').show();
+    break;
+}

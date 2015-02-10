@@ -9,5 +9,9 @@
 @import "bootstrap";
 
 body {
-  padding-top: 40px;
+  padding-top: 50px;
+}
+
+.form-horizontal .control-label{
+   text-align:left !important; 
 }
