@@ -17,13 +17,12 @@ Rails.application.routes.draw do
   end
 
   resources :organizations, only: [:show] do
-    resources :questions, only: [:show] do
-      post 'vote'
-    end
+    resources :questions, only: [:show]
   end
 
-  post 'questions/vote'
-  post 'questions/reason'
+  resources :questions do
+    resources :votes
+  end
 
   ActiveAdmin.routes(self)
 

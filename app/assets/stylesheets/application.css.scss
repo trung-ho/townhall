@@ -1,6 +1,7 @@
 /*
 *= require_self
-*= require pages
+*= require style
+*= require responsive_style
 *= require questions
 */
 
@@ -9,9 +10,8 @@
 @import "bootstrap";
 
 body {
-  padding-top: 50px;
+  padding-top: 80px;
 }
-
 .form-horizontal .control-label{
    text-align:left !important; 
 }

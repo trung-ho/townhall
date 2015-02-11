@@ -129,9 +129,9 @@ ActiveRecord::Schema.define(version: 20150205080631) do
 
   create_table "votes", force: true do |t|
     t.string   "vote_type"
+    t.string   "reason_ids"
     t.integer  "question_id"
     t.integer  "user_id"
-    t.integer  "reason_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
