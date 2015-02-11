@@ -1,5 +1,9 @@
 class Vote < ActiveRecord::Base
   belongs_to  :user
   belongs_to  :question
-  belongs_to  :reason
+
+  def reasons
+    ids = reason_ids.split(',')
+    Reason.find(ids)
+  end
 end
