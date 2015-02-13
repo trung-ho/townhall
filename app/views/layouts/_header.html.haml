@@ -51,6 +51,6 @@
       %li
         %a.help{:href => "#0"} Help
       %li
-        %a.log_out{:href => "#0"} Log out
+        = link_to('Logout', destroy_user_session_path, :method => :delete)   
       %li
         %a.town_hall{:href => "#0"} My Town Hall
