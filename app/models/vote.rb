@@ -6,4 +6,5 @@ class Vote < ActiveRecord::Base
     ids = reason_ids.split(',')
     Reason.find(ids)
   end
+  
 end

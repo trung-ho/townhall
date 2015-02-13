@@ -45,10 +45,10 @@
               %a{:href => "#"} Choose your reasons:
             .form_wrap
               .select_wrap.yes_reason.text_padding
-                %ul
+                %ul.pro
                   = render partial: 'questions/reason', collection: @reasons_for
               .select_wrap.no_reason.text_padding
-                %ul
+                %ul.against
                   = render partial: 'questions/reason', collection: @reasons_against, locals: {against: true}
               .submit_btn
                 %button.hoveranimate{:type => "submit"} Submit

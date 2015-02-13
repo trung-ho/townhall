@@ -5,12 +5,10 @@ class VotesController < ApplicationController
     @question = Question.find(params[:question_id])
     vote = @question.votes.build(vote_params)
     vote.user_id = current_user.id 
-    
     #reason_ids = params.select {|k,v| v == 'on' }.map {|k,v| k}[1..-1]
-    #binding.pry
 
     if vote.save
-      
+      redirect_to question_result_path(@question)
     end
   end
 
