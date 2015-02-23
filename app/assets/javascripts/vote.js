@@ -1,12 +1,15 @@
 $(function(){ 
+  var vote_type = $('#vote_vote_type');
   $('a.yes').on("click", function() {
-    $('#vote_vote_type').val('yes');
+    console.log('clicked yes');
+    vote_type.val('yes');
     hide_step_1();
     $('ul.pro').show();
   });
 
   $('a.no').on("click", function() {
-    $('#vote_vote_type').val('no');
+    console.log('clicked no');
+    vote_type.val('no');
     hide_step_1();
     $('ul.against').show();
   });
