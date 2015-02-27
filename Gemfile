@@ -69,6 +69,7 @@ gem "font-awesome-rails"
 
 #Image upload
 gem 'carrierwave', '0.10.0'
+gem 'rmagick'
 
 group :development do
   gem 'rails_layout'
