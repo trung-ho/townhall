@@ -64,14 +64,14 @@ box-shadow: 0px 7px 0px 0px #d91e18;}
 .navigation li a{ color:#fff; display:block;}
 .navigation li:hover{ background:#faae1b;}
 
-.navigation li a.home{ background:url(../images/home_icon.png) right no-repeat;}
+.navigation li a.home{ background:image-url('home_icon.png') right no-repeat;}
 
-.navigation li a.find{ background:url(../images/find_icon.png) right no-repeat;}
+.navigation li a.find{ background:image-url('find_icon.png') right no-repeat;}
 
-.navigation li a.contact{ background:url(../images/contact_icon.png) right no-repeat;}
+.navigation li a.contact{ background:image-url('contact_icon.png') right no-repeat;}
 
 
-.navigation li a.follow{ background:url(../images/follow_icon.png) right no-repeat;}
+.navigation li a.follow{ background:image-url('follow_icon.png') right no-repeat;}
 
 
 .check_text{ overflow:hidden; padding:0px 20px; margin:26px 0 0;}
@@ -83,19 +83,19 @@ box-shadow: 0px 7px 0px 0px #d91e18;}
 .social_list li{ float:left; width:50%; margin-top:20px;}
 /********************* EOF VOTING ************************************/
 
-.navigation li a.termsofuse{ background:url(../images/termsofuse.png) right no-repeat;}
+.navigation li a.termsofuse{ background:image-url('termsofuse.png') right no-repeat;}
 
 
-.navigation li a.privacy{ background:url(../images/privacy_icon.png) right no-repeat;}
+.navigation li a.privacy{ background:image-url('privacy_icon.png') right no-repeat;}
 
 
-.navigation li a.help{ background:url(../images/help_icon.png) right no-repeat;}
+.navigation li a.help{ background:image-url('help_icon.png') right no-repeat;}
 
 
-.navigation li a.logout{ background:url(../images/logout_icon.png) right no-repeat;}
+.navigation li a.logout{ background:image-url('logout_icon.png') right no-repeat;}
 
 
-.navigation li a.mytown{ background:url(../images/townhall_icon2.png) right no-repeat;}
+.navigation li a.mytown{ background:image-url('townhall_icon2.png') right no-repeat;}
 
 
 

@@ -1,4 +1,6 @@
 class Voting < Question
+  mount_uploader :cover_image, CoverImageUploader
+
   has_many :reasons_for,     -> { where reason_type: 'for'     }, class_name: 'Reason'
   has_many :reasons_against, -> { where reason_type: 'against' }, class_name: 'Reason'
 
@@ -6,6 +8,8 @@ class Voting < Question
   accepts_nested_attributes_for :reasons_against, :reject_if => :all_blank, :allow_destroy => true
 
   has_many :votes, foreign_key: 'question_id'
+
+  store_accessor :properties, :crowd_content, :pre_moderation
 
   def total_votes
      votes.count

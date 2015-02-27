@@ -1,11 +1,9 @@
 module Organizer
-  class VotingsController < ApplicationController
-    before_filter :authenticate_user!
+  class VotingsController < OrganizerController
     before_action :set_voting, only: [:show, :edit, :update, :destroy]
     
     def new
       @voting = Voting.new
-      # @voting.reasons.build
     end
 
     def create
@@ -18,7 +16,7 @@ module Organizer
     end
 
     def edit
-      @reason = @voting.reasons_for.build
+      
     end
     
     def update
@@ -39,7 +37,8 @@ module Organizer
 
     def voting_params
       params.require(:voting).permit(:title, :description, 
-                                  :start_date, :end_date, 
+                                  :start_date, :end_date, :crowd_content, :pre_moderation,
+                                  :cover_image,
                                   reasons_for_attributes: [:id, :name, :_destroy],
                                   reasons_against_attributes: [:id, :name, :_destroy] )
     end

@@ -1,0 +1,57 @@
+.panel-body
+  .form-group
+    = f.label :title, :class => 'col-lg-2 control-label' 
+    .col-lg-10
+      = f.text_field :title, label: 'Title', as: :text, class: 'form-control'
+  .form-group
+    = f.label :description, :class => 'col-lg-2 control-label' 
+    .col-lg-10
+      = f.text_area :description, label: 'Description', as: :text, class: 'form-control'
+  .row
+    .col-md-6
+      .form-group
+        = f.label :start_date, class: 'col-lg-4 control-label' 
+        .col-lg-8
+          %label.field.prepend-icon{:for => ":end_date"}
+            = f.text_field :start_date, class: 'form-control'
+            %label.field-icon
+              %i.fa.fa-calendar-o
+    .col-md-6
+      .form-group
+        = f.label :end_date, class: 'col-lg-4 control-label' 
+        .col-lg-8
+          %label.field.prepend-icon{:for => ":end_date"}
+            = f.text_field :end_date, class: 'form-control'
+            %label.field-icon
+              %i.fa.fa-calendar-o
+  .form-group
+    = f.label :cover_image, class: 'col-lg-2 control-label' 
+    .col-lg-10
+      = f.file_field :cover_image, class: 'btn btn-default btn-file'
+  .form-group
+    = f.label :options, class: 'col-md-2 control-label'
+    .col-md-4
+      .checkbox-custom
+        = f.check_box :crowd_content
+        = f.label :crowd_content
+    .col-md-4
+      .checkbox-custom
+        = f.check_box :pre_moderation
+        = f.label :pre_moderation
+  .form-group
+    .col-xs-2
+      = f.button :submit, class: 'btn btn-sm btn-default btn-block'
+:javascript  
+  $("#voting_start_date").datepicker({
+                 prevText: '<i class="fa fa-chevron-left"></i>',
+                 nextText: '<i class="fa fa-chevron-right"></i>',
+                 showButtonPanel: true,
+                 dateFormat: 'yy-mm-dd'
+             });
+
+  $("#voting_end_date").datepicker({
+               prevText: '<i class="fa fa-chevron-left"></i>',
+               nextText: '<i class="fa fa-chevron-right"></i>',
+               showButtonPanel: true,
+               dateFormat: 'yy-mm-dd'
+           });

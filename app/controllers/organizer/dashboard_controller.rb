@@ -1,7 +1,6 @@
 module Organizer
-  class DashboardController < ApplicationController
-    before_action :authenticate_user!
-
+  class DashboardController < OrganizerController
+    
     def index
       @organization = current_user.organizations.any? ? current_user.organizations.last : nil
       if @organization.nil?

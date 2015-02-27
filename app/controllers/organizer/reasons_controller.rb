@@ -1,6 +1,5 @@
 module Organizer
-  class ReasonsController < ApplicationController
-    before_filter :authenticate_user!
+  class ReasonsController < OrganizerController
 
     def create
     

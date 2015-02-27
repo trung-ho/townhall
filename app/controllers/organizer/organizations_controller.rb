@@ -1,6 +1,5 @@
 module Organizer
-  class OrganizationsController < ApplicationController
-    before_filter :authenticate_user!
+  class OrganizationsController < OrganizerController
     before_action :set_organization, only: [:show, :edit, :update, :destroy]
     
     def new

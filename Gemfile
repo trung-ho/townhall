@@ -65,6 +65,10 @@ gem 'omniauth-linkedin-oauth2'
 # Bootstrap for Rails (SASS version)
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
+gem "font-awesome-rails"
+
+#Image upload
+gem 'carrierwave', '0.10.0'
 
 group :development do
   gem 'rails_layout'
@@ -73,4 +77,5 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'quiet_assets'
+  gem 'letter_opener'
 end
