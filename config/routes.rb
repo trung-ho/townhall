@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :organizations 
     resources :questions
     resources :votings
+    resources :rankings
+    resources :ideas
     resources :reasons
   end
 

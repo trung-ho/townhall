@@ -13,7 +13,7 @@
         = f.label :start_date, class: 'col-lg-4 control-label' 
         .col-lg-8
           %label.field.prepend-icon{:for => ":end_date"}
-            = f.text_field :start_date, class: 'form-control'
+            = f.text_field :start_date, class: 'form-control dateable'
             %label.field-icon
               %i.fa.fa-calendar-o
     .col-md-6
@@ -21,7 +21,7 @@
         = f.label :end_date, class: 'col-lg-4 control-label' 
         .col-lg-8
           %label.field.prepend-icon{:for => ":end_date"}
-            = f.text_field :end_date, class: 'form-control'
+            = f.text_field :end_date, class: 'form-control dateable'
             %label.field-icon
               %i.fa.fa-calendar-o
   .form-group
@@ -42,16 +42,9 @@
     .col-xs-2
       = f.button :submit, class: 'btn btn-sm btn-default btn-block'
 :javascript  
-  $("#voting_start_date").datepicker({
+  $(".dateable").datepicker({
                  prevText: '<i class="fa fa-chevron-left"></i>',
                  nextText: '<i class="fa fa-chevron-right"></i>',
                  showButtonPanel: true,
                  dateFormat: 'yy-mm-dd'
              });
-
-  $("#voting_end_date").datepicker({
-               prevText: '<i class="fa fa-chevron-left"></i>',
-               nextText: '<i class="fa fa-chevron-right"></i>',
-               showButtonPanel: true,
-               dateFormat: 'yy-mm-dd'
-           });

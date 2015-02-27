@@ -1,6 +1,4 @@
 class Voting < Question
-  mount_uploader :cover_image, CoverImageUploader
-
   has_many :reasons_for,     -> { where reason_type: 'for'     }, class_name: 'Reason'
   has_many :reasons_against, -> { where reason_type: 'against' }, class_name: 'Reason'
 
