@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :result, :edit, :update, :destroy]
+   before_filter :authenticate_user!
 
   def show 
     @reasons_for =     @question.reasons_for.all

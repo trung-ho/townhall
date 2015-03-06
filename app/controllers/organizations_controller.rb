@@ -8,7 +8,6 @@ class OrganizationsController < ApplicationController
   private
 
   def set_organization
-    logger.debug(request.subdomain)
     @organization = Organization.friendly.find(request.subdomain)
   end
 end

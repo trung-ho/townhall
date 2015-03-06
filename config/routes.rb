@@ -23,11 +23,6 @@ Rails.application.routes.draw do
       resources :questions, only: [:show]
     end
 
-    resources :questions do
-      get :result
-      resources :votes
-    end
-
     ActiveAdmin.routes(self)
 
     # You can have the root of your site routed with "root"
@@ -45,8 +40,12 @@ Rails.application.routes.draw do
   constraints Subdomain do
     scope as: 'organization' do
       root 'organizations#show'
-      resources :questions, only: [:show]
+      
     end
+    resources :questions, only: [:show] do
+        get :result
+        resources :votes
+      end
   end
 
 
