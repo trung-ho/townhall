@@ -71,6 +71,9 @@ gem "font-awesome-rails"
 gem 'carrierwave', '0.10.0'
 gem 'rmagick'
 
+#for slugs
+gem 'friendly_id', '~> 5.1.0'
+
 group :development do
   gem 'rails_layout'
   # Used for Debugging with Pry
