@@ -1,6 +1,5 @@
 module Organizer
-  class QuestionsController < ApplicationController
-    before_filter :authenticate_user!
+  class QuestionsController < OrganizerController
     before_action :set_question, only: [:show, :edit, :update, :destroy]
     
     def new

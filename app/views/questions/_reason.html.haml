@@ -1,0 +1,5 @@
+- checkbox_id = reason.id
+%li
+  %span.select_option
+    %input.css-checkbox{:name => checkbox_id, :type => "checkbox", id: checkbox_id}/
+    %label.css-label.radGroup1{:for => checkbox_id}= reason.name

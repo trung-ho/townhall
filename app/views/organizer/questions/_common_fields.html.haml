@@ -1,0 +1,19 @@
+= f.input :title, label: 'Question', :wrapper_html => { :class => 'col-sm-8' }
+= f.input :description, label: 'Description', as: :text, :wrapper_html => { :class => 'col-sm-8' }
+
+.row
+  .col-sm-12
+    = f.label 'Start date'
+    = f.date_select   :start_date,               
+      options = { start_year: DateTime.now.year, 
+      end_year: DateTime.now.year + 3,           
+      order: [:month, :day, :year],              
+      include_blank: false }                      
+.row
+  .col-sm-12
+    = f.label 'End date'
+    = f.date_select   :end_date,                 
+      options = { start_year: DateTime.now.year, 
+      end_year: DateTime.now.year + 3,           
+      order: [:month, :day, :year],              
+      include_blank: false }                      

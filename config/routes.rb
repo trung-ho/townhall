@@ -12,15 +12,41 @@ Rails.application.routes.draw do
     resources :dashboard
     resources :organizations 
     resources :questions
+    resources :votings
+    resources :rankings
+    resources :ideas
+    resources :reasons
   end
 
+  resources :organizations, only: [:show] do
+    resources :questions, only: [:show]
+  end
+
+  resources :questions do
+    get :result
+    resources :votes
+  end
 
   ActiveAdmin.routes(self)
 
   # You can have the root of your site routed with "root"
-  root 'pages#home'
+  authenticated :user do
+    root 'organizer/dashboard#index', as: :authenticated_root
+  end
+
+  unauthenticated :user do
+    root 'pages#home'
+  end
 
   resources :users
+
+  # constraints Subdomain do
+  #   scope as: 'organization' do
+  #     root 'organizations#show'
+  #     resources :questions, only: [:show]
+  #   end
+  # end
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

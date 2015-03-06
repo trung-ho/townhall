@@ -1,0 +1,7 @@
+= form_for [:organizer, @idea], html: { role: 'form', class: 'form-horizontal', multipart: true} do |f|
+  .col-md-8
+    .panel
+      .panel-heading
+        %span.panel-title Idea Generator
+      = render partial: 'organizer/votings/form', locals: {f: f}   
+ 

@@ -1,0 +1,54 @@
+#voting_home
+  .banner_container
+    .banner_img
+      = image_tag @question.cover_image.mobile
+  .main_container
+    .main_textwrap
+      .title_wrap
+        %h1= @question.title
+      .content_description
+        %p= @question.description
+    / EOF MAIN_TEXTWRAP
+    .down_arrow.text-center
+      = image_tag 'down_btn.png'
+  .date_votes
+    %span.end_month
+      %p=  "Ends: #{@question.end_date}"
+    %span.votes
+      %p Votes: 401
+  =  form_for Vote.new, url: question_votes_path(@question), html: { method: :post } do |f|
+    = f.hidden_field :vote_type
+    = f.hidden_field :reason_ids
+    .yes_no
+      .container
+        .row
+          %ul.yes_no_list.list-unstyled.list-inline
+            %li
+              %a.yes.hoveranimate Yes
+            %li
+              %a.no.hoveranimate No
+    .check_text
+      %input#checkboxG1.css-checkbox{:checked => "checked", :name => "more_info", :type => "checkbox"}
+      %label.css-label{:for => "checkboxG1"}
+      .check_description
+        %p I’d like to hear more from City of Melbourne.
+
+    #result_reason_wrap
+      .container-fluid.fluid_padding
+        .row
+          .col-sm-12.no_padding
+            .voting_title.text_padding
+              %h3
+                Should we install CCTV camera in
+                Moreland City Council ?
+            .voting_title_2.text_padding
+              %a{:href => "#"} Choose your reasons:
+            .form_wrap
+              .select_wrap.yes_reason.text_padding
+                %ul.pro
+                  = render partial: 'questions/reason', collection: @reasons_for
+              .select_wrap.no_reason.text_padding
+                %ul.against
+                  = render partial: 'questions/reason', collection: @reasons_against, locals: {against: true}
+              .submit_btn
+                %button.hoveranimate{:type => "submit"} Submit

@@ -1,1 +1,1 @@
-<li><%= question.title %></li>
+<li><%= link_to question.title, edit_polymorphic_path([:organizer,question]) %></li>

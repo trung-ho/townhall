@@ -1,0 +1,56 @@
+#header_wrap
+  %header.cd-header
+    %a.cd-primary-nav-trigger{:href => "#0"}
+      %span.cd-menu-icon
+    / cd-primary-nav-trigger
+    %a.cd-second-nav-trigger{:href => "#0"}
+      %span.cd-menu-icon_2
+    / cd-primary-nav-trigger
+  / header_wrap
+  %nav
+    %ul.cd-primary-nav
+      %li
+        %a.home{:href => "#"} Home
+      %li
+        %a.search{:href => "#0"} Find
+        %ul.submenu
+          %li.search_sub
+            %a{:href => "#"} Vote result
+        / submenu
+      %li
+        %a.contact{:href => "#0"} Contact
+        %ul.submenu
+          %li
+            %h3 City of Melbourne
+            %ul.contact_wrap
+              %li
+                %a.mob{:href => "#"} (03) 9550 6644
+              %li
+                %a.mail{:href => "#"} info@melbourne.vic.gov.au
+              %li
+                %a.home_link{:href => "#"} www.melbourne.vic.gov.au
+            %ul.social_icon.list-inline
+              %li
+                %a{:href => "#"}
+                  %img{:alt => "facebook", :src => image_path('sub_facebook.png')}
+              %li
+                %a{:href => "#"}
+                  %img{:alt => "twitter", :src => image_path('sub_twitter.png')}
+            / social_icon
+        / submenu
+      %li
+        %a.follow{:href => "#0"} Follow
+  %nav
+    %ul.cd-second-nav
+      %li
+        %a.home{:href => "#"} Home
+      %li
+        %a.terms{:href => "#0"} Terms of use
+      %li
+        %a.privacy{:href => "#0"} Privacy
+      %li
+        %a.help{:href => "#0"} Help
+      %li
+        = link_to('Logout', destroy_user_session_path, :method => :delete)   
+      %li
+        %a.town_hall{:href => "#0"} My Town Hall

@@ -1,3 +1,16 @@
+#result_reason_wrap {
+  display: none;
+  ul.pro, ul.against {
+    display: none;
+  }
+}
+
+/* stupid hack, need to refactor the css! */
+.result_page#result_reason_wrap {
+  display: block;
+}
+
+/* For admin */
 select.select-date {
   width: 30%;
   margin-right: 10px;
@@ -13,4 +26,8 @@ select.select-date {
   select:last-of-type{
     margin-right: 0;
   }
+}
+
+#reasons_for, #reasons_against {
+  // display: none;
 }

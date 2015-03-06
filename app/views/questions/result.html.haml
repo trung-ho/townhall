@@ -1,0 +1,68 @@
+.result_page#result_reason_wrap
+  .container-fluid.fluid_padding
+    .row
+      .col-sm-12.no_padding
+        .voting_title.text_padding
+          %h3= @question.title
+        .voting_title_2.text_padding
+          %a{:href => "#"}
+            Thanks for voting.
+            %span Here are the results:
+    .row
+      %ul.voting_result.text_padding
+        %li.col-xs-9{style: "width: #{@percentage_positive}%"}
+          %a{:href => "#"}
+            %span=  @percentage_positive
+        %li.col-xs-3{style: "width: #{@percentage_negative}%"}
+          %a{:href => "#"}
+            %span=  @percentage_negative
+    .row
+      .col-sm-12.no_padding
+        .voting_info.voting_positive.text_padding
+          %h4
+            = "#{@positive_votes} voted"
+            %span “YES”
+          %ul
+            -@reasons_stats[:positive].each do |reason|
+              %li
+                .num
+                  %span= reason[1]
+                .view= Reason.find(reason[0]).name                
+        .voting_info.voting_negative.text_padding
+          %h4
+            ="#{@negative_votes} voted"
+            %span “NO”
+          %ul
+            -@reasons_stats[:negative].each do |reason|
+              %li
+                .num
+                  %span= reason[1]
+                .view= Reason.find(reason[0]).name  
+  .date_votes
+    %span.end_month
+      %p Ends: Feb 2nd, 2015
+    %span.votes
+      %p Votes: 401
+.socialmedia
+  %ul.social_list.list-unstyled.list-inline
+    %li.text-left
+      %a.twitter-share-button{"data-url" => "http://twitter.com", :href => "https://twitter.com/share"} Tweet
+      :javascript
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+    %li.text-right
+      .fb-like{"data-action" => "recommend", "data-href" => "https://developers.facebook.com/docs/plugins/", "data-layout" => "button", "data-share" => "true", "data-show-faces" => "true"}
+#reslut_btm_link
+  .container-fluid.fluid_padding
+    .row
+      .col-sm-12.no_padding
+        .answer_link.text_padding
+          %p
+            %a{:href => "#"} Answer more questions from:
+          %p
+            %a{:href => "#"}
+              %span City of Melbourne
+        .feedback_link.text-center
+          %a{:href => "#"}
+            %img{:alt => "Town Hall", :src => "../assets/images/btm_logo.png"}/
+          %a{:href => "#"} Give us feedback
+   

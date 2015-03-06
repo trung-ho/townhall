@@ -1,0 +1,17 @@
+/*
+*= require_tree ./admintools
+*= require_self
+*/
+
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+
+body {
+  padding-top: 80px;
+  background-color: #eee;
+}
+.form-horizontal .control-label{
+   text-align:left !important; 
+}
