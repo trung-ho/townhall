@@ -8,6 +8,7 @@ class OrganizationsController < ApplicationController
   private
 
   def set_organization
-    @organization = Organization.find(params[:id] || request.subdomain)
+    logger.debug(request.subdomain)
+    @organization = Organization.friendly.find(request.subdomain)
   end
 end
