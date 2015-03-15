@@ -2,7 +2,8 @@
   .col-md-8
     .panel
       .panel-heading
-        %span.panel-title= @voting.title
+        = link_to organization_question_url(@voting) do
+          %span.panel-title= @voting.title
       = render partial: 'organizer/votings/form', locals: {f: f}   
   .col-md-4#reasons
     .panel

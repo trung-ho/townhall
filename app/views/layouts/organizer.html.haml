@@ -10,9 +10,8 @@
   %body
     %header.navbar.navbar-fixed-top.bg-light
       .navbar-branding.dark
-        %a.navbar-brand{:href => "dashboard.html"}
-          %b> Townhall
-          Social
+        =link_to organizer_dashboard_index_url, class: 'navbar-brand' do 
+          %b Townhall Social
       %ul.nav.navbar-nav.navbar-right
         %li.dropdown.dropdown-item-slide
           %a.dropdown-toggle.pl10.pr10{"data-toggle" => "dropdown", :href => "#"}
