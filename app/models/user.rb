@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
 
   has_many :organizations, :dependent => :destroy
 
+  def main_organization
+    organizations.last
+  end
+
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
     # Get the identity and user if they exist

@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 20150306085850) do
 
   create_table "questions", force: true do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description"
     t.datetime "start_date"
     t.datetime "end_date"
     t.boolean  "published"

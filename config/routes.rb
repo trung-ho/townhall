@@ -1,27 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", sessions: "users/sessions" }
 
-  constraints NoSubdomain do
+  constraints RootSubdomain do
     get 'pages/home'
     get 'pages/member_home'
 
     devise_for :admin_users, ActiveAdmin::Devise.config
 
     match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
-
-    namespace :organizer do
-      resources :dashboard
-      resources :organizations 
-      resources :questions
-      resources :votings
-      resources :rankings
-      resources :ideas
-      resources :reasons
-    end
-
-    resources :organizations, only: [:show] do
-      resources :questions, only: [:show]
-    end
 
     ActiveAdmin.routes(self)
 
@@ -40,12 +26,21 @@ Rails.application.routes.draw do
   constraints Subdomain do
     scope as: 'organization' do
       root 'organizations#show'
-      
-    end
-    resources :questions, only: [:show] do
+      resources :questions, only: [:show] do
         get :result
         resources :votes
       end
+    end
+
+    namespace :organizer do
+      resources :dashboard
+      resources :organizations 
+      resources :questions
+      resources :votings
+      resources :rankings
+      resources :ideas
+      resources :reasons
+    end
   end
 
 
