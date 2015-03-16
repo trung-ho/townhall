@@ -49,6 +49,7 @@ gem 'activeadmin', github: 'activeadmin'
 
 # Devise (for frontend user authentication)
 gem 'devise'
+gem 'cancan'
 
 # Omniauth-facebook used with devise for Facebook login integration
 gem 'omniauth-facebook'
