@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", sessions: "users/sessions" }
+  devise_for :users, controllers: { 
+                        omniauth_callbacks: "users/omniauth_callbacks", 
+                        sessions: "users/sessions",
+                        registrations: 'users/registrations' }
+  match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
 
   constraints RootSubdomain do
     get 'pages/home'
     get 'pages/member_home'
 
     devise_for :admin_users, ActiveAdmin::Devise.config
-
-    match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
-
     ActiveAdmin.routes(self)
 
     # You can have the root of your site routed with "root"
@@ -27,11 +28,14 @@ Rails.application.routes.draw do
     scope as: 'organization' do
       root 'organizations#show'
       resources :questions, only: [:show] do
+        get :reasons
         get :result
         resources :votes
       end
     end
 
+    resources :votes
+    
     namespace :organizer do
       resources :dashboard
       resources :organizations 
