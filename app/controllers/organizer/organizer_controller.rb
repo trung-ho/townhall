@@ -1,11 +1,14 @@
 module Organizer
   class OrganizerController < ApplicationController
     layout 'organizer'
-    before_action :authenticate_user!  
+    before_action :authenticate_user!
+    authorize_resource :class => :OrganizerController
     before_action :redirect_to_subdomain
 
     def redirect_to_subdomain
-    	redirect_to organizer_dashboard_index_url(subdomain: current_user.main_organization) if no_subdomain?
+    	if current_user.main_organization
+        redirect_to organizer_dashboard_index_url(subdomain: current_user.main_organization) if no_subdomain?
+      end
     end
 
     private

@@ -1,11 +1,17 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-# before_filter :configure_sign_up_params, only: [:create]
+  before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    if RootSubdomain.matches?(request)
+      @role = 'organizer' 
+    else 
+      @role = 'voter'
+    end
+
+    super
+  end
 
   # POST /resource
   # def create
@@ -36,12 +42,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
   # You can put the params you want to permit in the empty array.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.for(:sign_up) << :attribute
-  # end
+  def configure_sign_up_params
+    devise_parameter_sanitizer.for(:sign_up) << :role
+  end
 
   # You can put the params you want to permit in the empty array.
   # def configure_account_update_params
@@ -49,9 +55,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(resource)
+    if current_user.role == 'organizer'
+      new_organizer_organization_path
+    else
+      super(resource)
+    end
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)

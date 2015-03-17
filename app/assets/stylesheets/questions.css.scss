@@ -1,7 +1,11 @@
-#result_reason_wrap {
+.submit_btn.voting {
   display: none;
+}
+
+#result_reason_wrap {
+  //display: none;
   ul.pro, ul.against {
-    display: none;
+    //display: none;
   }
 }
 

@@ -26,11 +26,12 @@ class Voting < Question
     negative_reasons = []
 
     positive_votes.each do |vote|
-      positive_reasons << vote.reason_ids.split(',')
+      positive_reasons << vote.reason_ids.split(',')  if vote.reason_ids
+
     end
 
     negative_votes.each do |vote|
-      negative_reasons << vote.reason_ids.split(',')
+      negative_reasons << vote.reason_ids.split(',') if vote.reason_ids
     end
 
     stats = {

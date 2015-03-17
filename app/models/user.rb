@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  ROLES = %w[organizer voter]
+
   TEMP_EMAIL_PREFIX = 'temp.email'
   TEMP_EMAIL_REGEX = /\Atemp.email/
 

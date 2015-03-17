@@ -6,5 +6,8 @@ class Vote < ActiveRecord::Base
     ids = reason_ids.split(',')
     Reason.find(ids)
   end
-  
+
+  def is_positive?
+  	vote_type == 'yes'
+  end
 end
