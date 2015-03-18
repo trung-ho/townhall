@@ -1,14 +1,13 @@
+/*
+*= require font-awesome
+*/
 @import "bootstrap-sprockets";
 @import 'variables_n_overrides';
 
 @import "bootstrap";
-@import "questions";
+@import "organization";
+@import "question";
 
 body {
-  padding-top: 80px;
-}
-
-
-.form-horizontal .control-label{
-   text-align:left !important; 
+  padding: 90px 30px 0 30px;
 }

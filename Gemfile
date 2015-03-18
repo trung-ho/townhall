@@ -64,7 +64,7 @@ gem "omniauth-google-oauth2"
 gem 'omniauth-linkedin-oauth2'
 
 # Bootstrap for Rails (SASS version)
-gem 'bootstrap-sass', '~> 3.3.1'
+gem 'bootstrap-sass', '~> 3.3.4'
 gem 'autoprefixer-rails'
 gem "font-awesome-rails"
 

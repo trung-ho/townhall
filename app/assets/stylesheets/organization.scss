@@ -1,0 +1,44 @@
+.navbar-header{
+	a.navbar-icon {
+	  float: left;
+	  padding: 18px 15px;
+	  font-size: 18px;
+	  line-height: 20px;
+	  height: 65px;
+	}
+	img {
+		width: 40px;
+	}
+	.navbar-toggle { 
+		padding: 0px;	
+	}
+}
+
+.nav-tabs > li, .nav-pills > li {
+    float:none;
+    display:inline-block;
+    *display:inline; /* ie7 fix */
+     zoom:1; /* hasLayout ie7 trigger */
+}
+
+.nav-tabs, .nav-pills {
+    text-align:center;
+    li {
+    	width:32%;
+    }
+    li a {
+    	background-color: $gray-light;
+    	color: white;
+    	margin-right: 0;
+    }
+}
+
+.tab-content {
+	ul {
+		list-style: none;
+		padding-left: 0px;
+		li a {
+			color: $text-color;
+		}
+	}
+}

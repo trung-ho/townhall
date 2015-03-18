@@ -9,12 +9,7 @@
   }
 }
 
-/* stupid hack, need to refactor the css! */
-.result_page#result_reason_wrap {
-  display: block;
-}
-
-/* For admin */
+/* For the organizers interface */
 select.select-date {
   width: 30%;
   margin-right: 10px;
@@ -32,6 +27,6 @@ select.select-date {
   }
 }
 
-#reasons_for, #reasons_against {
-  // display: none;
+.form-horizontal .control-label{
+   text-align:left !important; 
 }

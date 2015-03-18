@@ -1,1 +1,3 @@
-%li= link_to question.title, organization_question_url(question)
+%li
+  %h3= link_to question.title, organization_question_url(question)
+  = image_tag question.cover_image.mobile

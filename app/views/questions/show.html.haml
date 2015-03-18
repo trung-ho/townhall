@@ -8,9 +8,6 @@
         %h1= @question.title
       .content_description
         %p= @question.description
-    / EOF MAIN_TEXTWRAP
-    .down_arrow.text-center
-      = image_tag 'down_btn.png'
   .date_votes
     %span.end_month
       %p=  "Ends: #{@question.end_date}"
