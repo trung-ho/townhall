@@ -1,13 +1,13 @@
-%nav.navbar.navbar-inverse.navbar-fixed-top
+%nav.navbar.navbar-default.navbar-fixed-top{"role" => "navigation"}
   .container
     .navbar-header
-      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+      %button.navbar-toggle{"data-target" => "#collapse-1", "data-toggle" => "collapse", :type => "button"}
         %span.sr-only Toggle navigation
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
       = link_to 'Home', root_path, class: 'navbar-brand'
-    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+    #collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
           %li.active

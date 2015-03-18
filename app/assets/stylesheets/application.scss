@@ -1,0 +1,14 @@
+@import "bootstrap-sprockets";
+@import 'variables_n_overrides';
+
+@import "bootstrap";
+@import "questions";
+
+body {
+  padding-top: 80px;
+}
+
+
+.form-horizontal .control-label{
+   text-align:left !important; 
+}
