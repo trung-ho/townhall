@@ -24,12 +24,13 @@
 .nav-tabs, .nav-pills {
     text-align:center;
     li {
-    	width:32%;
+    	width:32.3%;
     }
     li a {
     	background-color: $gray-light;
     	color: white;
-    	margin-right: 0;
+      margin:0;
+    	margin-right: -3px;
     }
 }
 
@@ -37,8 +38,10 @@
 	ul {
 		list-style: none;
 		padding-left: 0px;
-		li a {
-			color: $text-color;
-		}
+		li {
+      a {
+			 color: $text-color;
+		  }
+    } 
 	}
 }

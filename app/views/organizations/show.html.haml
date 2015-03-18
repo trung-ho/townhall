@@ -1,17 +1,18 @@
 / %h2= "Questions from #{@organization.name}" 
-%ul.nav.nav-pills
-  %li.active{:role => "presentation"}
-    %a{:href => "#recent", :data => {:toggle => 'tab'}} Recent
-  %li{:role => "presentation"}
-    %a{:href => "#popular", :data => {:toggle => 'tab'}} Popular
-  %li{:role => "presentation"}
-    %a{:href => "#past", :data => {:toggle => 'tab'}} Past
+.container
+  %ul.nav.nav-pills
+    %li.active{:role => "presentation"}
+      %a{:href => "#recent", :data => {:toggle => 'tab'}} Recent
+    %li{:role => "presentation"}
+      %a{:href => "#popular", :data => {:toggle => 'tab'}} Popular
+    %li{:role => "presentation"}
+      %a{:href => "#past", :data => {:toggle => 'tab'}} Past
 
-.tab-content
-  #recent.tab-pane.active 
-    %ul
-      = render partial: 'organizations/question', collection: @questions
-  #popular.tab-pane
-    none
-  #past.tab-pane
-    none
+  .tab-content
+    #recent.tab-pane.active 
+      %ul
+        = render partial: 'organizations/question', collection: @questions
+    #popular.tab-pane
+      none
+    #past.tab-pane
+      none
