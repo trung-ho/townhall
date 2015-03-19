@@ -12,6 +12,30 @@ body {
   padding-top: 80px;
   background-color: #eee;
 }
+
+/* For the organizers interface */
+
+.form-horizontal .control-label{
+   text-align:left !important; 
+}
+
+select.select-date {
+  width: 30%;
+  margin-right: 10px;
+  float: left;
+}
+.select-date-wrapper{
+  select:first-of-type{
+    width: 45%;
+  }
+  select:nth-of-type(2){
+    width: 20%;
+  }
+  select:last-of-type{
+    margin-right: 0;
+  }
+}
+
 .form-horizontal .control-label{
    text-align:left !important; 
 }

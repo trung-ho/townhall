@@ -1,19 +1,8 @@
-.navbar-header{
-	a.navbar-icon {
-	  float: left;
-	  padding: 18px 15px;
-	  font-size: 18px;
-	  line-height: 20px;
-	  height: 65px;
-	}
-	img {
-		width: 40px;
-	}
-	.navbar-toggle { 
-		padding: 0px;	
-	}
+#organization_banner {
+  margin-bottom: 25px;
 }
 
+/* Tab pills styling might need to be namespaced */
 .nav-tabs > li, .nav-pills > li {
     float:none;
     display:inline-block;
@@ -24,7 +13,7 @@
 .nav-tabs, .nav-pills {
     text-align:center;
     li {
-    	width:32.3%;
+    	width:30%;
     }
     li a {
     	background-color: $gray-light;
@@ -44,4 +33,21 @@
 		  }
     } 
 	}
+}
+
+#voting_stats {
+  margin: 20px 0 20px 0;
+  padding-bottom: 20px;
+  text-align: center;
+  font-style: italic;
+  text-transform: uppercase;
+  border-bottom: 1px solid $gray-light;
+  #divider {
+    vertical-align: middle;
+    display: inline-block;
+    width: 1px;
+    height: 30px;
+    margin: 0px 15px 0 20px;
+    background-color: $gray-light;
+   }
 }

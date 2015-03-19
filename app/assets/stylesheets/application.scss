@@ -5,13 +5,6 @@
 @import 'variables_n_overrides';
 
 @import "bootstrap";
+@import "common";
 @import "organization";
 @import "question";
-
-body {
-  padding: 90px 0;
-}
-
-img.cover_image {
-  width: 100%;
-}

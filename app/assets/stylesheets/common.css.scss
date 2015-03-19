@@ -1,0 +1,25 @@
+body {
+  padding: 80px 0;
+}
+
+/* NAVBAR STYLING */
+.navbar-header{
+    a.navbar-icon {
+      float: left;
+      padding: 18px 15px;
+      font-size: 18px;
+      line-height: 20px;
+      height: 65px;
+    }
+    img {
+      width: 40px;
+    }
+    .navbar-toggle { 
+      padding: 0px; 
+    }
+  }
+
+/* FOR IMAGES */  
+img.cover_image {
+  width: 100%;
+}
