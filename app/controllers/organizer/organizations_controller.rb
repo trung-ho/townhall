@@ -13,11 +13,24 @@ module Organizer
         redirect_to organizer_dashboard_index_path
       end
     end
+
+    def update
+      if @organization.update(organization_params)
+        redirect_to organizer_dashboard_index_path, notice: 'Organization was successfully updated.'
+      else
+        render :edit
+      end
+    end
+
     
     private
 
     def organization_params
-      params.require(:organization).permit(:name)
+      params.require(:organization).permit(:name, :banner)
+    end
+
+    def set_organization
+      @organization = current_user.organizations.friendly.find(params[:id])
     end
   
   end

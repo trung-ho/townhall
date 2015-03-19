@@ -1,6 +1,8 @@
 class Organization < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
+
+  mount_uploader :banner, CoverImageUploader
   
   belongs_to :user
 
