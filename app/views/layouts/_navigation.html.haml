@@ -4,9 +4,9 @@
       %button.navbar-toggle{"data-target" => "#collapse-1", "data-toggle" => "collapse", :type => "button"}
         %span.sr-only Toggle navigation
         = image_tag 'townhall-icon.png'
-      = link_to (image_tag 'home-icon.png'), root_path, class: 'navbar-icon', alt: 'home'
-      = link_to (image_tag 'mail-icon.png'), root_path, class: 'navbar-icon', alt: 'contact'
-      = link_to (image_tag 'rss-icon.png'), root_path, class: 'navbar-icon', alt: 'rss feed'
+      = link_to 'Home', root_path, class: 'navbar-icon home', alt: 'home'
+      = link_to 'Contact', root_path, class: 'navbar-icon contact', alt: 'contact'
+      = link_to 'Follow', root_path, class: 'navbar-icon follow', alt: 'rss feed'
     #collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?

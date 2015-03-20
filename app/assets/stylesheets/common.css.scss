@@ -1,18 +1,36 @@
 body {
-  padding: 80px 0;
+  padding: 64px 0;
 }
 
 /* NAVBAR STYLING */
+.navbar {
+  margin-bottom:  0px;
+  border: 0;
+}
 .navbar-header{
     a.navbar-icon {
       float: left;
-      padding: 18px 15px;
+      margin: 0px 10px 0 0px;
       font-size: 18px;
-      line-height: 20px;
-      height: 65px;
+      line-height: 10px;
+      height: 64px;
+      width: 60px;
+      text-indent: -9999px;
+      &:hover {
+        background-position: 0 -64px;
+      }
+    }
+    a.home {
+      background: image-url('home-icon.png') 0 0 no-repeat;
+    }
+    a.contact {
+      background: image-url('contact-icon.png') 0 0 no-repeat;
+    }
+    a.follow {
+      background: image-url('follow-icon.png') 0 0 no-repeat;
     }
     img {
-      width: 40px;
+      width: 30px;
     }
     .navbar-toggle { 
       padding: 0px; 
