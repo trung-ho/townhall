@@ -71,6 +71,7 @@ gem "font-awesome-rails"
 #Image upload
 gem 'carrierwave', '0.10.0'
 gem 'rmagick'
+gem 'aws-sdk'
 
 #for slugs
 gem 'friendly_id', '~> 5.1.0'
