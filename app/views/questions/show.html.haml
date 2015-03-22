@@ -1,16 +1,13 @@
-#voting_home
+.container#voting
   .banner_container
     .banner_img
-      = image_tag @question.cover_image.mobile
+      = image_tag @question.cover_image.mobile, class: 'cover_image'
   .main_container
     .main_textwrap
       .title_wrap
         %h1= @question.title
       .content_description
         %p= @question.description
-    / EOF MAIN_TEXTWRAP
-    .down_arrow.text-center
-      = image_tag 'down_btn.png'
   .date_votes
     %span.end_month
       %p=  "Ends: #{@question.end_date}"

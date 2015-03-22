@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.2.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.6'
+gem 'rails', '4.1.9'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -64,14 +64,14 @@ gem "omniauth-google-oauth2"
 gem 'omniauth-linkedin-oauth2'
 
 # Bootstrap for Rails (SASS version)
-gem 'bootstrap-sass', '~> 3.3.1'
+gem 'bootstrap-sass', '~> 3.3.4'
 gem 'autoprefixer-rails'
 gem "font-awesome-rails"
 
 #Image upload
 gem 'carrierwave', '0.10.0'
 gem 'rmagick'
-gem 'aws-sdk'
+gem "fog"
 
 #for slugs
 gem 'friendly_id', '~> 5.1.0'

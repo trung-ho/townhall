@@ -21,8 +21,6 @@ module Organizer
     
     def update
       if @voting.update(voting_params)
-        #binding.pry
-
         redirect_to organizer_dashboard_index_path, notice: 'Question was successfully updated.'
       else
         render :edit

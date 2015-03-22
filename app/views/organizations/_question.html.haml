@@ -1,1 +1,8 @@
-%li= link_to question.title, organization_question_url(question)
+%li
+  %h3= link_to question.title, organization_question_url(question)
+  %div#description
+    = image_tag question.cover_image.mobile, class: 'cover_image'
+  %div#voting_stats
+    = "#{distance_of_time_in_words(Time.now, question.end_date)} left" 
+    %div#divider
+    = "#{question.total_votes} votes"

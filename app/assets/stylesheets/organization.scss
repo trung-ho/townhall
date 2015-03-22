@@ -1,0 +1,53 @@
+#organization_banner {
+  margin-bottom: 25px;
+}
+
+/* Tab pills styling might need to be namespaced */
+.nav-tabs > li, .nav-pills > li {
+    float:none;
+    display:inline-block;
+    *display:inline; /* ie7 fix */
+     zoom:1; /* hasLayout ie7 trigger */
+}
+
+.nav-tabs, .nav-pills {
+    text-align:center;
+    li {
+    	width:30%;
+    }
+    li a {
+    	background-color: $gray-light;
+    	color: white;
+      margin:0;
+    	margin-right: -3px;
+    }
+}
+
+.tab-content {
+	ul {
+		list-style: none;
+		padding-left: 0px;
+		li {
+      a {
+			 color: $text-color;
+		  }
+    } 
+	}
+}
+
+#voting_stats {
+  margin: 20px 0 20px 0;
+  padding-bottom: 20px;
+  text-align: center;
+  font-style: italic;
+  text-transform: uppercase;
+  border-bottom: 1px solid $gray-light;
+  #divider {
+    vertical-align: middle;
+    display: inline-block;
+    width: 1px;
+    height: 30px;
+    margin: 0px 15px 0 20px;
+    background-color: $gray-light;
+   }
+}
