@@ -1,0 +1,17 @@
+.voting-container
+  .question
+    %h1= @question.title
+
+  .row.voting-info
+    .col-xs-6.text-right
+      = days_left(@question.end_date)
+    .col-xs-6.text-left
+      = pluralize(@question.votes.count, 'Vote')
+
+  .row.social-networks
+    .social-ntw.twitter
+    .social-ntw.facebook
+    .social-ntw.linkedin
+
+  .row
+    .logo.text-center= image_tag('townhall-logo.png')

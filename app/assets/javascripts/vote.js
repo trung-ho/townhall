@@ -1,23 +1,4 @@
-$(function(){ 
-  //Voting part
-  
-  var vote_type = $('#vote_vote_type');
-  $('a.yes').on("click", function() {
-    console.log('clicked yes');
-    vote_type.val('yes');
-    hide_step_1();
-  });
-
-  $('a.no').on("click", function() {
-    console.log('clicked no');
-    vote_type.val('no');
-    hide_step_1();
-  });
-
-  function hide_step_1() {
-    $( "#new_vote" ).submit();
-  }
-
+$(function(){
   //Reasons part
 
   //update the reason_ids when a checkbox has been clicked on

@@ -25,6 +25,8 @@
       padding: 0 5px;
       text-align: center;
     }
+
+    input[type=radio] { display: none; }
   }
 
   .checkbox.info { font-style: italic; font-size: 14px; }

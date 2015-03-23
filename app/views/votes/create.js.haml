@@ -1,0 +1,4 @@
+- if @vote.valid?
+  $('.voting-container').replaceWith("#{ j(render partial: 'reason', locals: { vote: @vote }) }")
+- else
+  alert('Unable to create vote');
