@@ -1,3 +1,62 @@
+@import 'variables_n_overrides';
+
 .submit_btn.voting {
   display: none;
+}
+.voting {
+  font-size: 17px;
+
+  .question {
+    .question-content {
+      margin-top: 37px;
+      margin-bottom: 30px;
+      max-height: 190px;
+      overflow-y: auto;
+      padding-bottom: 25px;
+    }
+  }
+
+  .vote-actions {
+    margin-bottom: 30px;
+
+    .action {
+      width: 32.7%;
+      display: inline-block;
+      padding: 0 5px;
+      text-align: center;
+    }
+  }
+
+  .checkbox.info { font-style: italic; font-size: 14px; }
+
+  .voting-info {
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-style: italic;
+    .col-xs-6:first-child { border-right: 1px solid $text-color; }
+  }
+
+  .social-networks {
+    text-align: center;
+    .social-ntw {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      margin: 40px 2px 50px;
+      &.twitter {
+        background: image-url('twitter.png') no-repeat center center;
+        background-size: 50px auto;
+      }
+      &.facebook {
+        background: image-url('facebook.png') no-repeat center center;
+        background-size: 50px auto;
+      }
+      &.linkedin {
+        background: image-url('linkedin.png') no-repeat center center;
+        background-size: 50px auto;
+      }
+    }
+  }
+
+  .logo { height: 50px; }
 }

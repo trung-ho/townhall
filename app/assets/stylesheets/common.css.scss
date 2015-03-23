@@ -1,3 +1,5 @@
+@import 'common_variables';
+
 body {
   padding: 64px 0;
 }
@@ -32,12 +34,63 @@ body {
     img {
       width: 30px;
     }
-    .navbar-toggle { 
-      padding: 0px; 
+    .navbar-toggle {
+      padding: 0px;
     }
   }
 
-/* FOR IMAGES */  
+/* FOR IMAGES */
 img.cover_image {
   width: 100%;
+}
+
+/* FOR BUTTONS */
+.btn-vote {
+  color: #fff;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 17px;
+  &:hover {
+    color: #fff;
+  }
+}
+.btn-yes {
+  background-color: $color-yes;
+  &:hover { background-color: $color-yes-hover; }
+}
+
+.btn-maybe {
+  background-color: $color-maybe;
+  &:hover { background-color: $color-maybe-hover; }
+}
+
+.btn-no {
+  background-color: $color-no;
+  &:hover { background-color: $color-no-hover; }
+}
+
+/* FOR FAKE CHECKBOD */
+.checkbox {
+  input[type=checkbox] {
+    display: none;
+  }
+  .check-sign {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+  label { padding-left: 5px}
+
+  &.info {
+    color: $color-info;
+    .check-sign {
+      background: image-url('blue-circle-box.png') no-repeat 0 0;
+      background-size: 20px auto;
+    }
+    input[type=checkbox]:checked + .check-sign {
+      background-position: 0 -20px;
+    }
+  }
 }

@@ -1,32 +1,38 @@
-.container#voting
+.container#voting.voting
   .banner_container
     .banner_img
       = image_tag @question.cover_image.mobile, class: 'cover_image'
-  .main_container
-    .main_textwrap
-      .title_wrap
-        %h1= @question.title
-      .content_description
-        %p= @question.description
-  .date_votes
-    %span.end_month
-      %p=  "Ends: #{@question.end_date}"
-    %span.votes
-      %p Votes: 401
+  .question
+    %h1= @question.title
+    .question-content
+      = @question.description
+
   =  form_for Vote.new, url: organization_question_votes_path(@question), html: { method: :post } do |f|
     = f.hidden_field :vote_type
-    .yes_no
-      .container
-        .row
-          %ul.yes_no_list.list-unstyled.list-inline
-            %li
-              %a.yes.hoveranimate Yes
-            %li
-              %a.no.hoveranimate No
-    .check_text
-      %input#checkboxG1.css-checkbox{:checked => "checked", :name => "more_info", :type => "checkbox"}
-      %label.css-label{:for => "checkboxG1"}
-      .check_description
-        %p I’d like to hear more from City of Melbourne.
-      .submit_btn.voting
-        %button.hoveranimate{:type => "submit"} Submit
+    .vote-actions
+      .row
+        .col-xs-12
+          .action
+            .btn.btn-vote.btn-yes Yes
+          .action
+            .btn.btn-vote.btn-maybe Maybe
+          .action
+            .btn.btn-vote.btn-no No
+    %label.checkbox.info.text-center
+      = check_box_tag :more_info, true, true
+      %span.check-sign
+      %span I’d like to hear more from Melbourne City (?)
+
+  .row.voting-info
+    .col-xs-6.text-right
+      = days_left(@question.end_date)
+    .col-xs-6.text-left
+      = pluralize(@question.votes.count, 'Vote')
+
+  .row.social-networks
+    .social-ntw.twitter
+    .social-ntw.facebook
+    .social-ntw.linkedin
+
+  .row
+    .logo.text-center= image_tag('townhall-logo.png')
