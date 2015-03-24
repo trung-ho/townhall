@@ -84,4 +84,5 @@ group :development do
   gem 'binding_of_caller'
   gem 'quiet_assets'
   gem 'letter_opener'
+  gem 'byebug'
 end

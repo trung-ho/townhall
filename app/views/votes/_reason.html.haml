@@ -1,12 +1,38 @@
 .voting-container
   .question
-    %h1= @question.title
+    %h1= question.title
+    %h3.italic Thank you. Current votes:
+
+  .chart-result.chart
+    .yes.row
+      .pull-left.text-left.col-xs-2 Yes
+      .col-xs-8
+        .bar(style="width: #{ votes_chart[:yes][:width] }%")
+      .percentage.pull-right.text-right.col-xs-2 #{ votes_chart[:yes][:percent] } %
+    .maybe.row
+      .pull-left.text-left.col-xs-2 Maybe
+      .col-xs-8
+        .bar(style="width: #{ votes_chart[:maybe][:width] }%")
+      .percentage.pull-right.text-right.col-xs-2 #{ votes_chart[:maybe][:percent] } %
+    .no.row
+      .pull-left.text-left.col-xs-2 No
+      .col-xs-8
+        .bar(style="width: #{ votes_chart[:no][:width] }%")
+      .percentage.pull-right.text-right.col-xs-2 #{ votes_chart[:no][:percent] } %
+
+  %hr
+
+  %h3.text-center Choose your reasons:
+
+  %hr
+
+  %h3.text-center Add your reason:
 
   .row.voting-info
     .col-xs-6.text-right
-      = days_left(@question.end_date)
+      = days_left(question.end_date)
     .col-xs-6.text-left
-      = pluralize(@question.votes.count, 'Vote')
+      = pluralize(question.votes.count, 'Vote')
 
   .row.social-networks
     .social-ntw.twitter
@@ -15,3 +41,7 @@
 
   .row
     .logo.text-center= image_tag('townhall-logo.png')
+
+:javascript
+  $(document).ready(function() {
+  });
