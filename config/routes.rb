@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { 
-                        omniauth_callbacks: "users/omniauth_callbacks", 
+  devise_for :users, controllers: {
+                        omniauth_callbacks: "users/omniauth_callbacks",
                         sessions: "users/sessions",
                         registrations: 'users/registrations' }
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
@@ -34,11 +34,12 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :reasons, only: [:create]
     resources :votes
-    
+
     namespace :organizer do
       resources :dashboard
-      resources :organizations 
+      resources :organizations
       resources :questions
       resources :votings
       resources :rankings

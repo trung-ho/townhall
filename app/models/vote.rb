@@ -1,4 +1,6 @@
 class Vote < ActiveRecord::Base
+  serialize :reason_ids, Array
+
   belongs_to  :user
   belongs_to  :question
 
@@ -9,8 +11,7 @@ class Vote < ActiveRecord::Base
   VOTE_TYPES = [YES = 'yes', NO = 'no', MAYBE = 'maybe']
 
   def reasons
-    ids = reason_ids.split(',')
-    Reason.find(ids)
+    Reason.find(reason_ids)
   end
 
   def is_positive?

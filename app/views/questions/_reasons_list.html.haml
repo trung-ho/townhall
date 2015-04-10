@@ -1,0 +1,53 @@
+=  form_for vote do |f|
+  .reason-list(class="#{ reasons.empty? ? "hidden" : "" }")
+    %hr
+
+    %h3.text-center Choose your reasons:
+
+    .reasons
+      - reasons.each do |reason|
+        %label.reason.checkbox.text-left(class="#{ reason_type }")
+          = check_box_tag "reason_ids[]", reason.id, false, multiple: true
+          %span.check-sign
+          %span.color-black.small-text= reason.name
+
+  - if question.crowd_content?
+    %hr
+
+    %h3.text-center Add your reason:
+
+    .form-group.add-more-reason
+      = text_field_tag :add_reason, "", placeholder: "60 characters limit", class: 'form-control'
+      %a#add-more-reason.btn(href='#')
+        %span.glyphicon.glyphicon-plus
+
+  .text-center
+    = f.submit "Submit", class: 'btn btn-info large-text'
+
+  :javascript
+    $(document).ready(function() {
+      $('#add-more-reason').on('click', function() {
+        if ($('#add_reason').val() != '') {
+          $.ajax({
+            type: 'POST',
+            url: "#{ reasons_path }",
+            data: { reason: {
+              voting_id: "#{ question.id }",
+              name: $('#add_reason').val(),
+              reason_type: "#{ Reason::REASON_TYPES[reason_type.to_sym] }"
+            } },
+            success: function(data) {
+              if (data.success) {
+                var checkbox = "#{ j(render(partial: 'questions/reason_checkbox')) }"
+                $('.reasons').append(checkbox.replace('INDEX', data.reason_id).replace('REASON_CONTENT', $('#add_reason').val() ));
+                $('#add_reason').val('');
+                $('.reason-list').removeClass('hidden');
+              } else {
+                alert('Unable to add reason. Please try again later');
+              }
+            }
+          });
+        }
+        return false;
+      });
+    });

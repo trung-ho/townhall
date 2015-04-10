@@ -1,44 +1,44 @@
-.result_page#result_reason_wrap
-  .row
-    .col-sm-12.no_padding
-      .voting_title.text_padding
-        %h3= @question.title
-      .voting_title_2.text_padding
-        %a{:href => "#"}
-          Thanks for voting.
-          %span Here are the results:
-  .row
-    %span=  "Positive #{@total_votes}"
-    %span=  "Positive #{@positive_votes}"
-    %span=  "Positive #{@negative_votes}"
-  .date_votes
-    %span.end_month
-      %p Ends: Feb 2nd, 2015
-    %span.votes
-      %p Votes: 401
-  #result_reason_wrap
-    =  form_for @vote do |f|
-      = f.hidden_field :reason_ids
-      - if @vote.is_positive?
-        .select_wrap.yes_reason.text_padding
-          %ul.pro
-            = render partial: 'questions/reason', collection: @reasons_for
-      - else
-        .select_wrap.no_reason.text_padding
-          %ul.against
-            = render partial: 'questions/reason', collection: @reasons_against, locals: {against: true}
-      .submit_btn
-        %button.hoveranimate{:type => "submit"} Submit
-#reslut_btm_link
-  .container-fluid.fluid_padding
+- votes_chart = @question.vote_percentages
+
+.container#voting.voting
+  .banner_container
+    .banner_img
+      = image_tag @question.cover_image.mobile, class: 'cover_image'
+  .voting-container
+    .question
+      %h1= @question.title
+      %h3.italic Thank you. Current votes:
+
+    .chart-result.chart
+      .yes.row
+        .pull-left.text-left.col-xs-2 Yes
+        .col-xs-8
+          .bar(style="width: #{ votes_chart[:yes][:width] }%")
+        .percentage.pull-right.text-right.col-xs-2 #{ votes_chart[:yes][:percent] } %
+      .maybe.row
+        .pull-left.text-left.col-xs-2 Maybe
+        .col-xs-8
+          .bar(style="width: #{ votes_chart[:maybe][:width] }%")
+        .percentage.pull-right.text-right.col-xs-2 #{ votes_chart[:maybe][:percent] } %
+      .no.row
+        .pull-left.text-left.col-xs-2 No
+        .col-xs-8
+          .bar(style="width: #{ votes_chart[:no][:width] }%")
+        .percentage.pull-right.text-right.col-xs-2 #{ votes_chart[:no][:percent] } %
+
+
+    = render partial: 'questions/reasons_list', locals: { reasons: @reasons, question: @question, vote: @vote, reason_type: @vote_type }
+
+    .row.voting-info
+      .col-xs-6.text-right
+        = days_left(@question.end_date)
+      .col-xs-6.text-left
+        = pluralize(@question.votes.count, 'Vote')
+
+    .row.social-networks
+      .social-ntw.twitter
+      .social-ntw.facebook
+      .social-ntw.linkedin
+
     .row
-      .col-sm-12.no_padding
-        .answer_link.text_padding
-          %p Answer more questions from:
-          %p
-            = link_to @question.organization.name, root_url
-        .feedback_link.text-center
-          %a{:href => "#"}
-            %img{:alt => "Town Hall", :src => "../assets/images/btm_logo.png"}/
-          %a{:href => "#"} Give us feedback
-   
+      .logo.text-center= image_tag('townhall-logo.png')

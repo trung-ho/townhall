@@ -2,12 +2,21 @@ class QuestionsController < ApplicationController
    before_action :set_question, only: [:show, :reasons, :result, :edit, :update, :destroy]
    before_filter :authenticate_user!, only: [:reasons, :result, :edit, :update, :destroy]
 
-  def show 
+  def show
 
   end
 
   def reasons
-    @vote = @question.votes.where(user_id: current_user.id).first
+    @vote = @question.votes.where(user_id: current_user.id).order(created_at: :desc).first
+    @vote_type = @vote.vote_type
+    @reasons = case @vote_type
+    when Vote::YES
+      @question.reasons_for
+    when Vote::NO
+      @question.reasons_against
+    when Vote::MAYBE
+      @question.reasons_maybe
+    end
 
     @reasons_for =     @question.reasons_for.all
     @reasons_against = @question.reasons_against.all
@@ -15,7 +24,7 @@ class QuestionsController < ApplicationController
     @total_votes =       @question.total_votes
     @positive_votes =    @question.positive_votes.count
     @negative_votes =    @question.negative_votes.count
-    
+
     # @percentage_positive =  ((@positive_votes.to_f / @total_votes)*100).floor
     # @percentage_negative =  100 - @percentage_positive
 
@@ -28,9 +37,9 @@ class QuestionsController < ApplicationController
 
     @total_votes =       @question.total_votes
     @positive_votes =    @question.positive_votes.count
-    @negative_votes =    @question.negative_votes.count   
+    @negative_votes =    @question.negative_votes.count
 
-    @reasons_stats  =    @question.reasons_with_stats 
+    @reasons_stats  =    @question.reasons_with_stats
   end
 
   private

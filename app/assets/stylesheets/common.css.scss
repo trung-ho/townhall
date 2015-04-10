@@ -95,4 +95,42 @@ img.cover_image {
       background-position: 0 -20px;
     }
   }
+
+  &.yes {
+    color: $color-yes;
+    .check-sign {
+      background: image-url('green-circle-box.png') no-repeat 0 0;
+      background-size: 20px auto;
+    }
+    input[type=checkbox]:checked + .check-sign {
+      background-position: 0 -20px;
+    }
+  }
+
+  &.no {
+    color: $color-no;
+    .check-sign {
+      background: image-url('red-circle-box.png') no-repeat 0 0;
+      background-size: 20px auto;
+    }
+    input[type=checkbox]:checked + .check-sign {
+      background-position: 0 -20px;
+    }
+  }
+
+  &.maybe {
+    color: $color-no;
+    .check-sign {
+      background: image-url('grey-circle-box.png') no-repeat 0 0;
+      background-size: 20px auto;
+    }
+    input[type=checkbox]:checked + .check-sign {
+      background-position: 0 -20px;
+    }
+  }
 }
+
+.color-black { color: $color-text; }
+
+.small-text { font-size: 14px; }
+.large-text { font-size: 17px; }

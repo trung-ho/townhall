@@ -8,7 +8,7 @@
       .question-content
         = @question.description
 
-    =  form_for Vote.new, url: organization_question_votes_path(@question), remote: true do |f|
+    =  form_for Vote.new, url: organization_question_votes_path(@question) do |f|
       .vote-actions
         .row
           .col-xs-12

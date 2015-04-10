@@ -4,6 +4,8 @@
 .submit_btn.voting {
   display: none;
 }
+
+
 .voting {
   font-size: 17px;
 
@@ -80,4 +82,21 @@
   .yes .bar { background-color: $color-yes }
   .no .bar { background-color: $color-no }
   .maybe .bar { background-color: $color-maybe }
+}
+
+.voting-container {
+  .add-more-reason {
+    margin-top: 30px;
+    .form-control { width: calc(100% - 50px); display: inline-block; background-color: $color-maybe-hover; }
+    #add-more-reason {
+      border: 2px solid $color-info;
+      border-radius: 8px;
+      width: 40px;
+      float: right;
+      color: $color-info;
+      &:hover { color: $color-info; }
+    }
+  }
+
+  .reasons { margin-top: 30px; }
 }

@@ -1,13 +1,19 @@
 class Voting < Question
-  has_many :reasons_for,     -> { where reason_type: 'for'     }, class_name: 'Reason'
-  has_many :reasons_against, -> { where reason_type: 'against' }, class_name: 'Reason'
+  has_many :reasons_for,     -> { where reason_type: Reason::FOR     }, class_name: 'Reason'
+  has_many :reasons_against, -> { where reason_type: Reason::AGAINST }, class_name: 'Reason'
+  has_many :reasons_maybe, -> { where reason_type: Reason::MAYBE }, class_name: 'Reason'
 
   accepts_nested_attributes_for :reasons_for,     :reject_if => :all_blank, :allow_destroy => true
   accepts_nested_attributes_for :reasons_against, :reject_if => :all_blank, :allow_destroy => true
+  accepts_nested_attributes_for :reasons_maybe, :reject_if => :all_blank, :allow_destroy => true
 
   has_many :votes, foreign_key: 'question_id'
 
   store_accessor :properties, :crowd_content, :pre_moderation
+
+  def crowd_content?
+    self.crowd_content == "1"
+  end
 
   def total_votes
      votes.count
@@ -21,7 +27,7 @@ class Voting < Question
     votes.where(vote_type: 'no')
   end
 
-  def reasons_with_stats   
+  def reasons_with_stats
     positive_reasons = []
     negative_reasons = []
 
