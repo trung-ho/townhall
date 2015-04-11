@@ -1,0 +1,58 @@
+- show_know_more_about_you ||= false
+
+.row.voting-info
+  .col-xs-6.text-right
+    = days_left(question.end_date)
+  .col-xs-6.text-left
+    = pluralize(question.votes.count, 'Vote')
+
+.row.social-networks
+  .social-ntw.twitter
+  .social-ntw.facebook
+  .social-ntw.linkedin
+
+- if show_know_more_about_you
+  #know-more-about-you
+    %hr
+    %h3.text-center.description Hey, thanks for participating, it'd be great to know more about you (?)
+    = form_tag "#" do
+      .form-group.row
+        .col-xs-5
+          = label_tag :sex, 'Sex:'
+        .col-xs-7
+          .row
+            .col-xs-6
+              %label.reason.checkbox.info.text-left
+                = radio_button_tag :sex, "male", true
+                %span.check-sign
+                %span.color-black.small-text Male
+            .col-xs-6
+              %label.reason.checkbox.info.text-left
+                = radio_button_tag :sex, "female"
+                %span.check-sign
+                %span.color-black.small-text Female
+      .form-group.row
+        .col-xs-5
+          = label_tag :birth_year, 'Your birth year:'
+        .col-xs-7
+          = text_field_tag :birth_year, '', class: 'form-control'
+      .form-group.row
+        .col-xs-5
+          = label_tag :location, 'Your location:'
+        .col-xs-7
+          = text_field_tag :location, '', class: 'form-control'
+      .row
+        .text-center
+          = submit_tag "Submit", class: 'btn btn-info large-text', id: 'submit-info'
+
+    :javascript
+      $(document).ready(function() {
+        $('#submit-info').on('click', function() {
+          $('#know-more-about-you .description').text("Thank you, it's nice to know you")
+          $('#know-more-about-you form').addClass('hidden');
+          return false;
+        });
+      })
+
+.row
+  .logo.text-center= image_tag('townhall-logo.png')

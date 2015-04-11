@@ -73,7 +73,7 @@ img.cover_image {
 
 /* FOR FAKE CHECKBOD */
 .checkbox {
-  input[type=checkbox] {
+  input[type=checkbox], input[type=radio] {
     display: none;
   }
   .check-sign {
@@ -91,7 +91,7 @@ img.cover_image {
       background: image-url('blue-circle-box.png') no-repeat 0 0;
       background-size: 20px auto;
     }
-    input[type=checkbox]:checked + .check-sign {
+    input[type=checkbox]:checked + .check-sign, input[type=radio]:checked + .check-sign {
       background-position: 0 -20px;
     }
   }
@@ -102,7 +102,7 @@ img.cover_image {
       background: image-url('green-circle-box.png') no-repeat 0 0;
       background-size: 20px auto;
     }
-    input[type=checkbox]:checked + .check-sign {
+    input[type=checkbox]:checked + .check-sign, input[type=radio]:checked + .check-sign {
       background-position: 0 -20px;
     }
   }
@@ -113,7 +113,7 @@ img.cover_image {
       background: image-url('red-circle-box.png') no-repeat 0 0;
       background-size: 20px auto;
     }
-    input[type=checkbox]:checked + .check-sign {
+    input[type=checkbox]:checked + .check-sign, input[type=radio]:checked + .check-sign {
       background-position: 0 -20px;
     }
   }
@@ -124,7 +124,7 @@ img.cover_image {
       background: image-url('grey-circle-box.png') no-repeat 0 0;
       background-size: 20px auto;
     }
-    input[type=checkbox]:checked + .check-sign {
+    input[type=checkbox]:checked + .check-sign, input[type=radio]:checked + .check-sign {
       background-position: 0 -20px;
     }
   }

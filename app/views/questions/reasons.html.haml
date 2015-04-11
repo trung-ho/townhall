@@ -29,16 +29,4 @@
 
     = render partial: 'questions/reasons_list', locals: { reasons: @reasons, question: @question, vote: @vote, reason_type: @vote_type }
 
-    .row.voting-info
-      .col-xs-6.text-right
-        = days_left(@question.end_date)
-      .col-xs-6.text-left
-        = pluralize(@question.votes.count, 'Vote')
-
-    .row.social-networks
-      .social-ntw.twitter
-      .social-ntw.facebook
-      .social-ntw.linkedin
-
-    .row
-      .logo.text-center= image_tag('townhall-logo.png')
+    = render partial: 'questions/footer', locals: { question: @question }

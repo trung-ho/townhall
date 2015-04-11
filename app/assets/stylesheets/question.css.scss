@@ -87,7 +87,7 @@
 .voting-container {
   .add-more-reason {
     margin-top: 30px;
-    .form-control { width: calc(100% - 50px); display: inline-block; background-color: $color-maybe-hover; }
+    .form-control { width: calc(100% - 50px); display: inline-block; background-color: #e7e7e2; }
     #add-more-reason {
       border: 2px solid $color-info;
       border-radius: 8px;
@@ -98,5 +98,44 @@
     }
   }
 
-  .reasons { margin-top: 30px; }
+  .reasons {
+    margin-top: 30px;
+    .reason-content { display: inline-block; vertical-align: middle; width: calc(100% - 60px);}
+    .icon {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
+      background: image-url('crowd-icon.png') no-repeat center center;
+      background-size: 20px auto;
+    }
+  }
+}
+
+.reason-list {
+  h3 { font-style: italic; }
+  .results {
+    padding-left: 0;
+    li { list-style: none; }
+    .count, .reason, .icon { display: inline-block; }
+    .count { width: 50px; font-size: 24px; vertical-align: middle; }
+    .icon {
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
+      background: image-url('crowd-icon.png') no-repeat center center;
+      background-size: 20px auto;
+    }
+    .reason { width: calc(100% - 80px); color: $color-text; font-size: 14px; vertical-align: middle; }
+  }
+
+  &.yes { color: $color-yes; }
+  &.no { color: $color-no; }
+  &.maybe { color: $color-maybe; }
+}
+
+#know-more-about-you {
+  margin-top: -40px;
+  margin-bottom: 50px;
+  .description { font-style: italic; color: $color-info; }
 }

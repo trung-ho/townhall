@@ -9,7 +9,8 @@
         %label.reason.checkbox.text-left(class="#{ reason_type }")
           = check_box_tag "reason_ids[]", reason.id, false, multiple: true
           %span.check-sign
-          %span.color-black.small-text= reason.name
+          %span.color-black.small-text.reason-content= reason.name
+          %span.icon
 
   - if question.crowd_content?
     %hr

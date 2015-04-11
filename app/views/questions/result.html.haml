@@ -1,32 +1,62 @@
-.result_page#result_reason_wrap
-  .row
-    .col-sm-12.no_padding
-      .voting_title.text_padding
-        %h3= @question.title
-      .voting_title_2.text_padding
-        %a{:href => "#"}
-          Thanks for voting.
-          %span Here are the results:
-  .row
-    %span=  "Positive #{@positive_votes}"
-    %span=  "Positive #{@negative_votes}"
-  .date_votes
-    %span.end_month
-      %p Ends: Feb 2nd, 2015
-    %span.votes
-      %p= "Votes: #{@total_votes}"
-  .row
-    = @reasons_stats
-#reslut_btm_link
-  .container-fluid.fluid_padding
-    .row
-      .col-sm-12.no_padding
-        .answer_link.text_padding
-          %p Answer more questions from:
-          %p
-            = link_to @question.organization.name, root_url
-        .feedback_link.text-center
-          %a{:href => "#"}
-            %img{:alt => "Town Hall", :src => "../assets/images/btm_logo.png"}/
-          %a{:href => "#"} Give us feedback
-   
+- votes_chart = @question.vote_percentages
+
+.container#voting.voting
+  .banner_container
+    .banner_img
+      = image_tag @question.cover_image.mobile, class: 'cover_image'
+  .voting-container
+    .question
+      %h1= @question.title
+      %h3.italic Here are the results:
+
+    .chart-result.chart
+      .yes.row
+        .pull-left.text-left.col-xs-2 Yes
+        .col-xs-8
+          .bar(style="width: #{ votes_chart[:yes][:width] }%")
+        .percentage.pull-right.text-right.col-xs-2 #{ votes_chart[:yes][:percent] } %
+      .maybe.row
+        .pull-left.text-left.col-xs-2 Maybe
+        .col-xs-8
+          .bar(style="width: #{ votes_chart[:maybe][:width] }%")
+        .percentage.pull-right.text-right.col-xs-2 #{ votes_chart[:maybe][:percent] } %
+      .no.row
+        .pull-left.text-left.col-xs-2 No
+        .col-xs-8
+          .bar(style="width: #{ votes_chart[:no][:width] }%")
+        .percentage.pull-right.text-right.col-xs-2 #{ votes_chart[:no][:percent] } %
+
+  %hr
+  .reason-list.yes
+    %h3 #{ @question.votes.yes.count } voted "YES":
+
+    %ul.results
+      - @question.reasons_for.each do |reason|
+        %li
+          .count 36
+          .reason= reason.name
+          .icon
+
+  %hr
+  .reason-list.maybe
+    %h3 #{ @question.votes.maybe.count } voted "MAYBE":
+
+    %ul.results
+      - @question.reasons_maybe.each do |reason|
+        %li
+          .count 36
+          .reason= reason.name
+          .icon
+
+  %hr
+  .reason-list.no
+    %h3 #{ @question.votes.no.count } voted "NO":
+
+    %ul.results
+      - @question.reasons_against.each do |reason|
+        %li
+          .count 36
+          .reason= reason.name
+          .icon
+
+  = render partial: 'questions/footer', locals: { question: @question, show_know_more_about_you: true }
