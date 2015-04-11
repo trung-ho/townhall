@@ -11,35 +11,67 @@ body {
   margin-bottom:  0px;
   border: 0;
 }
-.navbar-header{
-    a.navbar-icon {
-      float: left;
-      margin: 0px 10px 0 0px;
-      font-size: 18px;
-      line-height: 10px;
-      height: 64px;
-      width: 60px;
-      text-indent: -9999px;
-      &:hover {
-        background-position: 0 -64px;
-      }
-    }
-    a.home {
-      background: image-url('home-icon.png') 0 0 no-repeat;
-    }
-    a.contact {
-      background: image-url('contact-icon.png') 0 0 no-repeat;
-    }
-    a.follow {
-      background: image-url('follow-icon.png') 0 0 no-repeat;
-    }
-    img {
-      width: 30px;
-    }
-    .navbar-toggle {
-      padding: 0px;
+.navbar-header {
+  width: 100%;
+  a.navbar-icon {
+    float: left;
+    margin: 0px 10px 0 0px;
+    font-size: 18px;
+    line-height: 10px;
+    height: 64px;
+    width: 60px;
+    text-indent: -9999px;
+    &:hover {
+      background-position: 0 -64px;
     }
   }
+  a.home {
+    background: image-url('home-icon.png') 0 0 no-repeat;
+  }
+  a.contact {
+    background: image-url('contact-icon.png') 0 0 no-repeat;
+  }
+  a.follow {
+    background: image-url('follow-icon.png') 0 0 no-repeat;
+  }
+  img {
+    width: 30px;
+  }
+  .navbar-toggle {
+    padding: 0px;
+  }
+}
+
+#nav-toggle-btn {
+  margin: 15px;
+  cursor: pointer;
+}
+
+#townhall-nav {
+  width: 250px;
+  background: #fff;
+  padding: 25px 15px 25px 0;
+  font-size: 17px;
+  border-color: #eee;
+  -webkit-box-shadow: -5px 0px 25px 5px rgba(187,187,187,1);
+  -moz-box-shadow: -5px 0px 25px 5px rgba(187,187,187,1);
+  box-shadow: -5px 0px 25px 5px rgba(187,187,187,1);
+
+  ul { margin: 0; }
+  li {
+    height: 50px;
+    padding-left: 60px;
+    a {
+      line-height: 30px;
+      color: $color-text;
+    }
+    &:hover {
+      background: $color-info;
+      a { color: #fff; }
+    }
+  }
+  .logo { height: 35px; margin-left: 15px; margin-top: 0; }
+}
 
 /* FOR IMAGES */
 img.cover_image {
