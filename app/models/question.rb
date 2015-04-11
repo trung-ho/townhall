@@ -1,4 +1,6 @@
 class Question < ActiveRecord::Base
+  TYPES = [VOTING = 'Voting', IDEA = 'Idea', RANKING = 'Ranking']
+
   mount_uploader :cover_image, CoverImageUploader
 
   belongs_to :organization
