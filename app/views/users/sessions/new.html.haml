@@ -1,0 +1,36 @@
+.container.login
+  %h3.text-center Make your vote COUNT and UNLOCK cool features !
+
+  - if flash[:alert]
+    .text-center.error.color-no.text-italic.large-text= flash[:alert]
+
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .row.form-group
+      .col-xs-4.large-text
+        = f.label :email, "Email:"
+      .col-xs-8
+        = f.email_field :email, autofocus: true, required: true, class: 'form-control'
+    .row.form-group
+      .col-xs-4.large-text
+        = f.label :password, "Password:"
+      .col-xs-8
+        = f.password_field :password, autocomplete: "off", required: true, class: 'form-control'
+
+    .row.form-group
+      - if devise_mapping.rememberable?
+        .col-xs-6.vertical-middle
+          %label.reason.checkbox.text-left.info
+            = f.check_box :remember_me
+            %span.check-sign
+            %span.color-black.small-text.reason-content Remember me
+      .col-xs-6.vertical-middle
+        = link_to "I've lost my password", new_password_path(resource_name), class: 'forgot-password'
+
+    .row
+      .col-xs-6.text-center
+        = f.submit "Log in", class: 'btn btn-info large-text'
+      .col-xs-6.text-center
+        = link_to "Register", new_registration_path(resource_name), class: 'btn btn-yes large-text'
+
+.row
+  .logo.text-center.fixed-bottom= link_to image_tag('townhall-logo.png'), root_path
