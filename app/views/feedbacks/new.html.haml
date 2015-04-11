@@ -1,0 +1,34 @@
+.container#feedback
+  %h3.text-center.color-info We are carefully listening to your feedback
+  %hr
+  %h4.text-italic.text-center Are you satisfied with our townhall?
+
+  = form_tag feedbacks_path do
+    .row
+      .col-xs-12
+        .btn.btn-yes.form-control.large-text
+          .feedback-choice
+            %span.icon.yes
+            %span Yes, I am
+    .row
+      .col-xs-12
+        .btn.btn-maybe.form-control.large-text
+          .feedback-choice
+            %span.icon.maybe
+            %span Well, maybe
+    .row
+      .col-xs-12
+        .btn.btn-no.form-control.large-text
+          .feedback-choice
+            %span.icon.no
+            %span Oh no...
+
+    %hr
+    %h4.text-italic.text-center We'd love to hear how we could do better
+    = text_area_tag :recommend, '', placeholder: '250 characters limit', class: 'form-control'
+
+    .text-center
+      = submit_tag "Submit", class: 'btn btn-info large-text'
+
+  .row
+    .logo.text-center= link_to image_tag('townhall-logo.png'), root_path

@@ -1,0 +1,22 @@
+#feedback {
+  input[type=radio] { display: none; }
+  .feedback-choice {
+    width: 150px;
+    text-align: left;
+    margin: auto;
+  }
+  .btn { margin: 7px 0; height: auto; }
+  .icon {
+    display: inline-block;
+    margin-right: 30px;
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    &.yes { background: image-url('smiley-yes.png') no-repeat center center; background-size: 25px 25px; }
+    &.maybe { background: image-url('smiley-maybe.png') no-repeat center center; background-size: 25px 25px; }
+    &.no { background: image-url('smiley-no.png') no-repeat center center; background-size: 25px 25px; }
+  }
+  textarea { resize: none; height: 100px; margin: 20px 0; }
+  .thank-you { margin: 40% 0; }
+  .fixed-bottom { position: fixed; bottom: 50px; width: 100%; text-align: center; }
+}

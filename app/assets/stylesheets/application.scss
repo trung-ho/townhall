@@ -1,6 +1,8 @@
 /*
 *= require font-awesome
 *= require common_variables
+*= require feedbacks
+*= require question
 */
 @import "bootstrap-sprockets";
 @import 'variables_n_overrides';
@@ -8,4 +10,3 @@
 @import "bootstrap";
 @import "common";
 @import "organization";
-@import "question";

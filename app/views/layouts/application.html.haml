@@ -9,5 +9,5 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
-    = render 'layouts/navigation'
+    = render 'layouts/navigation' unless @not_render_nav
     = yield

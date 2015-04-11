@@ -47,7 +47,7 @@
       display: inline-block;
       width: 50px;
       height: 50px;
-      margin: 40px 2px 50px;
+      margin: 40px 2px 0px;
       &.twitter {
         background: image-url('twitter.png') no-repeat center center;
         background-size: 50px auto;
@@ -62,8 +62,6 @@
       }
     }
   }
-
-  .logo { height: 50px; }
 }
 
 .chart-result {
@@ -87,7 +85,7 @@
 .voting-container {
   .add-more-reason {
     margin-top: 30px;
-    .form-control { width: calc(100% - 50px); display: inline-block; background-color: #e7e7e2; }
+    .form-control { width: calc(100% - 50px); display: inline-block; }
     #add-more-reason {
       border: 2px solid $color-info;
       border-radius: 8px;
@@ -135,7 +133,11 @@
 }
 
 #know-more-about-you {
-  margin-top: -40px;
   margin-bottom: 50px;
   .description { font-style: italic; color: $color-info; }
+}
+
+#give-feedback {
+  color: $color-text;
+  line-height: 80px;
 }

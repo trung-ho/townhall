@@ -55,4 +55,7 @@
       })
 
 .row
-  .logo.text-center= image_tag('townhall-logo.png')
+  .logo.text-center= link_to image_tag('townhall-logo.png'), root_path
+
+.text-center
+  = link_to "[Give us feedback]", new_feedback_path, id: 'give-feedback'

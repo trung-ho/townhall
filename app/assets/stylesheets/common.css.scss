@@ -46,6 +46,9 @@ img.cover_image {
   width: 100%;
 }
 
+/* FOR LOGO */
+.logo { height: 50px; margin-top: 40px; }
+
 /* FOR BUTTONS */
 .btn-vote {
   color: #fff;
@@ -58,17 +61,20 @@ img.cover_image {
 }
 .btn-yes {
   background-color: $color-yes;
-  &:hover { background-color: $color-yes-hover; }
+  color: #fff;
+  &:hover { background-color: $color-yes-hover; color: #fff; }
 }
 
 .btn-maybe {
   background-color: $color-maybe;
-  &:hover { background-color: $color-maybe-hover; }
+  color: #fff;
+  &:hover { background-color: $color-maybe-hover; color: #fff; }
 }
 
 .btn-no {
   background-color: $color-no;
-  &:hover { background-color: $color-no-hover; }
+  color: #fff;
+  &:hover { background-color: $color-no-hover; color: #fff; }
 }
 
 /* FOR FAKE CHECKBOD */
@@ -131,6 +137,10 @@ img.cover_image {
 }
 
 .color-black { color: $color-text; }
+.color-info { color: $color-info; }
 
 .small-text { font-size: 14px; }
 .large-text { font-size: 17px; }
+.text-italic { font-style: italic; }
+
+input.form-control, textarea.form-control { background-color: #e7e7e2; }

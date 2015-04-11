@@ -1,3 +1,5 @@
+@import 'common_variables';
+
 $bootstrap-sass-asset-helper: false !default;
 //
 // Variables
@@ -17,7 +19,7 @@ $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 
 $brand-primary:         #3acccb !default; // #337ab7
 $brand-success:         #5cb85c !default;
-$brand-info:            #5bc0de !default;
+$brand-info:            $color-info !default;
 $brand-warning:         #f0ad4e !default;
 $brand-danger:          #d9534f !default;
 
