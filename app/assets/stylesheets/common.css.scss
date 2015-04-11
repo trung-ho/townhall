@@ -179,8 +179,8 @@ img.cover_image {
 
 input.form-control, textarea.form-control { background-color: $color-grey-bg; }
 
-/* CONTACT POPUP */
-#contact-popup {
+/* CONTACT & FOLLOW POPUP */
+#contact-popup, #follow-popup {
   width: 350px;
   position: fixed;
   top: 64px;

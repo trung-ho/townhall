@@ -3,7 +3,7 @@
     .navbar-header
       = link_to 'Home', root_path, class: 'navbar-icon home', alt: 'home'
       = link_to 'Contact', '#contact-popup', class: 'navbar-icon contact', alt: 'contact', data: { toggle: 'collapse' }
-      = link_to 'Follow', root_path, class: 'navbar-icon follow', alt: 'rss feed'
+      = link_to 'Follow', '#follow-popup', class: 'navbar-icon follow', alt: 'rss feed', data: { toggle: 'collapse' }
 
       #nav-toggle-btn.pull-right(data-toggle='offcanvas' data-target='#townhall-nav')
         = image_tag 'townhall-icon.png'
@@ -50,3 +50,10 @@
     .col-xs-12
       = image_tag('facebook-color.png')
       = image_tag('twitter-color.png')
+
+#follow-popup.collapse.fade
+  %h4.text-center Thanks for following City of Melbourne
+
+  .text-center
+    You can change your preferences by going to
+    = link_to "@townhall notifications", notifications_settings_path
