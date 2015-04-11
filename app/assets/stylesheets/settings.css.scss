@@ -1,0 +1,44 @@
+@import 'common_variables';
+
+.settings {
+  .header {
+    width: 100%;
+    background: $color-info;
+    color: #fff;
+    font-size: 22px;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+
+    &.no-background { background: #fff; color: $color-text; }
+    &.smaller-text { font-size: 20px; }
+    .icon {
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+      display: inline-block;
+      vertical-align: middle;
+      &.settings {
+        background: image-url('icon-settings.png') no-repeat center center;
+        background-size: 25px 25px;
+      }
+      &.notif {
+        background: image-url('icon-notif.png') no-repeat center center;
+        background-size: 25px 25px;
+      }
+      &.terms, &.my-townhall {
+        background: image-url('icon-terms.png') no-repeat center center;
+        background-size: 25px 25px;
+      }
+      &.history {
+        background: image-url('icon-history.png') no-repeat center center;
+        background-size: 25px 25px;
+      }
+    }
+  }
+
+  .row { margin-bottom: 25px; }
+  .terms {
+    overflow-y: scroll;
+    height: calc(100vh - 170px);
+  }
+}

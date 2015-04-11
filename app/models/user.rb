@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable
-  devise :database_authenticatable, :registerable, 
+  devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook, :twitter, :linkedin, :google_oauth2]
 
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
   has_many :identities, :dependent => :destroy
 
   has_many :organizations, :dependent => :destroy
+
+  def name
+    "#{ first_name } #{ last_name }".strip
+  end
 
   def main_organization
     organizations.last

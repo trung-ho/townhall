@@ -34,6 +34,11 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :settings, only: [] do
+      collection do
+        get :settings, :terms, :notifications, :my_townhall
+      end
+    end
     resources :feedbacks, only: [:new, :create]
     resources :reasons, only: [:create]
     resources :votes

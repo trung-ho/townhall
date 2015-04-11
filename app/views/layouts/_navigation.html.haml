@@ -10,16 +10,16 @@
 #townhall-nav.navmenu.navmenu-fixed-right.offcanvas
   = image_tag("townhall-logo.png", class: 'logo')
   %hr
-  %ul.nav.navbar-nav.navbar-right
+  %ul
     - if user_signed_in?
       %li
-        = link_to 'My Townhall', '#'
+        = link_to 'My Townhall', my_townhall_settings_path
       %li
-        = link_to 'Settings', '#'
+        = link_to 'Settings', settings_settings_path
       %li
-        = link_to 'Notifications', '#'
+        = link_to 'Notifications', notifications_settings_path
       %li
-        = link_to 'Terms of use', '#'
+        = link_to 'Terms of use', terms_settings_path
       %li
         = link_to 'Submission Policy', '#'
       %li

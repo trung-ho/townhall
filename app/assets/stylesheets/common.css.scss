@@ -57,13 +57,14 @@ body {
   -moz-box-shadow: -5px 0px 25px 5px rgba(187,187,187,1);
   box-shadow: -5px 0px 25px 5px rgba(187,187,187,1);
 
-  ul { margin: 0; }
+  ul { margin: 0; list-style: none; padding: 0; }
   li {
     height: 50px;
     padding-left: 60px;
     a {
-      line-height: 30px;
+      line-height: 50px;
       color: $color-text;
+      &:hover { text-decoration: none; }
     }
     &:hover {
       background: $color-info;
@@ -168,6 +169,7 @@ img.cover_image {
   }
 }
 
+/* COMMON CLASS */
 .color-black { color: $color-text; }
 .color-info { color: $color-info; }
 
