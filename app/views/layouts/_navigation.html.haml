@@ -2,11 +2,12 @@
   .container
     .navbar-header
       = link_to 'Home', root_path, class: 'navbar-icon home', alt: 'home'
-      = link_to 'Contact', root_path, class: 'navbar-icon contact', alt: 'contact'
+      = link_to 'Contact', '#contact-popup', class: 'navbar-icon contact', alt: 'contact', data: { toggle: 'collapse' }
       = link_to 'Follow', root_path, class: 'navbar-icon follow', alt: 'rss feed'
 
       #nav-toggle-btn.pull-right(data-toggle='offcanvas' data-target='#townhall-nav')
         = image_tag 'townhall-icon.png'
+
 #townhall-nav.navmenu.navmenu-fixed-right.offcanvas
   = image_tag("townhall-logo.png", class: 'logo')
   %hr
@@ -31,3 +32,21 @@
     - else
       %li
         = link_to 'Login', new_user_session_path
+
+#contact-popup.collapse.fade
+  %h4 City of Melbourne
+  .row
+    .col-xs-3 Mobile:
+    .col-xs-9 (03) 9550 6644
+  .row
+    .col-xs-3 Email:
+    .col-xs-9 info@melbourne.vic.gov.au
+  .row
+    .col-xs-3 Home:
+    .col-xs-9 www.melbourne.vic.gov.au
+  .row
+    .col-xs-12 Follow us on:
+  .row
+    .col-xs-12
+      = image_tag('facebook-color.png')
+      = image_tag('twitter-color.png')
