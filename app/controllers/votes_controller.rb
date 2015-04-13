@@ -1,4 +1,5 @@
 class VotesController < ApplicationController
+  before_filter :store_vote, only: [:create]
   before_filter :authenticate_user!
 
   def create
@@ -26,5 +27,9 @@ class VotesController < ApplicationController
   private
   def vote_params
     params.require(:vote).permit(:vote_type, :reason_ids)
+  end
+
+  def store_vote
+    session[:voted] = params[:vote][:vote_type]
   end
 end

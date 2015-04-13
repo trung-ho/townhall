@@ -1,9 +1,9 @@
 class QuestionsController < ApplicationController
    before_action :set_question, only: [:show, :reasons, :result, :edit, :update, :destroy]
    before_filter :authenticate_user!, only: [:reasons, :result, :edit, :update, :destroy]
+   before_filter :store_location
 
   def show
-
   end
 
   def reasons
@@ -46,5 +46,9 @@ class QuestionsController < ApplicationController
 
   def set_question
     @question = Question.find(params[:id] || params[:question_id])
+  end
+
+  def store_location
+    session["user_return_to"] = request.original_url
   end
 end
