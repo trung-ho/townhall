@@ -14,6 +14,11 @@ class VotesController < ApplicationController
     vote = Vote.find(params[:id])
 
     if vote.update_attributes(reason_ids: params[:reason_ids])
+      
+      Reason.find(vote.reason_ids).each do |reason|
+        reason.votes.nil? ? reason.update_attributes(votes: 1) : reason.update_attributes(votes: reason.votes += 1)
+      end
+
       redirect_to organization_question_result_path(vote.question)
     end
   end

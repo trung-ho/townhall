@@ -33,7 +33,7 @@
     %ul.results
       - @question.reasons_for.each do |reason|
         %li
-          .count 36
+          .count= reason.votes
           .reason= reason.name
           - if reason.user_contributed === true
             .icon
@@ -45,7 +45,7 @@
     %ul.results
       - @question.reasons_maybe.each do |reason|
         %li
-          .count 36
+          .count= reason.votes
           .reason= reason.name
           - if reason.user_contributed === true
             .icon
@@ -57,7 +57,7 @@
     %ul.results
       - @question.reasons_against.each do |reason|
         %li
-          .count 36
+          .count= reason.votes
           .reason= reason.name
           - if reason.user_contributed === true
             .icon
