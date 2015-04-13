@@ -5,6 +5,7 @@ class VotesController < ApplicationController
   def create
     @question = Question.find(params[:question_id])
     @vote = @question.votes.new(vote_params.merge(user_id: current_user.id))
+    session[:voted] = nil 
 
     if @vote.save
       redirect_to organization_question_reasons_path(@question)
