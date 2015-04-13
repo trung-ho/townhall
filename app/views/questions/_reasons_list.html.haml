@@ -14,20 +14,36 @@
             %span.icon 
 
   - if question.crowd_content?
-    %hr
+    #add-reason-container
+      %hr
 
-    %h3.text-center Add your reason:
+      %h3.text-center Add your reason:
 
-    .form-group.add-more-reason
-      = text_field_tag :add_reason, "", placeholder: "60 characters limit", class: 'form-control'
-      %a#add-more-reason.btn(href='#')
-        %span.glyphicon.glyphicon-plus
+      .form-group.add-more-reason
+        = text_field_tag :add_reason, "", placeholder: "60 characters limit", class: 'form-control'
+        %a#add-more-reason.btn(href='#')
+          %span.glyphicon.glyphicon-plus
 
-  .text-center
-    = f.submit "Submit", class: 'btn btn-info large-text'
+    .text-center
+      = f.submit "Submit", class: 'btn btn-info large-text'
 
   :javascript
     $(document).ready(function() {
+    
+    $("form").keypress(function(e) {
+      //Dont want enter to submit the form just yet
+      if (e.which == 13) { 
+        e.preventDefault();
+      }
+    });
+
+     $("input#add_reason").keyup(function(e){
+        if(e.keyCode == 13){
+          $('a#add-more-reason').trigger('click');
+          $('#add-reason-container').fadeOut( "slow" );
+        }
+      });
+
       $('#add-more-reason').on('click', function() {
         if ($('#add_reason').val() != '') {
           $.ajax({
