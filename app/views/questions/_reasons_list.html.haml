@@ -10,7 +10,8 @@
           = check_box_tag "reason_ids[]", reason.id, false, multiple: true
           %span.check-sign
           %span.color-black.small-text.reason-content= reason.name
-          %span.icon
+          - if reason.user_contributed === true
+            %span.icon 
 
   - if question.crowd_content?
     %hr
@@ -35,6 +36,7 @@
             data: { reason: {
               voting_id: "#{ question.id }",
               name: $('#add_reason').val(),
+              user_contributed: true,
               reason_type: "#{ Reason::REASON_TYPES[reason_type.to_sym] }"
             } },
             success: function(data) {

@@ -10,6 +10,6 @@ class ReasonsController < ApplicationController
 
   private
   def reason_params
-    params.require(:reason).permit(:name, :reason_type, :voting_id, :position)
+    params.require(:reason).permit(:name, :reason_type, :voting_id, :position, :user_contributed)
   end
 end

@@ -35,7 +35,8 @@
         %li
           .count 36
           .reason= reason.name
-          .icon
+          - if reason.user_contributed === true
+            .icon
 
   %hr
   .reason-list.maybe
@@ -46,7 +47,8 @@
         %li
           .count 36
           .reason= reason.name
-          .icon
+          - if reason.user_contributed === true
+            .icon
 
   %hr
   .reason-list.no
@@ -57,6 +59,7 @@
         %li
           .count 36
           .reason= reason.name
-          .icon
+          - if reason.user_contributed === true
+            .icon
 
   = render partial: 'questions/footer', locals: { question: @question, show_know_more_about_you: true }
