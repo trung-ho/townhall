@@ -10,10 +10,12 @@
   font-size: 17px;
 
   .question {
+    #cover_image {
+      width: 100%;
+    }
     .question-content {
       margin-top: 37px;
       margin-bottom: 30px;
-      max-height: 190px;
       overflow-y: auto;
       padding-bottom: 25px;
     }

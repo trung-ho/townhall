@@ -1,12 +1,11 @@
 %nav.navbar.navbar-default.navbar-fixed-top{"role" => "navigation"}
-  .container
-    .navbar-header
-      = link_to 'Home', root_path, class: 'navbar-icon home', alt: 'home'
-      = link_to 'Contact', '#contact-popup', class: 'navbar-icon contact', alt: 'contact', data: { toggle: 'collapse' }
-      = link_to 'Follow', '#follow-popup', class: 'navbar-icon follow', alt: 'rss feed', data: { toggle: 'collapse' }
+  .navbar-header
+    = link_to 'Home', root_path, class: 'navbar-icon home', alt: 'home'
+    = link_to 'Contact', '#contact-popup', class: 'navbar-icon contact', alt: 'contact', data: { toggle: 'collapse' }
+    = link_to 'Follow', '#follow-popup', class: 'navbar-icon follow', alt: 'rss feed', data: { toggle: 'collapse' }
 
-      #nav-toggle-btn.pull-right(data-toggle='offcanvas' data-target='#townhall-nav')
-        = image_tag 'townhall-icon.png'
+    #nav-toggle-btn.pull-right(data-toggle='offcanvas' data-target='#townhall-nav')
+      = image_tag 'townhall-icon.png'
 
 #townhall-nav.navmenu.navmenu-fixed-right.offcanvas
   = image_tag("townhall-logo.png", class: 'logo')

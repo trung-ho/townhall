@@ -1,9 +1,6 @@
 - votes_chart = @question.vote_percentages
-
+= image_tag @question.organization.banner.mobile, id: 'organization_banner', id: 'organization_banner'
 .container#voting.voting
-  .banner_container
-    .banner_img
-      = image_tag @question.cover_image.mobile, class: 'cover_image'
   .voting-container
     .question
       %h1= @question.title
