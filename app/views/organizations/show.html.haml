@@ -6,7 +6,7 @@
   .container
     %ul.nav.nav-pills
       %li.active{:role => "presentation"}
-        %a{:href => "#recent", :data => {:toggle => 'tab'}} Recent
+        %a{:href => "#recent", :data => {:toggle => 'tab'}} Current
       %li{:role => "presentation"}
         %a{:href => "#popular", :data => {:toggle => 'tab'}} Popular
       %li{:role => "presentation"}
@@ -18,7 +18,7 @@
           = render partial: 'organizations/question', collection: @questions
       #popular.tab-pane
         %ul
-          = render partial: 'organizations/question', collection: @questions
+          = render partial: 'organizations/question', collection: @pop_questions
       #past.tab-pane
         %ul
-          = render partial: 'organizations/question', collection: @questions
+          = render partial: 'organizations/question', collection: @old_questions

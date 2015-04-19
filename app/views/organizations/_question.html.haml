@@ -1,9 +1,9 @@
 %li
-  %h3= link_to question.title, organization_question_url(question)
+  %h1= link_to question.title, organization_question_url(question)
   = link_to organization_question_url(question) do
     %div#description
       = image_tag question.question_image.desktop, class: 'question_image'
   %div#voting_stats
-    = "#{distance_of_time_in_words(Time.now, question.end_date)} left"
+    = days_left(question.end_date)
     %div#divider
-    = "#{question.total_votes} votes"
+    = pluralize(question.votes.count, 'Vote')
