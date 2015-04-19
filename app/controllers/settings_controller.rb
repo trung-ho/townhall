@@ -15,4 +15,7 @@ class SettingsController < ApplicationController
 
   def privacy
   end
+
+  def submission_policy
+  end
 end

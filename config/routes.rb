@@ -36,7 +36,7 @@ Rails.application.routes.draw do
 
     resources :settings, only: [] do
       collection do
-        get :settings, :terms, :notifications, :my_townhall, :privacy
+        get :settings, :terms, :notifications, :my_townhall, :privacy, :submission_policy
       end
     end
     resources :feedbacks, only: [:new, :create]
