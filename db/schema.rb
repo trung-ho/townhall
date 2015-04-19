@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150413075112) do
+ActiveRecord::Schema.define(version: 20150419062613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(version: 20150413075112) do
     t.datetime "updated_at"
     t.hstore   "properties"
     t.string   "cover_image"
+    t.string   "question_image"
   end
 
   create_table "rankable_items", force: true do |t|
