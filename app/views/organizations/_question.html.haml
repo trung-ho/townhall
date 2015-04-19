@@ -1,5 +1,5 @@
 %li
-  %h3= link_to question.title, organization_question_url(question)
+  %h1= link_to question.title, organization_question_url(question)
   = link_to organization_question_url(question) do
     %div#description
       = image_tag question.question_image.desktop, class: 'question_image'
