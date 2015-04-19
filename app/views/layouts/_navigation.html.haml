@@ -8,8 +8,8 @@
       = image_tag 'townhall-icon.png'
 
 #townhall-nav.navmenu.navmenu-fixed-right.offcanvas
-  = image_tag("townhall-logo.png", class: 'logo')
-  %hr
+  .logo-div
+    = image_tag("townhall-logo.png", class: 'logo')
   %ul
     - if user_signed_in?
       %li

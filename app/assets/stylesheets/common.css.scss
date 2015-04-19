@@ -50,7 +50,7 @@ body {
 #townhall-nav {
   width: 250px;
   background: #fff;
-  padding: 25px 15px 25px 0;
+  padding: 0px 15px 25px 0;
   font-size: 17px;
   border-color: #eee;
   -webkit-box-shadow: -5px 0px 25px 5px rgba(187,187,187,1);
@@ -61,6 +61,16 @@ body {
   li {
     height: 50px;
     padding-left: 60px;
+
+    &.my-townhall {
+      background: image-url('icon-menu-my-townhall.png') no-repeat 0 0;
+      background-size: auto 100px;
+      &:hover {
+        background: image-url('icon-menu-my-townhall.png') $color-info no-repeat 0 -50px;
+        background-size: auto 100px;
+      }
+    }
+
     a {
       line-height: 50px;
       color: $color-text;
@@ -71,7 +81,8 @@ body {
       a { color: #fff; }
     }
   }
-  .logo { height: 35px; margin-left: 15px; margin-top: 0; }
+  .logo-div { height: 64px; border-bottom: 1px solid #eee; }
+  .logo { height: 24px; margin-left: 15px; margin-top: 20px; }
 }
 
 /* FOR LOGO */
