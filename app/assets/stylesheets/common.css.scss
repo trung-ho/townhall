@@ -184,6 +184,7 @@ input.form-control, textarea.form-control { background-color: $color-grey-bg; }
 
 /* CONTACT & FOLLOW POPUP */
 #contact-popup, #follow-popup {
+  color: #000;
   width: 350px;
   position: fixed;
   top: 64px;
