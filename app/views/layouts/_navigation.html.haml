@@ -31,24 +31,27 @@
         = link_to 'Login', new_user_session_path
 
 #contact-popup.popup
-  %h4=@organization.name
+  %h4=@organization.name.capitalize
   .row
     .col-xs-3 Mobile:
-    .col-xs-9= @organization.phone
+    .col-xs-9= @organization.phone || 'NA'
   .row
     .col-xs-3 Email:
-    .col-xs-9= @organization.email
+    .col-xs-9= @organization.email || 'NA'
   .row
     .col-xs-3 Website:
-    .col-xs-9= @organization.website
-  .row
-    .col-xs-12 Follow us on:
-  .row
-    .col-xs-12
-      = link_to @organization.facebook do
-        = image_tag('facebook-color.png')
-      = link_to @organization.twitter do
-        = image_tag('twitter-color.png')
+    .col-xs-9= @organization.website || 'NA'
+  - if @organization.facebook.present? || @organization.twitter.present?
+    .row
+      .col-xs-12 Follow us on:
+    .row
+      .col-xs-12
+        - if @organization.facebook.present?
+          = link_to @organization.facebook do
+            = image_tag('facebook-color.png')
+        - if @organization.twitter.present?
+          = link_to @organization.twitter do
+            = image_tag('twitter-color.png')
 
 #follow-popup.popup
   %h4.text-center= "Thanks for following #{@organization.name}"
