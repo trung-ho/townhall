@@ -20,7 +20,7 @@
       %h3.text-center Add your reason:
 
       .form-group.add-more-reason
-        = text_field_tag :add_reason, "", placeholder: "60 characters limit", class: 'form-control'
+        = text_field_tag :add_reason, "", placeholder: "60 characters limit", class: 'form-control', maxlength: 60
         %a#add-more-reason.btn(href='#')
           %span.glyphicon.glyphicon-plus
 
