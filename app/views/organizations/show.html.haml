@@ -15,10 +15,10 @@
     .tab-content
       #recent.tab-pane.active 
         %ul
-          = render partial: 'organizations/question', collection: @questions
+          = render partial: 'organizations/question', collection: @questions || render(partial: 'organizations/no_questions')
       #popular.tab-pane
         %ul
-          = render partial: 'organizations/question', collection: @pop_questions
+          = render partial: 'organizations/question', collection: @pop_questions || render(partial: 'organizations/no_questions')
       #past.tab-pane
         %ul
-          = render partial: 'organizations/question', collection: @old_questions
+          = render(partial: 'organizations/question', collection: @old_questions) || render(partial: 'organizations/no_questions')
