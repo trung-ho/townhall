@@ -46,6 +46,7 @@ class QuestionsController < ApplicationController
 
   def set_question
     @question = Question.find(params[:id] || params[:question_id])
+    @organization = Organization.friendly.find(request.subdomain)
   end
 
   def store_location

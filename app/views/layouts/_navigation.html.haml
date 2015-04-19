@@ -45,8 +45,10 @@
     .col-xs-12 Follow us on:
   .row
     .col-xs-12
-      = image_tag('facebook-color.png')
-      = image_tag('twitter-color.png')
+      = link_to @organization.facebook do
+        = image_tag('facebook-color.png')
+      = link_to @organization.twitter do
+        = image_tag('twitter-color.png')
 
 #follow-popup.popup
   %h4.text-center= "Thanks for following #{@organization.name}"
