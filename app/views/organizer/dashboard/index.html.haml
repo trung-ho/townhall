@@ -1,0 +1,5 @@
+= link_to edit_organizer_organization_path(@organization) do
+  %h1= @organization.name
+%p Active Questions
+%ul.questions= render partial: 'organizer/dashboard/question', collection: @questions
+= link_to 'New Question',new_organizer_question_path
