@@ -76,9 +76,9 @@
     height: 40px;
     border-radius: 0 8px 8px 0;
   }
-  .yes { color: $color-yes; }
-  .no { color: $color-no; }
-  .maybe { color: $color-maybe; }
+  .yes .percentage { color: $color-yes; }
+  .no .percentage { color: $color-no; }
+  .maybe .percentage { color: $color-maybe; }
   .yes .bar { background-color: $color-yes }
   .no .bar { background-color: $color-no }
   .maybe .bar { background-color: $color-maybe }
