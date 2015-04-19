@@ -22,3 +22,9 @@
       #past.tab-pane
         %ul
           = render(partial: 'organizations/question', collection: @old_questions) || render(partial: 'organizations/no_questions')
+
+- content_for :open_graph do
+  %meta{:content => @organization.name, :property => "og:title"}/
+  %meta{:content => "Visit #{@organization.name} on townhall", :property => "og:description"}/
+  %meta{:content => @organization.banner.desktop, :property => "og:image"}/
+  %meta{:content => "Townhallapp.io", :property => "og:site_name"}/

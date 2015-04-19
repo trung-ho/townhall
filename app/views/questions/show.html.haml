@@ -1,3 +1,9 @@
 - case @question.type
 - when Question::VOTING
   = render partial: 'questions/show_voting'
+
+- content_for :open_graph do
+  %meta{:content => @question.title, :property => "og:title"}/
+  %meta{:content => @question.description.truncate(300), :property => "og:description"}/
+  %meta{:content => @question.question_image.desktop, :property => "og:image"}/
+  %meta{:content => "Townhallapp.io", :property => "og:site_name"}/
