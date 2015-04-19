@@ -25,10 +25,10 @@
               %label.btn.btn-vote.btn-no
                 No
                 = f.radio_button :vote_type, Vote::NO
-      %label.checkbox.info.text-center
-        = check_box_tag :more_info, true, true
-        %span.check-sign
-        %span I’d like to hear more from Melbourne City (?)
+      / %label.checkbox.info.text-center
+      /   = check_box_tag :more_info, true, true
+      /   %span.check-sign
+      /   %span I’d like to hear more from Melbourne City (?)
 
     = render partial: 'questions/footer', locals: { question: @question }
 
@@ -47,4 +47,3 @@
       $('input[value=' + vote +']').prop('checked', true);
       $('form').submit();
     })
-    
