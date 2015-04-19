@@ -3,6 +3,8 @@ class OrganizationsController < ApplicationController
 
   def show
     @questions = @organization.questions  
+    @pop_questions = @organization.questions.all[0..0]  
+    @old_questions = @organization.questions.where("end_date < ?", DateTime.now)  
   end
 
   private
