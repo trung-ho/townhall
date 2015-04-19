@@ -113,7 +113,7 @@
       background: image-url('crowd-icon.png') no-repeat center center;
       background-size: 20px auto;
     }
-    .reason { width: calc(100% - 80px); color: $color-text; font-size: 14px; vertical-align: middle; }
+    .reason { width: calc(100% - 80px); color: $color-text; vertical-align: middle; }
   }
 
   &.yes { color: $color-yes; }
