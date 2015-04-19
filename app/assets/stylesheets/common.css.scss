@@ -53,20 +53,68 @@ body {
   padding: 0px 15px 25px 0;
   font-size: 17px;
   border-color: #eee;
-  -webkit-box-shadow: -5px 0px 25px 5px rgba(187,187,187,1);
-  -moz-box-shadow: -5px 0px 25px 5px rgba(187,187,187,1);
-  box-shadow: -5px 0px 25px 5px rgba(187,187,187,1);
+  -webkit-box-shadow: -7px 0px 7px 5px rgba(187,187,187,0.55);
+  -moz-box-shadow:    -7px 0px 7px 5px rgba(187,187,187,0.55);
+  box-shadow:         -7px 0px 7px 5px rgba(187,187,187,0.55);
 
   ul { margin: 0; list-style: none; padding: 0; }
   li {
     height: 50px;
     padding-left: 60px;
 
-    &.my-townhall {
-      background: image-url('icon-menu-my-townhall.png') no-repeat 0 0;
+    &.history {
+      background: image-url('icon-menu-history.png') no-repeat 0 0;
       background-size: auto 100px;
       &:hover {
-        background: image-url('icon-menu-my-townhall.png') $color-info no-repeat 0 -50px;
+        background: image-url('icon-menu-history.png') $color-info no-repeat 0 -50px;
+        background-size: auto 100px;
+      }
+    }
+    &.settings {
+      background: image-url('icon-menu-settings.png') no-repeat 0 0;
+      background-size: auto 100px;
+      &:hover {
+        background: image-url('icon-menu-settings.png') $color-info no-repeat 0 -50px;
+        background-size: auto 100px;
+      }
+    }
+    &.notif {
+      background: image-url('icon-menu-notification.png') no-repeat 0 0;
+      background-size: auto 100px;
+      &:hover {
+        background: image-url('icon-menu-notification.png') $color-info no-repeat 0 -50px;
+        background-size: auto 100px;
+      }
+    }
+    &.terms {
+      background: image-url('icon-menu-term.png') no-repeat 0 0;
+      background-size: auto 100px;
+      &:hover {
+        background: image-url('icon-menu-term.png') $color-info no-repeat 0 -50px;
+        background-size: auto 100px;
+      }
+    }
+    &.submission {
+      background: image-url('icon-menu-submission.png') no-repeat 0 0;
+      background-size: auto 100px;
+      &:hover {
+        background: image-url('icon-menu-submission.png') $color-info no-repeat 0 -50px;
+        background-size: auto 100px;
+      }
+    }
+    &.privacy {
+      background: image-url('icon-menu-privacy.png') no-repeat 0 0;
+      background-size: auto 100px;
+      &:hover {
+        background: image-url('icon-menu-privacy.png') $color-info no-repeat 0 -50px;
+        background-size: auto 100px;
+      }
+    }
+    &.logout {
+      background: image-url('icon-menu-logout.png') no-repeat 0 0;
+      background-size: auto 100px;
+      &:hover {
+        background: image-url('icon-menu-logout.png') $color-info no-repeat 0 -50px;
         background-size: auto 100px;
       }
     }
