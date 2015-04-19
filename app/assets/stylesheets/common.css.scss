@@ -75,7 +75,11 @@ body {
 }
 
 /* FOR LOGO */
-.logo { height: 50px; margin-top: 40px; }
+.logo {
+  height: 50px;
+  margin-top: 40px;
+  img { width: 201px; }
+}
 .fixed-bottom { position: fixed; bottom: 50px; width: 100%; text-align: center; }
 
 /* FOR BUTTONS */
