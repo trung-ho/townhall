@@ -11,12 +11,12 @@
 - if show_know_more_about_you
   #know-more-about-you
     %hr
-    %h3.text-center.description Hey, thanks for participating, it'd be great to know more about you (?)
+    %h3.text-center.description In order for your vote to be meaningful for #{ question.organization.name.capitalize } needs to know the following:
     = form_tag "#" do
       .form-group.row
-        .col-xs-5
-          = label_tag :sex, 'Sex:'
-        .col-xs-7
+        .col-xs-4
+          = label_tag :sex, 'Gender:'
+        .col-xs-8
           .row
             .col-xs-6
               %label.reason.checkbox.info.text-left
