@@ -1,4 +1,12 @@
 = simple_form_for [:organizer, @organization], multipart: true do |f|
   = f.input :name, label: 'Organizations name', wrapper: :horizontal_form
-  = f.input :banner, label: 'Organizations name', wrapper: :horizontal_form
+  .col-sm-12
+    = image_tag @organization.banner.desktop, style: 'width: 100%;'
+  = f.input :banner, label: 'Banner image', wrapper: :horizontal_form
+  = f.input :phone, label: 'Phone', wrapper: :horizontal_form
+  = f.input :email, label: 'Email', wrapper: :horizontal_form
+  = f.input :website, label: 'Website', wrapper: :horizontal_form
+  = f.input :twitter, label: 'Twitter', wrapper: :horizontal_form
+  = f.input :facebook, label: 'Facebook', wrapper: :horizontal_form
+  
   = f.button :submit
