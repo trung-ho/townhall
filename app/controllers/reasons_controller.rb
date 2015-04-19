@@ -4,7 +4,7 @@ class ReasonsController < ApplicationController
     if @reason.save
       return render json: { success: true, reason_id: @reason.id }
     else
-      return render json: { success: false }
+      return render json: { success: false, errors: @reason.errors.full_messages }
     end
   end
 

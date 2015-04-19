@@ -11,7 +11,7 @@
           %span.check-sign
           %span.color-black.small-text.reason-content= reason.name
           - if reason.user_contributed === true
-            %span.icon 
+            %span.icon
 
   - if question.crowd_content?
     #add-reason-container
@@ -29,10 +29,10 @@
 
   :javascript
     $(document).ready(function() {
-    
+
     $("form").keypress(function(e) {
       //Dont want enter to submit the form just yet
-      if (e.which == 13) { 
+      if (e.which == 13) {
         e.preventDefault();
       }
     });
@@ -62,7 +62,7 @@
                 $('#add_reason').val('');
                 $('.reason-list').removeClass('hidden');
               } else {
-                alert('Unable to add reason. Please try again later');
+                alert(data.errors);
               }
             }
           });

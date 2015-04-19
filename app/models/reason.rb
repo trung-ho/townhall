@@ -5,5 +5,7 @@ class Reason < ActiveRecord::Base
     maybe: MAYBE = 'maybe'
   }
 
+  validates :name, length: { maximum: 60 }
+
   belongs_to :voting
 end
