@@ -8,20 +8,17 @@
 
     .chart-result.chart
       .yes.row
-        .pull-left.text-left.col-xs-2 Yes
-        .col-xs-8
-          .bar(style="width: #{ votes_chart[:yes][:width] }%")
-        .percentage.pull-right.text-right.col-xs-2 #{ votes_chart[:yes][:percent] } %
+        .col-xs-12.text-left
+          .bar(style="width: #{ votes_chart[:yes][:width] }%") Yes
+          .percentage.pull-right.text-right #{ votes_chart[:yes][:percent] } %
       .maybe.row
-        .pull-left.text-left.col-xs-2 Maybe
-        .col-xs-8
-          .bar(style="width: #{ votes_chart[:maybe][:width] }%")
-        .percentage.pull-right.text-right.col-xs-2 #{ votes_chart[:maybe][:percent] } %
+        .col-xs-12.text-left
+          .bar(style="width: #{ votes_chart[:maybe][:width] }%") Maybe
+          .percentage.pull-right.text-right #{ votes_chart[:maybe][:percent] } %
       .no.row
-        .pull-left.text-left.col-xs-2 No
-        .col-xs-8
-          .bar(style="width: #{ votes_chart[:no][:width] }%")
-        .percentage.pull-right.text-right.col-xs-2 #{ votes_chart[:no][:percent] } %
+        .col-xs-12.text-left
+          .bar(style="width: #{ votes_chart[:no][:width] }%") No
+          .percentage.pull-right.text-right #{ votes_chart[:no][:percent] } %
 
 
     = render partial: 'questions/reasons_list', locals: { reasons: @reasons, question: @question, vote: @vote, reason_type: @vote_type }

@@ -71,17 +71,21 @@
   line-height: 40px;
   font-style: italic;
   font-size: 14px;
+  color: #000;
   .bar {
-    margin: 0 -15px;
     height: 40px;
     border-radius: 0 8px 8px 0;
+    padding-left: 5px;
   }
-  .yes .percentage { color: $color-yes; }
-  .no .percentage { color: $color-no; }
-  .maybe .percentage { color: $color-maybe; }
   .yes .bar { background-color: $color-yes }
   .no .bar { background-color: $color-no }
   .maybe .bar { background-color: $color-maybe }
+  .row { position: relative; }
+  .percentage {
+    position: absolute;
+    right: 20px;
+    top: 0;
+  }
 }
 
 .voting-container {
