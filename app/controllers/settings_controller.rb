@@ -12,4 +12,7 @@ class SettingsController < ApplicationController
 
   def my_townhall
   end
+
+  def privacy
+  end
 end
