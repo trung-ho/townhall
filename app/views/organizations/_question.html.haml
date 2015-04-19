@@ -1,7 +1,8 @@
 %li
   %h3= link_to question.title, organization_question_url(question)
-  %div#description
-    =link_to image_tag(question.cover_image.mobile, class: 'cover_image'), organization_question_url(question)
+  = link_to organization_question_url(question) do
+    %div#description
+      = image_tag question.question_image.desktop, class: 'question_image'
   %div#voting_stats
     = "#{distance_of_time_in_words(Time.now, question.end_date)} left"
     %div#divider

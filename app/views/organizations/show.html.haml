@@ -2,7 +2,7 @@
 / #organization_banner{style: "background-image: url(#{image_path Question.first.cover_image.mobile})"}
 
 #organization
-  =image_tag @organization.banner.mobile, id: 'organization_banner'
+  =image_tag @organization.banner.desktop, id: 'organization_banner'
   .container
     %ul.nav.nav-pills
       %li.active{:role => "presentation"}
