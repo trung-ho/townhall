@@ -9,15 +9,15 @@
     .chart-result.chart
       .yes.row
         .col-xs-12.text-left
-          .bar(style="width: #{ votes_chart[:yes][:width] }%") Yes
+          .bar(style="width: #{ votes_chart[:yes][:percent] }%") Yes
           .percentage.pull-right.text-right #{ votes_chart[:yes][:percent] } %
       .maybe.row
         .col-xs-12.text-left
-          .bar(style="width: #{ votes_chart[:maybe][:width] }%") Maybe
+          .bar(style="width: #{ votes_chart[:maybe][:percent] }%") Maybe
           .percentage.pull-right.text-right #{ votes_chart[:maybe][:percent] } %
       .no.row
         .col-xs-12.text-left
-          .bar(style="width: #{ votes_chart[:no][:width] }%") No
+          .bar(style="width: #{ votes_chart[:no][:percent] }%") No
           .percentage.pull-right.text-right #{ votes_chart[:no][:percent] } %
 
 
