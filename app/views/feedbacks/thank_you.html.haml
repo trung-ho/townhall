@@ -1,5 +1,10 @@
 .container#feedback
-  %h3.text-center.color-info.thank-you Thanks for your feedbacks, we really appreciate !
+  %h3.text-center.color-info.thank-you
+    Thanks for your feedback, we really appreciate it!
+    %br
+    %br
+    If you'd like to know more about townhall please
+    = link_to "visit us", 'http://www.townhallapp.io'
 
   .row
-    .logo.text-center.fixed-bottom= link_to image_tag('townhall-logo.png'), root_path
+    .logo.text-center.fixed-bottom= link_to image_tag('townhall-logo.png'), 'http://www.townhallapp.io'
