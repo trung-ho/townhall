@@ -1,11 +1,11 @@
-= image_tag @question.organization.banner.mobile, id: 'organization_banner', id: 'organization_banner'
+= image_tag @question.organization.banner.desktop, id: 'organization_banner', id: 'organization_banner'
 .container#voting.voting
   .banner_container
     .banner_img
   .voting-container
     .question
       %h1= @question.title
-      = image_tag @question.cover_image, id: 'cover_image'
+      = image_tag @question.question_image.desktop, id: 'question_image'
       .question-content
         = @question.description
 
