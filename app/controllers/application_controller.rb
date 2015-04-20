@@ -1,8 +1,7 @@
 class ApplicationController < ActionController::Base
   before_filter :ensure_signup_complete, only: [:new, :create, :update, :destroy]
   before_filter :set_organization
-  before_filter :set_mailer_host
-  
+    
   def ensure_signup_complete
     # Ensure we don't go into an infinite loop
     return if action_name == 'finish_signup'
@@ -25,9 +24,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def set_mailer_host
-    ActionMailer::Base.default_url_options[:host] = request.original_url
-  end
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   # protect_from_forgery with: :exception
