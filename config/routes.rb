@@ -6,9 +6,6 @@ Rails.application.routes.draw do
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
 
   constraints RootSubdomain do
-    get 'pages/home'
-    get 'pages/member_home'
-
     devise_for :admin_users, ActiveAdmin::Devise.config
     ActiveAdmin.routes(self)
 
@@ -18,7 +15,7 @@ Rails.application.routes.draw do
     end
 
     unauthenticated :user do
-      root 'pages#home'
+      root 'organizer/pages#home'
     end
 
     resources :users
@@ -26,10 +23,13 @@ Rails.application.routes.draw do
     namespace :organizer do
       resources :dashboard
       resources :organizations
+      resources :pages do
+        get 'home'
+        get 'member_home'
+      end
     end
-  
-  end
-
+ end
+ 
   constraints Subdomain do
     scope as: 'organization' do
       root 'organizations#show'
