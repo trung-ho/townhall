@@ -5,19 +5,19 @@
 
   = form_tag feedbacks_path do
     .row
-      .col-xs-12
+      .col-xs-12.rating{data: {rate: 3}}
         .btn.btn-yes.form-control.large-text
           .feedback-choice
             %span.icon.yes
             %span Yes, I am
     .row
-      .col-xs-12
+      .col-xs-12.rating{data: {rate: 2}}
         .btn.btn-maybe.form-control.large-text
           .feedback-choice
             %span.icon.maybe
             %span Well, maybe
     .row
-      .col-xs-12
+      .col-xs-12.rating{data: {rate: 1}}
         .btn.btn-no.form-control.large-text
           .feedback-choice
             %span.icon.no
@@ -25,7 +25,14 @@
 
     %hr
     %h4.text-italic.text-center We'd love to hear how we could do better
-    = text_area_tag :recommend, '', placeholder: '250 characters limit', class: 'form-control'
-
+    = text_area_tag :comment, '', placeholder: '250 characters limit', class: 'form-control'
+    = hidden_field_tag :rating
     .text-center
       = submit_tag "Submit", class: 'btn btn-info large-text'
+:javascript
+  $(document).ready(function() {
+    $('.rating').on('click', function(e){
+      rating = $(e.target).closest('.rating').data('rate'); 
+      $('input#rating').val(rating);
+    });
+  });

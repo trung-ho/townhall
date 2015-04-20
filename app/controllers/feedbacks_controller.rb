@@ -5,7 +5,10 @@ class FeedbacksController < ApplicationController
   end
 
   def create
-    render 'feedbacks/thank_you'
+    feedback = Feedback.new(rating: params[:rating], comment: params[:comment])
+    if feedback.save
+      render 'feedbacks/thank_you'
+    end
   end
 
   private
