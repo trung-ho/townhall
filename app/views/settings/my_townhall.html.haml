@@ -7,4 +7,4 @@
     - @questions.each do |question|
       .col-xs-6.color-info= link_to question.title, organization_question_result_path(question)
       .col-xs-3= question.organization.name
-      .col-xs-3= "Ends #{question.end_date.strftime('%d %b,%Y ')}"
+      .col-xs-3= days_left(question.end_date)
