@@ -48,7 +48,8 @@ Rails.application.routes.draw do
     resources :feedbacks, only: [:new, :create]
     resources :reasons, only: [:create]
     resources :votes
-
+    resources :users
+    
     namespace :organizer do
       resources :dashboard
       resources :organizations

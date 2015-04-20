@@ -7,4 +7,8 @@ module QuestionsHelper
       "Vote ended"
     end
   end
+  
+  def user_attributes_missing?(user)
+    user.gender.nil? || user.birth_year.nil? || user.location.nil?
+  end
 end
