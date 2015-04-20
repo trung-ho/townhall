@@ -5,6 +5,7 @@
     %title= content_for?(:title) ? yield(:title) : "townhall - the place to decide"
     %meta{:content => content_for?(:description) ? yield(:description) : "Making decisions together just got easier! Townhall is a simple way for groups of people to vote and share opinions.", :name => "description"}/
     = content_for?(:open_graph) ? yield(:open_graph) : nil 
+    = yield(:javascript_includes) 
     %link{:href => "http://fonts.googleapis.com/css?family=Lato:300,300italic,700,700italic&subset=latin,latin-ext", :rel => "stylesheet", :type => "text/css"}/
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application'

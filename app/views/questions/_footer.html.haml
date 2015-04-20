@@ -45,12 +45,28 @@
       .row
         .text-center
           = f.submit "Submit", class: 'btn btn-info large-text', id: 'submit-info'
+- content_for :javascript_includes do 
+  = javascript_include_tag "application", "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places" 
 
-    :javascript
-      $(document).ready(function() {
-        $('#submit-info').on('click', function() {
-          $('#know-more-about-you .description').text("Thank you, it's nice to know you");
-          $('#know-more-about-you form').addClass('hidden');
-          $('#know-more-about-you').fadeOut(2000);
-        });
-      })
+:javascript
+    $(document).ready(function() {
+      $('#submit-info').on('click', function() {
+        $('#know-more-about-you .description').text("Thank you, it's nice to know you");
+        $('#know-more-about-you form').addClass('hidden');
+        $('#know-more-about-you').fadeOut(2000);
+      });
+    })
+
+   //google places for filling out location
+   function initializeAutocomplete(){
+     var input = document.getElementById('user_location');
+     var options = {
+       types: ['(cities)']
+     };
+
+     var autocomplete = new google.maps.places.Autocomplete(input, options);
+
+   }
+   $(function() {
+     initializeAutocomplete();
+   });
