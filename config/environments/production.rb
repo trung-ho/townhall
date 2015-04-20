@@ -72,7 +72,7 @@ Rails.application.configure do
     user_name: 'noreply@townhallapp.io',
     password: 'matchbox69',
     authentication: :plain,
-    openssl_verify_mode: false
+    openssl_verify_mode: 'none'
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
