@@ -1,5 +1,5 @@
 module Organizer
-  class OrganizerController < ApplicationController
+  class OrganizerController < ActionController::Base
     layout 'organizer'
     before_action :authenticate_user!
     authorize_resource :class => :OrganizerController

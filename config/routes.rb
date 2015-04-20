@@ -22,6 +22,12 @@ Rails.application.routes.draw do
     end
 
     resources :users
+
+    namespace :organizer do
+      resources :dashboard
+      resources :organizations
+    end
+  
   end
 
   constraints Subdomain do

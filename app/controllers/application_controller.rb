@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
   before_filter :ensure_signup_complete, only: [:new, :create, :update, :destroy]
+  before_filter :set_organization
+  before_filter :set_layout
+
   def ensure_signup_complete
     # Ensure we don't go into an infinite loop
     return if action_name == 'finish_signup'
@@ -16,7 +19,18 @@ class ApplicationController < ActionController::Base
     request.env['omniauth.origin'] || stored_location_for(resource) || root_path
   end
 
-  
+  def set_organization
+    if Subdomain.matches?(request)
+      @organization = Organization.friendly.find(request.subdomain)
+    end
+  end
+
+  private
+    def set_layout
+      if RootSubdomain.matches?(request)
+        self.class.layout 'organizer'
+      end
+    end
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   # protect_from_forgery with: :exception

@@ -1,7 +1,5 @@
 class PagesController < ApplicationController
-
-before_action :authenticate_user!, only: [:member_home]
-
+  before_action :authenticate_user!, only: [:member_home]
   def home
   end
 
