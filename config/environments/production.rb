@@ -67,12 +67,12 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: 'mail.townhallapp.io',
     port: '587',
-    :enable_starttls_auto => true,
+    enable_starttls_auto: true,
     domain: 'townhallapp.io',
     user_name: 'noreply@townhallapp.io',
     password: 'matchbox69',
     authentication: :plain,
-    openssl_verify_mode: 'none'
+    openssl_verify_mode: false
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
