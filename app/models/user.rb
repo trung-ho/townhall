@@ -12,7 +12,8 @@ class User < ActiveRecord::Base
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
 
   has_many :identities, :dependent => :destroy
-
+  has_many :votes
+  has_many :questions, through: :votes
   has_many :organizations, :dependent => :destroy
 
   def name

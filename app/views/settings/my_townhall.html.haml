@@ -1,9 +1,10 @@
 .container.settings
-  .header.no-background
+  .header
     .icon.history
     History
 
   .row
-    .col-xs-6.color-info Should motorcyclers wear helmets?
-    .col-xs-3 City of Melbourne
-    .col-xs-3 Ended 20 mar, 2012
+    - @questions.each do |question|
+      .col-xs-6.color-info= link_to question.title, organization_question_result_path(question)
+      .col-xs-3= question.organization.name
+      .col-xs-3= "Ends #{question.end_date.strftime('%d %b,%Y ')}"

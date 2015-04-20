@@ -11,6 +11,7 @@ class SettingsController < ApplicationController
   end
 
   def my_townhall
+    @questions = current_user.questions
   end
 
   def privacy
