@@ -29,22 +29,30 @@
 
   :javascript
     $(document).ready(function() {
-
-    $("form").keypress(function(e) {
-      //Dont want enter to submit the form just yet
-      if (e.which == 13) {
+      //First triggers the ajax post, then submits the form.
+      $('input:submit').on('click', function(e) {
         e.preventDefault();
-      }
-    });
+        trigger_ajax();
+        $('#add-reason-container').fadeOut( "slow" );
+        $('input:submit').fadeOut( "slow" );
+        return nil;
+      });
 
-     $("input#add_reason").keyup(function(e){
-        if(e.keyCode == 13){
-          $('a#add-more-reason').trigger('click');
-          $('#add-reason-container').fadeOut( "slow" );
+      $("form").keypress(function(e) {
+        if (e.which == 13) {
+          e.preventDefault();
         }
       });
 
-      $('#add-more-reason').on('click', function() {
+      $("input#add_reason").keyup(function(e){
+        if(e.keyCode == 13){
+          trigger_ajax();
+          $('#add-reason-container').fadeOut( "slow" );
+          $('input:submit').fadeOut( "slow" );
+        }
+      });
+
+      function trigger_ajax(){
         if ($('#add_reason').val() != '') {
           $.ajax({
             type: 'POST',
@@ -61,6 +69,7 @@
                 $('.reasons').append(checkbox.replace('INDEX', data.reason_id).replace('REASON_CONTENT', $('#add_reason').val() ));
                 $('#add_reason').val('');
                 $('.reason-list').removeClass('hidden');
+                $('form').trigger('submit');
               } else {
                 alert(data.errors);
               }
@@ -68,5 +77,5 @@
           });
         }
         return false;
-      });
+      };
     });
