@@ -264,8 +264,43 @@ input.form-control, textarea.form-control { background-color: $color-grey-bg; }
 }
 
 /* LOGIN FORM */
+h3.login_header {
+  background-color: #ef3333;
+  padding: 10px 20px 10px 20px;
+  color: white;
+  font-weight: bold;
+}
 .login {
   .forgot-password { line-height: 40px; }
   .btn { width: 120px; }
-  form { margin-top: 18%; }
+  form { margin-top: 30px; }
+  p.no_account {
+    margin-bottom: 0px;
+  }
+  .login_button {
+    margin-top: 30px;
+  }
+  //for the 'or' line decoration
+  .decorated{
+     overflow: hidden;
+     text-align: center;
+  }
+  .decorated > span{
+      position: relative;
+      display: inline-block;
+  }
+  .decorated > span:before, .decorated > span:after{
+      content: '';
+      position: absolute;
+      top: 50%;
+      border-bottom: 1px solid #ddd;
+      width: 592px; /* half of limiter */
+      margin: 0 15px;
+  }
+  .decorated > span:before{
+      right: 100%;
+  }
+  .decorated > span:after{
+      left: 100%;
+  }
 }
