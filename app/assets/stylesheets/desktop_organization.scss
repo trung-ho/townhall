@@ -1,0 +1,19 @@
+@import 'variables_n_overrides';
+@import 'common_variables';
+
+@media (min-width: $desktop-version-min) {
+  #organization_banner {
+    width: $desktop-version-container;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  .nav-pills {
+    li {
+      width: auto;
+      margin-right: 5px;
+      a { width: 115px; border-radius: 7px !important; }
+    }
+  }
+}

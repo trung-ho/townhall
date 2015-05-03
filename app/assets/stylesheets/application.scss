@@ -2,13 +2,15 @@
 *= require font-awesome
 *= require jasny-bootstrap.min
 *= require common_variables
+*= require organization
 *= require feedbacks
 *= require question
 *= require settings
+*= require desktop
+*= require desktop_organization
 */
 @import "bootstrap-sprockets";
 @import 'variables_n_overrides';
 
 @import "bootstrap";
 @import "common";
-@import "organization";

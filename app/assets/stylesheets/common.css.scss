@@ -49,6 +49,12 @@ label { font-weight: 300; }
 #nav-toggle-btn {
   margin: 15px 10px 15px 15px;
   cursor: pointer;
+  .nav-toggle-icon {
+    width: 30px;
+    height: 30px;
+    background: image-url('townhall-icon.png') 0 0 no-repeat;
+    background-size: 30px auto;
+  }
 }
 
 #townhall-nav {

@@ -13,5 +13,16 @@ bindTogglePopup = ->
     $('.popup').hide()
 
 bindMenuSlider = ->
-  $('#townhall-nav .logo-div').on 'click', ->
-    $('#townhall-nav').offcanvas('hide')
+  if window.innerWidth < 1050
+    $('#townhall-nav .logo-div').on 'click', ->
+      $('#townhall-nav').offcanvas('hide')
+  else
+    $('#townhall-nav .logo-div').attr('data-toggle', 'dropdown')
+    $('#townhall-nav .logo-div').attr('data-related-target', '#townhall-nav')
+    $('#townhall-nav').removeClass('navmenu-fixed-right').removeClass('offcanvas').addClass('dropdown')
+    $('#townhall-nav ul').addClass('dropdown-menu')
+    $('[data-toggle=offcanvas]').attr('data-toggle', '')
+
+    $('#townhall-nav .logo-div').dropdown()
+    $(document).on 'click', '#nav-toggle-btn .nav-toggle-icon', (e) ->
+      $('#townhall-nav .logo-div').dropdown('toggle')
