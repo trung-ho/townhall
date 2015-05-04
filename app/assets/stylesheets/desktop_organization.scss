@@ -56,7 +56,17 @@
         padding: 3px 10px;
       }
     }
-
+    .share-icon {
+      display: block;
+      .icon {
+        display: inline-block;
+        vertical-align: middle;
+        width: 30px;
+        height: 30px;
+        background: image-url('share-icon.png') no-repeat 0 0;
+        margin-left: 10px;
+      }
+    }
   }
   .organization .see-more {
     display: block;
