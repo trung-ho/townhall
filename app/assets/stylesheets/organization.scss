@@ -6,9 +6,12 @@
   margin-bottom: 20px;
 }
 
-#organization .question_image {
-  width: 100%;
+#organization {
+  .question-desc, .vote-now, .question_image.desktop { display: none; }
+  .question_image { width: 100%; }
 }
+
+.organization .see-more { display: none; }
 
 /* Tab pills styling might need to be namespaced */
 .nav-tabs > li, .nav-pills > li {
@@ -48,19 +51,20 @@
   text-align: center;
 }
 
-#voting_stats {
+.voting_stats {
   margin: 20px 0 20px 0;
   padding-bottom: 20px;
   text-align: center;
   font-style: italic;
   text-transform: uppercase;
   border-bottom: 1px solid $gray-light;
-  #divider {
+  .divider {
     vertical-align: middle;
     display: inline-block;
     width: 1px;
     height: 30px;
     margin: 0px 15px 0 20px;
     background-color: $gray-light;
-   }
+  }
+  .days-left, .vote-count { display: inline-block; }
 }

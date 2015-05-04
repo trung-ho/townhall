@@ -1,4 +1,4 @@
-/ %h2= "Questions from #{@organization.name}" 
+/ %h2= "Questions from #{@organization.name}"
 / #organization_banner{style: "background-image: url(#{image_path Question.first.cover_image.mobile})"}
 
 #organization
@@ -13,7 +13,7 @@
         %a{:href => "#past", :data => {:toggle => 'tab'}} Past
 
     .tab-content
-      #recent.tab-pane.active 
+      #recent.tab-pane.active
         %ul
           = render partial: 'organizations/question', collection: @questions || render(partial: 'organizations/no_questions')
       #popular.tab-pane
@@ -22,6 +22,12 @@
       #past.tab-pane
         %ul
           = render(partial: 'organizations/question', collection: @old_questions) || render(partial: 'organizations/no_questions')
+
+    - content_for :before_footer do
+      .organization.main-content
+        .see-more.btn.btn-info
+          %span.glyphicon.glyphicon-search
+          &nbsp;&nbsp;&nbsp;See more
 
 - content_for :open_graph do
   %meta{:content => @organization.name, :property => "og:title"}/

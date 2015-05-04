@@ -15,4 +15,5 @@
     .main-content
       = render 'layouts/navigation' unless @not_render_nav
       = yield
+    = yield :before_footer
     = render "layouts/footer"
