@@ -1,7 +1,31 @@
-.container
+.container.mobile-footer
   .row
     .logo.text-center= link_to image_tag('townhall-logo.png'), 'http://www.townhallapp.io'
 
   - unless controller_name == 'feedbacks'
     .text-center
       = link_to "[Give us feedback]", new_feedback_path, id: 'give-feedback'
+
+.container.desktop-footer
+  .row
+    .col-md-4
+      %h2 About this app
+    .col-md-6
+      %h2 Start your own Townhall
+    .col-md-2
+      %h2 Contact Us
+  .row
+    .col-md-4
+      %ul
+        %li= link_to "Terms of use", terms_settings_path
+        %li= link_to "Submission Policy", submission_policy_settings_path
+        %li= link_to "Privacy", privacy_settings_path
+        %li= link_to "FAQ", '#'
+    .col-md-6
+      .row
+        .col-md-8
+          Go to our website to create your own
+          %span.color-info townhall
+          for free. It's the easiest way for people to decide together.
+    .col-md-2
+      = mail_to "info@townhallapp.io"
