@@ -10,7 +10,7 @@ label { font-weight: 300; }
 
 .italic { font-style: italic !important; }
 
-.desktop-footer { display: none; }
+.desktop, .desktop-inline { display: none; }
 
 /* NAVBAR STYLING */
 .navbar {

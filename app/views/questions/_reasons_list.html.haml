@@ -1,8 +1,9 @@
 =  form_for vote do |f|
   .reason-list(class="#{ reasons.empty? ? "hidden" : "" }")
-    %hr
+    %hr.mobile
 
-    %h3.text-center Please tell us why you voted this way:
+    %h3.text-center.mobile Please tell us why you voted this way:
+    %h1.desktop Choose your reasons:
 
     .reasons
       - reasons.each do |reason|
@@ -15,15 +16,16 @@
 
   - if question.crowd_content?
     #add-reason-container
-      %hr
+      %hr.mobile
 
-      %h3.text-center Add your reason:
+      %h3.text-center.mobile Add your reason:
+      %h1.desktop Or you can add your own:
 
       .form-group.add-more-reason
         = text_field_tag :add_reason, "", placeholder: "60 characters limit", class: 'form-control', maxlength: 60
 
-    .text-center
-      = f.submit "Submit", class: 'btn btn-info large-text'
+      .text-center.submit-btn
+        = f.submit "Submit", class: 'btn btn-info large-text'
 
   :javascript
     $(document).ready(function() {

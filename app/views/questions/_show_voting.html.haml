@@ -4,31 +4,46 @@
     .banner_img
   .voting-container
     .question
-      %h1= @question.title
-      = image_tag @question.question_image.desktop, id: 'question_image'
-      .question-content
-        = @question.description
+      .row
+        .col-xs-12
+          .right-col
+            %h1= @question.title
+            .share-icon.desktop
+          .left-col
+            .img
+              = image_tag @question.question_image.desktop, id: 'question_image'
+            .voting-info.desktop
+              .col-xs-6.text-right
+                .row= days_left(@question.end_date)
+              .col-xs-6.text-left
+                .row= pluralize(@question.votes.count, 'Vote')
+          .right-col
+            .question-content
+              = @question.description
 
-    =  form_for Vote.new, url: organization_question_votes_path(@question) do |f|
-      .vote-actions
-        .row
-          .col-xs-12
-            .action
-              %label.btn.btn-vote.btn-yes
-                Yes
-                = f.radio_button :vote_type, Vote::YES
-            .action(type="submit")
-              %label.btn.btn-vote.btn-maybe
-                Maybe
-                = f.radio_button :vote_type, Vote::MAYBE
-            .action
-              %label.btn.btn-vote.btn-no
-                No
-                = f.radio_button :vote_type, Vote::NO
-      / %label.checkbox.info.text-center
-      /   = check_box_tag :more_info, true, true
-      /   %span.check-sign
-      /   %span I’d like to hear more from Melbourne City (?)
+            =  form_for Vote.new, url: organization_question_votes_path(@question) do |f|
+              .vote-actions
+                .row
+                  .col-xs-12
+                    .action
+                      %label.btn.btn-vote.btn-yes
+                        .glyphicon.glyphicon-ok.desktop-inline
+                        Yes
+                        = f.radio_button :vote_type, Vote::YES
+                    .action(type="submit")
+                      %label.btn.btn-vote.btn-maybe
+                        .glyphicon.glyphicon-minus.desktop-inline
+                        Maybe
+                        = f.radio_button :vote_type, Vote::MAYBE
+                    .action
+                      %label.btn.btn-vote.btn-no
+                        .glyphicon.glyphicon-remove.desktop-inline
+                        No
+                        = f.radio_button :vote_type, Vote::NO
+            / %label.checkbox.info.text-center
+            /   = check_box_tag :more_info, true, true
+            /   %span.check-sign
+            /   %span I’d like to hear more from Melbourne City (?)
 
     = render partial: 'questions/footer', locals: { question: @question }
 

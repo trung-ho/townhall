@@ -1,3 +1,5 @@
+@DESKTOP_MIN_WIDTH = 1050;
+
 $(document).ready ->
   bindTogglePopup()
   bindMenuSlider()
@@ -13,7 +15,7 @@ bindTogglePopup = ->
     $('.popup').hide()
 
 bindMenuSlider = ->
-  if window.innerWidth < 1050
+  if window.innerWidth < DESKTOP_MIN_WIDTH
     $('#townhall-nav .logo-div').on 'click', ->
       $('#townhall-nav').offcanvas('hide')
   else

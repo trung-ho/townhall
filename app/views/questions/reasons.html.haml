@@ -3,24 +3,30 @@
 .container#voting.voting
   .voting-container
     .question
-      %h1= @question.title
-    /   %h3.italic Thank you. Current votes:
+      .row
+        .col-xs-12
+          .right-col
+            %h1
+              = @question.title
+              .share-icon.desktop
 
-    / .chart-result.chart
-    /   .yes.row
-    /     .col-xs-12.text-left
-    /       .bar(style="width: #{ votes_chart[:yes][:percent] }%") Yes
-    /       .percentage.pull-right.text-right #{ votes_chart[:yes][:percent] } %
-    /   .maybe.row
-    /     .col-xs-12.text-left
-    /       .bar(style="width: #{ votes_chart[:maybe][:percent] }%") Maybe
-    /       .percentage.pull-right.text-right #{ votes_chart[:maybe][:percent] } %
-    /   .no.row
-    /     .col-xs-12.text-left
-    /       .bar(style="width: #{ votes_chart[:no][:percent] }%") No
-    /       .percentage.pull-right.text-right #{ votes_chart[:no][:percent] } %
+          .left-col.desktop
+            .img
+              = image_tag @question.question_image.desktop, id: 'question_image'
+            .voting-info.clearfix
+              .col-xs-6.text-right
+                .row= days_left(@question.end_date)
+              .col-xs-6.text-left
+                .row= pluralize(@question.votes.count, 'Vote')
 
+            = render partial: 'chart', locals: { votes_chart: votes_chart, klass: 'desktop' }
 
-    = render partial: 'questions/reasons_list', locals: { reasons: @reasons, question: @question, vote: @vote, reason_type: @vote_type }
+          .right-col.desktop
+            .question-content
+              = @question.description
 
-    = render partial: 'questions/footer', locals: { question: @question }
+          .right-col
+            = render partial: 'questions/reasons_list', locals: { reasons: @reasons, question: @question, vote: @vote, reason_type: @vote_type }
+
+        .clearfix
+        = render partial: 'questions/footer', locals: { question: @question }

@@ -1,0 +1,41 @@
+%hr.mobile
+.reason-list.yes
+  %h3
+    #{ question.votes.yes.count } voted
+    %span.vote-type "Yes":
+
+  %ul.results
+    - question.reasons_for.each do |reason|
+      %li
+        .count= reason.votes
+        .reason= reason.name
+        - if reason.user_contributed === true
+          .icon
+
+%hr.mobile
+.reason-list.maybe
+  %h3
+    #{ question.votes.maybe.count } voted
+    %span.vote-type "Maybe":
+
+  %ul.results
+    - question.reasons_maybe.each do |reason|
+      %li
+        .count= reason.votes
+        .reason= reason.name
+        - if reason.user_contributed === true
+          .icon
+
+%hr.mobile
+.reason-list.no
+  %h3
+    #{ question.votes.no.count } voted
+    %span.vote-type "No":
+
+  %ul.results
+    - question.reasons_against.each do |reason|
+      %li
+        .count= reason.votes
+        .reason= reason.name
+        - if reason.user_contributed === true
+          .icon

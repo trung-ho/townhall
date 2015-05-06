@@ -3,57 +3,56 @@
 .container#voting.voting
   .voting-container
     .question
-      %h1= @question.title
-      %h3.italic Here are the results:
+      .row
+        .col-xs-12
+          .right-col
+            .know-more-about-you-desktop
+            %h1
+              = @question.title
+              .share-icon.desktop
+            %h3.italic.mobile Here are the results:
+            .results-desktop
 
-    .chart-result.chart
-      .yes.row
-        .col-xs-12.text-left
-          .bar(style="width: #{ votes_chart[:yes][:percent] }%") Yes
-          .percentage.pull-right.text-right #{ votes_chart[:yes][:percent] } %
-      .maybe.row
-        .col-xs-12.text-left
-          .bar(style="width: #{ votes_chart[:maybe][:percent] }%") Maybe
-          .percentage.pull-right.text-right #{ votes_chart[:maybe][:percent] } %
-      .no.row
-        .col-xs-12.text-left
-          .bar(style="width: #{ votes_chart[:no][:percent] }%") No
-          .percentage.pull-right.text-right #{ votes_chart[:no][:percent] } %
+          .left-col.desktop
+            .img
+              = image_tag @question.question_image.desktop, id: 'question_image'
+            .voting-info.clearfix
+              .col-xs-6.text-right
+                .row= days_left(@question.end_date)
+              .col-xs-6.text-left
+                .row= pluralize(@question.votes.count, 'Vote')
+            .chart-result-desktop
 
-  %hr
-  .reason-list.yes
-    %h3 #{ @question.votes.yes.count } voted "YES":
+          .chart-result-mobile
 
-    %ul.results
-      - @question.reasons_for.each do |reason|
-        %li
-          .count= reason.votes
-          .reason= reason.name
-          - if reason.user_contributed === true
-            .icon
+  .results-mobile
 
-  %hr
-  .reason-list.maybe
-    %h3 #{ @question.votes.maybe.count } voted "MAYBE":
-
-    %ul.results
-      - @question.reasons_maybe.each do |reason|
-        %li
-          .count= reason.votes
-          .reason= reason.name
-          - if reason.user_contributed === true
-            .icon
-
-  %hr
-  .reason-list.no
-    %h3 #{ @question.votes.no.count } voted "NO":
-
-    %ul.results
-      - @question.reasons_against.each do |reason|
-        %li
-          .count= reason.votes
-          .reason= reason.name
-          - if reason.user_contributed === true
-            .icon
 
   = render partial: 'questions/footer', locals: { question: @question, show_know_more_about_you: true }
+
+:javascript
+  $(document).ready(function() {
+    var chart = "#{ j(render(partial: 'chart', locals: { votes_chart: votes_chart })) }";
+
+    var results = "#{ j(render(partial: 'results', locals: { question: @question })) }";
+
+    if (window.innerWidth < DESKTOP_MIN_WIDTH) {
+      $('.chart-result-mobile').append(chart);
+      $('.results-mobile').append(results);
+    } else {
+      $('.chart-result-desktop').append(chart);
+      $('.results-desktop').prepend(results);
+    }
+  });
+
+- if user_attributes_missing?(current_user)
+  :javascript
+    $(document).ready(function() {
+      var knowMoreAboutYou = "#{ j(render(partial: 'know_more_about_you_form', locals: { question: @question })) }";
+
+      if (window.innerWidth < DESKTOP_MIN_WIDTH) {
+        $('.know-more-about-you-mobile').append(knowMoreAboutYou);
+      } else {
+        $('.know-more-about-you-desktop').prepend(knowMoreAboutYou);
+      }
+    });

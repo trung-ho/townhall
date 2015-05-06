@@ -1,0 +1,36 @@
+#know-more-about-you
+  %hr.mobile
+  %h2.text-center.description In order for your vote to be meaningful, #{ question.organization.name.capitalize } needs to know the following:
+
+  = form_for current_user, remote: true, authenticity_token: true do |f|
+    - if current_user.gender.nil?
+      .form-group.row
+        .col-xs-4
+          = f.label :gender, 'Gender:'
+        .col-xs-8
+          .row
+            .col-xs-6
+              %label.reason.checkbox.info.text-left
+                = f.radio_button :gender, "male", checked: true
+                %span.check-sign
+                %span.color-black.small-text Male
+            .col-xs-6
+              %label.reason.checkbox.info.text-left
+                = f.radio_button :gender, "female"
+                %span.check-sign
+                %span.color-black.small-text Female
+    - if current_user.birth_year.nil?
+      .form-group.row
+        .col-xs-5
+          = f.label :birth_year, 'Your birth year:'
+        .col-xs-7
+          = f.text_field :birth_year,  class: 'form-control'
+    - if current_user.location.nil?
+      .form-group.row
+        .col-xs-5
+          = f.label :location, 'Your location:'
+        .col-xs-7
+          = f.text_field :location, class: 'form-control'
+    .row
+      .col-xs-12.text-center.submit-btn
+        = f.submit "Submit", class: 'btn btn-info large-text', id: 'submit-info'
