@@ -13,5 +13,5 @@ $color-yes-hover: #97d302;
 $desktop-version-min: 1050px;
 $desktop-version-container: 992px;
 
-@mixin left-col { width: 400px; float: left; }
-@mixin right-col { width: 592px; float: right; padding: 15px; }
+@mixin left-col($width: 400px) { width: $width; float: left; }
+@mixin right-col($width: 592px) { width: $width; float: right; padding: 15px; }

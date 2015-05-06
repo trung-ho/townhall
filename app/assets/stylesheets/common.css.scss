@@ -59,7 +59,7 @@ label { font-weight: 300; }
   }
 }
 
-#townhall-nav {
+#townhall-nav, .settings-nav {
   width: 250px;
   background: #fff;
   padding: 0px 15px 25px 0;
@@ -72,9 +72,20 @@ label { font-weight: 300; }
   ul { margin: 0; list-style: none; padding: 0; }
   li {
     height: 50px;
-    padding-left: 60px;
+    a {
+      line-height: 50px;
+      color: $color-text;
+      padding-left: 60px;
+      display: block;
+      width: 100%;
+      height: 100%;
+      &:hover { text-decoration: none; }
+    }
+    &:hover {
+      a { color: #fff; }
+    }
 
-    &.history {
+    &.history a {
       background: image-url('icon-menu-history.png') no-repeat 0 0;
       background-size: auto 100px;
       &:hover {
@@ -82,7 +93,7 @@ label { font-weight: 300; }
         background-size: auto 100px;
       }
     }
-    &.settings {
+    &.settings a {
       background: image-url('icon-menu-settings.png') no-repeat 0 0;
       background-size: auto 100px;
       &:hover {
@@ -90,7 +101,7 @@ label { font-weight: 300; }
         background-size: auto 100px;
       }
     }
-    &.notif {
+    &.notif a {
       background: image-url('icon-menu-notification.png') no-repeat 0 0;
       background-size: auto 100px;
       &:hover {
@@ -98,7 +109,7 @@ label { font-weight: 300; }
         background-size: auto 100px;
       }
     }
-    &.terms {
+    &.terms a {
       background: image-url('icon-menu-term.png') no-repeat 0 0;
       background-size: auto 100px;
       &:hover {
@@ -106,7 +117,7 @@ label { font-weight: 300; }
         background-size: auto 100px;
       }
     }
-    &.submission {
+    &.submission a {
       background: image-url('icon-menu-submission.png') no-repeat 0 0;
       background-size: auto 100px;
       &:hover {
@@ -114,7 +125,7 @@ label { font-weight: 300; }
         background-size: auto 100px;
       }
     }
-    &.privacy {
+    &.privacy a {
       background: image-url('icon-menu-privacy.png') no-repeat 0 0;
       background-size: auto 100px;
       &:hover {
@@ -122,23 +133,13 @@ label { font-weight: 300; }
         background-size: auto 100px;
       }
     }
-    &.logout {
+    &.logout a {
       background: image-url('icon-menu-logout.png') no-repeat 0 0;
       background-size: auto 100px;
       &:hover {
         background: image-url('icon-menu-logout.png') $color-info no-repeat 0 -50px;
         background-size: auto 100px;
       }
-    }
-
-    a {
-      line-height: 50px;
-      color: $color-text;
-      &:hover { text-decoration: none; }
-    }
-    &:hover {
-      background: $color-info;
-      a { color: #fff; }
     }
   }
   .logo-div { height: 64px; border-bottom: 1px solid #eee; }

@@ -1,0 +1,32 @@
+@import 'variables_n_overrides';
+@import 'common_variables';
+
+@media (min-width: $desktop-version-min) {
+  .settings {
+    font-size: 17px;
+    padding: 0 !important;
+
+    .left-col { @include left-col(235px); }
+    .right-col {
+      @include right-col(757px);
+      border-left: 1px solid #eee;
+      padding: 15px 30px;
+      min-height: 375px;
+    }
+
+    .settings-nav {
+      box-shadow: none;
+      margin-left: -29px;
+      padding-right: 0;
+      ul { margin-right: -15px; }
+    }
+
+    .history-content {
+      .row {
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
+        &:last-child { border: none; }
+      }
+    }
+  }
+}

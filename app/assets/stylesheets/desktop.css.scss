@@ -75,9 +75,7 @@
     ul.dropdown-menu {
       right: 0;
       border-radius: 0;
-      a { padding: 0; }
     }
-    .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus { background-color: $color-info; }
   }
 
   #contact-popup { left: 173px !important; }

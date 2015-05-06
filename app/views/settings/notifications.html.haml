@@ -1,31 +1,50 @@
 .container.settings
-  .header
-    .icon.notif
-    Follows & Notifications
+  .left-col.desktop
+    .settings-nav
+      %ul
+        %li.history
+          = link_to 'History', my_townhall_settings_path
+        %li.settings
+          = link_to 'Settings', settings_settings_path
+        %li.notif
+          = link_to 'Notifications', notifications_settings_path
+        %li.terms
+          = link_to 'Terms of Use', terms_settings_path
+        %li.submission
+          = link_to 'Submission Policy', submission_policy_settings_path
+        %li.privacy
+          = link_to 'Privacy Policy', privacy_settings_path
+        %li.logout
+          = link_to 'Logout', destroy_user_session_path, :method => :delete
 
-  .row
-    .col-xs-4 Currently following
-    .col-xs-4 Receive app notifications
-    .col-xs-4 Receive email
+  .right-col
+    .header.mobile
+      .icon.notif
+      Follows & Notifications
 
-  .row
-    .col-xs-4.color-info City of Melbourne
-    .col-xs-4
-      %label.checkbox.info.text-center
-        %input(type='checkbox' disabled=true checked=true)
-          %span.check-sign
-    .col-xs-4
-      %label.checkbox.info.text-center
-        %input(type='checkbox' disabled=true )
-          %span.check-sign
+    .row
+      .col-xs-4 Currently following
+      .col-xs-4 Receive app notifications
+      .col-xs-4 Receive email
 
-  .row
-    .col-xs-4.color-info Man with a van
-    .col-xs-4
-      %label.checkbox.info.text-center
-        %input(type='checkbox' disabled=true checked=true)
-          %span.check-sign
-    .col-xs-4
-      %label.checkbox.info.text-center
-        %input(type='checkbox' disabled=true )
-          %span.check-sign
+    .row
+      .col-xs-4.color-info City of Melbourne
+      .col-xs-4
+        %label.checkbox.info.text-center
+          %input(type='checkbox' disabled=true checked=true)
+            %span.check-sign
+      .col-xs-4
+        %label.checkbox.info.text-center
+          %input(type='checkbox' disabled=true )
+            %span.check-sign
+
+    .row
+      .col-xs-4.color-info Man with a van
+      .col-xs-4
+        %label.checkbox.info.text-center
+          %input(type='checkbox' disabled=true checked=true)
+            %span.check-sign
+      .col-xs-4
+        %label.checkbox.info.text-center
+          %input(type='checkbox' disabled=true )
+            %span.check-sign

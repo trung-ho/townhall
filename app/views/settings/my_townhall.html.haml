@@ -1,10 +1,31 @@
 .container.settings
-  .header
-    .icon.history
-    History
+  .left-col.desktop
+    .settings-nav
+      %ul
+        %li.history
+          = link_to 'History', my_townhall_settings_path
+        %li.settings
+          = link_to 'Settings', settings_settings_path
+        %li.notif
+          = link_to 'Notifications', notifications_settings_path
+        %li.terms
+          = link_to 'Terms of Use', terms_settings_path
+        %li.submission
+          = link_to 'Submission Policy', submission_policy_settings_path
+        %li.privacy
+          = link_to 'Privacy Policy', privacy_settings_path
+        %li.logout
+          = link_to 'Logout', destroy_user_session_path, :method => :delete
+  .right-col.history-content
+    .header.mobile
+      .icon.history
+      History
 
-  .row
     - @questions.each do |question|
-      .col-xs-6.color-info= link_to question.title, organization_question_result_path(question)
-      .col-xs-3= question.organization.name
-      .col-xs-3= days_left(question.end_date)
+      .row.mobile
+        .col-xs-6.color-info= link_to question.title, organization_question_result_path(question)
+        .col-xs-3= question.organization.name
+        .col-xs-3= days_left(question.end_date)
+      .row.desktop
+        .col-xs-12.color-info= link_to question.title, organization_question_result_path(question)
+        .col-xs-12 #{ question.organization.name } / Ended #{ question.end_date.strftime('%d %b, %Y ') }
