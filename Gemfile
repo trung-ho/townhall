@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+gem 'spring', '~> 1.3.5',        group: :development
 
 #for creating forms without all the foundation markup overhead
 gem 'simple_form', '~> 3.1'
@@ -67,6 +67,7 @@ gem 'omniauth-linkedin-oauth2'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'autoprefixer-rails'
 gem "font-awesome-rails"
+gem 'font-kit-rails', '~> 1.2.0', git: 'https://github.com/sandelius/font-kit-rails.git'
 
 #Image upload
 gem 'carrierwave', '0.10.0'
