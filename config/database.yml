@@ -1,9 +1,8 @@
 development:
   adapter: postgresql
-  encoding: utf8
   database: townhall_dev
-  username: cn
-  password: cn
-  host: localhost # not mandatory
-  pool: 5 # not mandatory
-  timeout: 5000 # not mandatory
+  host: localhost
+test:
+  adapter: postgresql
+  database: townhall_test
+  host: localhost

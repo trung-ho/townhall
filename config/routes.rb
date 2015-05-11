@@ -28,7 +28,7 @@ Rails.application.routes.draw do
         get 'member_home'
       end
     end
- end
+  end
  
   constraints Subdomain do
     scope as: 'organization' do
@@ -38,6 +38,10 @@ Rails.application.routes.draw do
         get :result
         resources :votes
       end
+    end
+
+    namespace :setting do 
+      resource :user, only: [:show, :edit, :update]
     end
 
     resources :settings, only: [] do

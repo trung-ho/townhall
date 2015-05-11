@@ -72,6 +72,7 @@ gem "font-awesome-rails"
 gem 'carrierwave', '0.10.0'
 gem 'rmagick'
 gem "fog"
+gem 'enumerize'
 
 #for slugs
 gem 'friendly_id', '~> 5.1.0'
@@ -79,10 +80,12 @@ gem 'friendly_id', '~> 5.1.0'
 group :development do
   gem 'rails_layout'
   # Used for Debugging with Pry
+  gem 'factory_girl_rails'
   gem 'pry'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'quiet_assets'
   gem 'letter_opener'
   gem 'byebug'
+  gem 'rspec-rails', '~> 3.0'
 end

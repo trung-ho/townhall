@@ -252,7 +252,7 @@ label { font-weight: 300; }
 
 .vertical-middle { vertical-align: middle; }
 
-input.form-control, textarea.form-control { background-color: $color-grey-bg; }
+input.form-control, textarea.form-control, select.form-control { background-color: $color-grey-bg; }
 
 /* CONTACT & FOLLOW POPUP */
 #contact-popup, #follow-popup {
