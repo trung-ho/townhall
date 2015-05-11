@@ -1,6 +1,6 @@
 %tr
   %td= link_to question.title, edit_polymorphic_path([:organizer,question])
-  %td= question.votes.count #not implemented yet
+  %td= question.unique_visitors
   %td= question.votes.count
   %td -
   %td= link_to 'View', organization_question_result_path(question)

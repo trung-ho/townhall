@@ -18,4 +18,8 @@ class Question < ActiveRecord::Base
       maybe: { percent: ((maybe_count/total).round(2) * 100).to_i, width: ((maybe_count/base_width).round(2) * 100).to_i }
     }
   end
+
+  def increase_unique_visitors
+    update_attributes(unique_visitors: unique_visitors + 1)
+  end
 end
