@@ -1,6 +1,8 @@
 module Organizer
   class OrganizerController < ActionController::Base
     layout 'organizer'
+    before_action :set_organization
+
     before_action :authenticate_user!
     authorize_resource :class => :OrganizerController
     before_action :redirect_to_subdomain
@@ -12,6 +14,10 @@ module Organizer
     end
 
     private
+
+    def set_organization
+      @organization = Organization.find_by_slug(request.subdomain)
+    end
 
     def no_subdomain?
       RootSubdomain::matches?(request)

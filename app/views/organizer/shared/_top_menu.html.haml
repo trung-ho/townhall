@@ -1,0 +1,6 @@
+%ul.nav.nav-tabs#top-menu
+  %li{:role => "presentation"}
+    = link_to 'Questions', organizer_dashboard_index_path, class: 'tab-link'
+  %li{:role => "presentation"}
+    = link_to 'Organization', edit_organizer_organization_path(@organization), class: 'tab-link'
+    

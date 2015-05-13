@@ -1,50 +1,52 @@
-= link_to edit_organizer_organization_path(@organization) do
-  %h1= @organization.name
+= render partial: 'organizer/shared/top_menu'
 
-%ul.nav.nav-tabs#status-tabs
-  %li.active{:role => "presentation"}
-    %a.tab-link{:href => "#active"} Active
-  %li{:role => "presentation"}
-    %a.tab-link{:href => "#draft"} Drafts
-  %li{:role => "presentation"}
-    %a.tab-link{:href => "#ended"} Ended
+.container
+  %h3= @organization.name
 
-#status-tabs.tab-content
-  #active.tab-pane.fade.active.in{"aria-labelledby" => "active-tab", :role => "tabpanel"}
-    %table.table
-      %thead
-        %td Title
-        %td Unique hits
-        %td Votes
-        %td Engagement
-        %td Details
-        %td Download
-      = render partial: 'organizer/dashboard/question', collection: @active_questions
+  %ul.nav.nav-tabs#status-tabs
+    %li.active{:role => "presentation"}
+      %a.tab-link{:href => "#active"} Active
+    %li{:role => "presentation"}
+      %a.tab-link{:href => "#draft"} Drafts
+    %li{:role => "presentation"}
+      %a.tab-link{:href => "#ended"} Ended
 
-  #draft.tab-pane.fade{"aria-labelledby" => "draft-tab", :role => "tabpanel"}
-    %table.table
-      %thead
-        %td Title
-        %td Unique hits
-        %td Votes
-        %td Engagement
-        %td Details
-        %td Download
-      = render partial: 'organizer/dashboard/question', collection: @draft_questions
-  #ended.tab-pane.fade{"aria-labelledby" => "ended-tab", :role => "tabpanel"}
-    %table.table
-      %thead
-        %td Title
-        %td Unique hits
-        %td Votes
-        %td Engagement
-        %td Details
-        %td Download
-      = render partial: 'organizer/dashboard/question', collection: @ended_questions
-  
-= link_to new_organizer_voting_path, class: 'btn btn-default' do
-  .fa.fa-plus
-  New Voting
+  #status-tabs.tab-content
+    #active.tab-pane.fade.active.in{"aria-labelledby" => "active-tab", :role => "tabpanel"}
+      %table.table
+        %thead
+          %td Title
+          %td Unique hits
+          %td Votes
+          %td Engagement
+          %td Details
+          %td Download
+        = render partial: 'organizer/dashboard/question', collection: @active_questions
+
+    #draft.tab-pane.fade{"aria-labelledby" => "draft-tab", :role => "tabpanel"}
+      %table.table
+        %thead
+          %td Title
+          %td Unique hits
+          %td Votes
+          %td Engagement
+          %td Details
+          %td Download
+        = render partial: 'organizer/dashboard/question', collection: @draft_questions
+    #ended.tab-pane.fade{"aria-labelledby" => "ended-tab", :role => "tabpanel"}
+      %table.table
+        %thead
+          %td Title
+          %td Unique hits
+          %td Votes
+          %td Engagement
+          %td Details
+          %td Download
+        = render partial: 'organizer/dashboard/question', collection: @ended_questions
+    
+  = link_to new_organizer_voting_path, class: 'btn btn-default' do
+    .fa.fa-plus
+    New Voting
 
 :javascript
   $(document).ready(function() {
