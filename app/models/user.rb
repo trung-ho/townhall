@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  extend Enumerize
   ROLES = %w[organizer voter]
 
   TEMP_EMAIL_PREFIX = 'temp.email'
@@ -15,6 +16,8 @@ class User < ActiveRecord::Base
   has_many :votes
   has_many :questions, through: :votes
   has_many :organizations, :dependent => :destroy
+
+  enumerize :gender, in: [:male, :female]
 
   def name
     "#{ first_name } #{ last_name }".strip

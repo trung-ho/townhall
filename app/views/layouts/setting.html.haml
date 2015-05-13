@@ -5,6 +5,12 @@
   %body
     .main-content
       = render 'layouts/navigation' unless @not_render_nav
-      = yield
+      
+      .container.settings
+        .left-col.desktop
+          = render "shared/settings_nav"
+        .right-col
+          = yield
+
     = yield :before_footer
     = render "layouts/footer"
