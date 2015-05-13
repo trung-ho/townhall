@@ -39,7 +39,13 @@
         = f.check_box :pre_moderation
         = f.label :pre_moderation
   .form-group
-    = f.button :submit, class: 'btn btn-sm btn-default btn-block'
+    = f.button :submit, class: 'btn btn-sm btn-default' do
+      .fa.fa-thumbs-up
+      Put live
+
+    = f.button :submit, name: "voting[draft]", value: true, class: 'btn btn-sm btn-default' do
+      .fa.fa-edit
+      Save Draft
 :javascript  
   $(".dateable").datepicker({
                  prevText: '<i class="fa fa-chevron-left"></i>',
