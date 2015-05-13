@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-                        omniauth_callbacks: "users/omniauth_callbacks",
-                        sessions: "users/sessions",
-                        registrations: 'users/registrations' }
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    sessions: 'users/sessions',
+    registrations: 'users/registrations' }
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
-  get '404', :to => 'application#page_not_found'
+  get '404', to: 'application#page_not_found'
 
   constraints RootSubdomain do
     devise_for :admin_users, ActiveAdmin::Devise.config
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
       end
     end
   end
- 
+
   constraints Subdomain do
     scope as: 'organization' do
       root 'organizations#show'
@@ -41,7 +41,7 @@ Rails.application.routes.draw do
       end
     end
 
-    namespace :setting do 
+    namespace :setting do
       resource :user, only: [:show, :edit, :update]
     end
 
@@ -54,7 +54,7 @@ Rails.application.routes.draw do
     resources :reasons, only: [:create]
     resources :votes
     resources :users
-    
+
     namespace :organizer do
       resources :dashboard
       resources :organizations
