@@ -36,6 +36,15 @@
     }
   }
 
+  .bootstrap-horizontal-form {
+    .row {
+      label {
+        margin-bottom: 0;
+        line-height: 34px;
+      }
+    }
+  }
+
   .row { margin-bottom: 25px; }
   div.terms {
     overflow-y: scroll;

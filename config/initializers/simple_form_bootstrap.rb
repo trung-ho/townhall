@@ -122,6 +122,26 @@ SimpleForm.setup do |config|
     b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
   end
 
+  config.wrappers :bootstrap_horizontal_form, tag: 'div', class: 'form-group bootstrap-horizontal-form', error_class: 'has-error' do |b|
+    b.wrapper tag: 'div', class: 'row' do |r|
+      r.use :html5
+      r.use :placeholder
+      r.optional :maxlength
+      r.optional :pattern
+      r.optional :min_max
+      r.optional :readonly
+      r.wrapper tag: 'div', class: 'col-sm-3' do |ba|
+        ba.use :label, class: 'control-label'
+      end
+
+      r.wrapper tag: 'div', class: 'col-sm-9' do |ba|
+        ba.use :input, class: 'form-control'
+        ba.use :error, wrap_with: { tag: 'span', class: 'help-block' }
+        ba.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
+      end
+    end
+  end
+
   # Wrappers for forms and inputs using the Bootstrap toolkit.
   # Check the Bootstrap docs (http://getbootstrap.com)
   # to learn about the different styles for forms and inputs,
@@ -131,6 +151,6 @@ SimpleForm.setup do |config|
     check_boxes: :vertical_radio_and_checkboxes,
     radio_buttons: :vertical_radio_and_checkboxes,
     file: :vertical_file_input,
-    boolean: :vertical_boolean,
+    boolean: :vertical_boolean
   }
 end

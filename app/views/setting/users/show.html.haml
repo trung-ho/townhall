@@ -1,0 +1,32 @@
+#setting-users-show-container
+  .header.mobile
+    .icon.settings
+    Settings
+
+  .row
+    .col-xs-9.col-xs-offset-3.text-right
+      = link_to 'Edit info', edit_setting_user_path
+
+  .row
+    .col-xs-3 Name:
+    .col-xs-9= current_user.name.present? ? current_user.name : "[No field name in User]"
+
+  .row
+    .col-xs-3 Email:
+    .col-xs-9= current_user.email
+
+  .row
+    .col-xs-3 Password:
+    .col-xs-9 ******
+
+  .row
+    .col-xs-3 Birth year:
+    .col-xs-9= current_user.birth_year.present? ? current_user.birth_year : "[No field age in User]"
+
+  .row
+    .col-xs-3 Location:
+    .col-xs-9= current_user.location.present? ? current_user.location : "[No field location in User]"
+
+  .row
+    .col-xs-3 Sex:
+    .col-xs-9= current_user.gender.present? ? current_user.gender_text : "[No field sex in User]"

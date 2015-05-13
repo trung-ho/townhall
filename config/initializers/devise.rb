@@ -41,12 +41,12 @@ Devise.setup do |config|
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
-  config.case_insensitive_keys = [ :email ]
+  config.case_insensitive_keys = [:email]
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
-  config.strip_whitespace_keys = [ :email ]
+  config.strip_whitespace_keys = [:email]
 
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the
@@ -162,7 +162,7 @@ Devise.setup do |config|
   config.lock_strategy = :failed_attempts
 
   # Defines which key will be used when locking and unlocking an account
-  config.unlock_keys = [ :email ]
+  config.unlock_keys = [:email]
 
   # Defines which strategy will be used to unlock an account.
   # :email = Sends an unlock link to the user email
@@ -184,7 +184,7 @@ Devise.setup do |config|
   # ==> Configuration for :recoverable
   #
   # Defines which key will be used when recovering the password for an account
-  config.reset_password_keys = [ :email ]
+  config.reset_password_keys = [:email]
 
   # Time interval you can reset your password with a reset password key.
   # Don't put a too small interval or your users won't have the time to
@@ -233,10 +233,10 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  config.omniauth :facebook, "891069100935169", "d190ec4326d34843f770aecbe995bf39"
-  config.omniauth :twitter, "k17pOXNcLFyseWop2Zy1JY7aM", "KsXbRo0rjvZWmE96uZWuE84LSx7CZn7bbKNUCbLh5kdKlRJOb6"
-  config.omniauth :linkedin, "75qdt36huds7ih", "5id5hSobIkby4lax"
-  config.omniauth :google_oauth2, "649275840304-aonk5djio7rj7g09a5bf29qhg5jce5vl.apps.googleusercontent.com", "I2IlvUVSrjqHc46g6kV66-L7"
+  config.omniauth :facebook, '891069100935169', 'd190ec4326d34843f770aecbe995bf39'
+  config.omniauth :twitter, 'k17pOXNcLFyseWop2Zy1JY7aM', 'KsXbRo0rjvZWmE96uZWuE84LSx7CZn7bbKNUCbLh5kdKlRJOb6'
+  config.omniauth :linkedin, '75qdt36huds7ih', '5id5hSobIkby4lax'
+  config.omniauth :google_oauth2, '649275840304-aonk5djio7rj7g09a5bf29qhg5jce5vl.apps.googleusercontent.com', 'I2IlvUVSrjqHc46g6kV66-L7'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
@@ -244,8 +244,8 @@ Devise.setup do |config|
   #
   config.warden do |manager|
     manager.failure_app = CustomFailure
-  #   manager.intercept_401 = false
-  #   manager.default_strategies(scope: :user).unshift :some_external_strategy
+    #   manager.intercept_401 = false
+    #   manager.default_strategies(scope: :user).unshift :some_external_strategy
   end
 
   # ==> Mountable engine configurations
