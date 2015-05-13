@@ -1,9 +1,9 @@
 class OrganizationsController < ApplicationController
   
   def show
-    @questions = @organization.questions.where("end_date > ?", DateTime.now)
-    @pop_questions = @organization.questions.all[0..0]  
-    @old_questions = @organization.questions.where("end_date < ?", DateTime.now)  
+    @questions = @organization.questions.active
+    @pop_questions = @organization.questions.popular  
+    @old_questions = @organization.questions.ended 
   end
 
 end

@@ -1,38 +1,56 @@
-= link_to edit_organizer_organization_path(@organization) do
-  %h1= @organization.name
+= render partial: 'organizer/shared/top_menu'
 
-%ul.nav.nav-tabs#status-tabs
-  %li.active{:role => "presentation"}
-    %a.tab-link{:href => "#active"} Active
-  %li{:role => "presentation"}
-    %a.tab-link{:href => "#draft"} Draft
-  %li{:role => "presentation"}
-    %a.tab-link{:href => "#ended"} Ended
+.container
+  %h3= @organization.name
 
-#status-tabs.tab-content
-  #active.tab-pane.fade.active.in{"aria-labelledby" => "active-tab", :role => "tabpanel"}
-    %table.table
-      %thead
-        %td Title
-        %td Unique hits
-        %td Votes
-        %td Engagement
-        %td Details
-        %td Download
-      = render partial: 'organizer/dashboard/question', collection: @questions
+  %ul.nav.nav-tabs#status-tabs
+    %li.active{:role => "presentation"}
+      %a.tab-link{:href => "#active"} Active
+    %li{:role => "presentation"}
+      %a.tab-link{:href => "#draft"} Drafts
+    %li{:role => "presentation"}
+      %a.tab-link{:href => "#ended"} Ended
 
-  #draft.tab-pane.fade{"aria-labelledby" => "draft-tab", :role => "tabpanel"}
-    %p Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
-  #ended.tab-pane.fade{"aria-labelledby" => "ended-tab", :role => "tabpanel"}
-    %p Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.
-  
-= link_to 'New Voting',new_organizer_voting_path, class: 'btn'
+  #status-tabs.tab-content
+    #active.tab-pane.fade.active.in{"aria-labelledby" => "active-tab", :role => "tabpanel"}
+      %table.table
+        %thead
+          %td Title
+          %td Unique hits
+          %td Votes
+          %td Engagement
+          %td Details
+          %td Download
+        = render partial: 'organizer/dashboard/question', collection: @active_questions
 
-
+    #draft.tab-pane.fade{"aria-labelledby" => "draft-tab", :role => "tabpanel"}
+      %table.table
+        %thead
+          %td Title
+          %td Unique hits
+          %td Votes
+          %td Engagement
+          %td Details
+          %td Download
+        = render partial: 'organizer/dashboard/question', collection: @draft_questions
+    #ended.tab-pane.fade{"aria-labelledby" => "ended-tab", :role => "tabpanel"}
+      %table.table
+        %thead
+          %td Title
+          %td Unique hits
+          %td Votes
+          %td Engagement
+          %td Details
+          %td Download
+        = render partial: 'organizer/dashboard/question', collection: @ended_questions
+    
+  = link_to new_organizer_voting_path, class: 'btn btn-default' do
+    .fa.fa-plus
+    New Voting
 
 :javascript
   $(document).ready(function() {
-    $('#status-tabs > a.tab-link').click(function (e) {
+    $('#status-tabs a.tab-link').click(function (e) {
       e.preventDefault();
       $(this).tab('show');
     })

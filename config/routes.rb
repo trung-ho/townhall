@@ -58,7 +58,13 @@ Rails.application.routes.draw do
     namespace :organizer do
       resources :dashboard
       resources :organizations
-      resources :questions
+      
+      resources :questions do
+        member do 
+          get :report
+        end
+      end
+
       resources :votings
       resources :rankings
       resources :ideas

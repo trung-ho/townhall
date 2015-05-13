@@ -15,6 +15,17 @@ module Organizer
       end
     end
     
+    def report
+      @question = Question.find(params[:id])
+      respond_to do |format|
+        format.html
+        format.csv do
+          headers['Content-Disposition'] = "attachment; filename=\"report-q#{@question.id}\""
+          headers['Content-Type'] ||= 'text/csv'
+        end
+      end
+    end
+
     private
 
     def question_params

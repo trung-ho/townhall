@@ -1,0 +1,4 @@
+- headers = ['Voting', 'Unique hits', 'Votes', 'Engagement']
+
+= CSV.generate_line headers
+= CSV.generate_line([@question.title, @question.unique_visitors, @question.votes.count, "#{@question.engagement_percentage}%"])

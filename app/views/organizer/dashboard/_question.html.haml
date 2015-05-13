@@ -1,7 +1,9 @@
 %tr
-  %td= link_to question.title, edit_polymorphic_path([:organizer,question])
-  %td= question.votes.count #not implemented yet
+  %td
+    %i.fa.fa-edit  
+    =link_to question.title, edit_polymorphic_path([:organizer,question])
+  %td= question.unique_visitors
   %td= question.votes.count
-  %td -
+  %td= "#{question.engagement_percentage}%"
   %td= link_to 'View', organization_question_result_path(question)
-  %td= link_to 'Download', '#'  
+  %td= link_to "report-q#{question.id}.csv", report_organizer_question_path(question, format: :csv)  
