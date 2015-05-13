@@ -85,6 +85,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'quiet_assets'
+  gem 'shoulda'
   gem 'letter_opener'
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
