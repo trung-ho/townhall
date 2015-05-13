@@ -4,6 +4,7 @@ Rails.application.routes.draw do
                         sessions: "users/sessions",
                         registrations: 'users/registrations' }
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+  get '404', :to => 'application#page_not_found'
 
   constraints RootSubdomain do
     devise_for :admin_users, ActiveAdmin::Devise.config
