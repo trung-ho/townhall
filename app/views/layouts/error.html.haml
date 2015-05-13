@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %title The page you were looking for doesn't exist (404)
+    = stylesheet_link_tag 'error', media: 'all', 'data-turbolinks-track' => true
+  %body
+    .container
+      #content.row
+        .col-md-3
+          .logo.text-center
+            %img{:src => "/assets/crash/sad.png"}/
+        .col-md-9
+          .content
+            = yield
+    
