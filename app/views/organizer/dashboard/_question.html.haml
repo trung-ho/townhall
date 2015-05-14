@@ -5,5 +5,5 @@
   %td= question.unique_visitors
   %td= question.votes.count
   %td= "#{question.engagement_percentage}%"
-  %td= link_to 'View', organization_question_result_path(question)
+  %td= link_to 'View', report_organizer_question_path(question)
   %td= link_to "report-q#{question.id}.csv", report_organizer_question_path(question, format: :csv)  

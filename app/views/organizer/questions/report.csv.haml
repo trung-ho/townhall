@@ -1,7 +1,5 @@
 = CSV.generate_line ['Voting', 'Unique hits', 'Votes', 'Yes', 'No', 'Maybe', 'Engagement']
-
 - votes = @question.votes
-
 = CSV.generate_line([ @question.title, 
                       @question.unique_visitors, 
                       votes.count, 
@@ -9,7 +7,6 @@
                       votes.no.count,
                       votes.maybe.count,
                       "#{@question.engagement_percentage}%" ])
-
 = CSV.generate_line ['Vote', 'Location', 'Age', 'Sex']
 - @question.votes.each do |vote|
   - user = vote.user

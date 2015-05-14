@@ -1,0 +1,20 @@
+%h3 
+  = "#{vote_type} votes" 
+  %small= @question.votes.send(vote_type).count
+%h4 Gender breakdown
+%p 
+  Female votes: 
+  = @question.gendered_votes('female', vote_type).count
+%p
+  Male votes:
+  = @question.gendered_votes('male', vote_type).count
+%p
+  Unknown votes:
+  = @question.gendered_votes('unknown', vote_type).count
+ 
+%h4 
+  Locations
+  %ul
+    - @question.top_locations(vote_type).each do |loc|
+      %li= "#{loc[0]} (#{loc[1]})" unless loc[0].nil?
+       

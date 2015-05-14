@@ -1,0 +1,30 @@
+%h1= "Data Report: #{@organization.name}"
+%h3= "Question: #{@question.title}"
+
+%h4 
+  Start date
+  %small= @question.start_date.to_s
+%h4 
+  End date
+  %small= @question.end_date.to_s
+
+%h4 
+  Views
+  %small= "n/a"
+
+%h4 
+  Uniques
+  %small= @question.unique_visitors
+
+%h4 
+  Votes
+  %small= @question.votes.count
+
+%h4 
+  Engagement 
+  %small= @question.engagement_percentage
+
+
+= render partial: 'organizer/questions/detailed_stats', locals: {vote_type: 'yes'} 
+= render partial: 'organizer/questions/detailed_stats', locals: {vote_type: 'maybe'} 
+= render partial: 'organizer/questions/detailed_stats', locals: {vote_type: 'no'} 
