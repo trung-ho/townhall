@@ -1,4 +1,18 @@
-- headers = ['Voting', 'Unique hits', 'Votes', 'Engagement']
+= CSV.generate_line ['Voting', 'Unique hits', 'Votes', 'Yes', 'No', 'Maybe', 'Engagement']
 
-= CSV.generate_line headers
-= CSV.generate_line([@question.title, @question.unique_visitors, @question.votes.count, "#{@question.engagement_percentage}%"])
+- votes = @question.votes
+
+= CSV.generate_line([ @question.title, 
+                      @question.unique_visitors, 
+                      votes.count, 
+                      votes.yes.count, 
+                      votes.no.count,
+                      votes.maybe.count,
+                      "#{@question.engagement_percentage}%" ])
+
+= CSV.generate_line ['Vote', 'Location', 'Age', 'Sex']
+- @question.votes.each do |vote|
+  - user = vote.user
+  = CSV.generate_line [vote.vote_type, user.formatted_location, user.age, user.gender]
+  
+
