@@ -43,13 +43,24 @@ Rails.application.routes.draw do
 
     namespace :setting do 
       resource :user, only: [:show, :edit, :update]
+      resources :notifications, only: [:index] do 
+        collection do 
+          get :follow
+        end
+      end
     end
 
     resources :settings, only: [] do
       collection do
-        get :settings, :terms, :notifications, :my_townhall, :privacy, :submission_policy
+        get :terms, :my_townhall, :privacy, :submission_policy
       end
     end
+
+    resources :organization_followers, only: [] do 
+      get :toggle_receive_app_notifications
+      get :toggle_receive_email
+    end
+
     resources :feedbacks, only: [:new, :create]
     resources :reasons, only: [:create]
     resources :votes

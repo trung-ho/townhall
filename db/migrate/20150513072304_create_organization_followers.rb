@@ -1,8 +1,8 @@
-class CreateFollows < ActiveRecord::Migration
+class CreateOrganizationFollowers < ActiveRecord::Migration
   def change
-    create_table :follows do |t|
-      t.references :user, index: true
+    create_table :organization_followers do |t|
       t.references :organization, index: true
+      t.references :follower, index: true
       t.boolean :receive_app_notifications
       t.boolean :receive_email
     end

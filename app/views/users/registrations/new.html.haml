@@ -9,7 +9,13 @@
         .row.form-group
           .col-xs-8.col-xs-offset-2.text-center
             %p 
-              By registering you are accepting the townhall 
+              %label.reason.checkbox.info
+                = user_form.check_box :terms
+                %span.check-sign
+                %span.color-black.small-text.reason-content By registering you are accepting the townhall 
+              .has-error 
+                = user_form.error :terms
+              
               = link_to 'Terms of Use', root_path
             = user_form.button      :submit, 'Register',  class: 'btn btn-yes large-text'
 

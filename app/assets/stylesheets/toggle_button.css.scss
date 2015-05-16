@@ -1,0 +1,16 @@
+.toggle-button {
+  display: block;
+  margin: 0 auto;
+  width: 20px;
+  height: 20px;
+  background: image-url('blue-circle-box.png') no-repeat;
+  background-size: 20px auto;
+
+  &.button-yes {
+    background-position: 0px -20px;
+  }
+
+  &.button-no {
+    background-position: 0 0;
+  }
+}

@@ -11,16 +11,26 @@ class User < ActiveRecord::Base
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook, :twitter, :linkedin, :google_oauth2]
 
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
+  validates_acceptance_of :terms
 
   has_many :identities, :dependent => :destroy
   has_many :votes
   has_many :questions, through: :votes
   has_many :organizations, :dependent => :destroy
+  has_many :following_organizations, class: OrganizationFollower, foreign_key: :follower_id
 
   enumerize :gender, in: [:male, :female]
 
   def name
     "#{ first_name } #{ last_name }".strip
+  end
+
+  def follow(organization) 
+    organization_follower = OrganizationFollower.find_or_initialize_by(organization: organization, follower: self) 
+    return true if organization_follower.persisted?
+    organization_follower.receive_app_notifications = true
+    organization_follower.receive_email = true
+    organization_follower.save
   end
 
   def main_organization

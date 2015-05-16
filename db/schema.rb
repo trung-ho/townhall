@@ -57,16 +57,6 @@ ActiveRecord::Schema.define(version: 20150513072304) do
     t.datetime "updated_at"
   end
 
-  create_table "follows", force: true do |t|
-    t.integer "user_id"
-    t.integer "organization_id"
-    t.boolean "receive_app_notifications"
-    t.boolean "receive_email"
-  end
-
-  add_index "follows", ["organization_id"], name: "index_follows_on_organization_id", using: :btree
-  add_index "follows", ["user_id"], name: "index_follows_on_user_id", using: :btree
-
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
     t.integer  "sluggable_id",              null: false
@@ -87,6 +77,16 @@ ActiveRecord::Schema.define(version: 20150513072304) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "organization_followers", force: true do |t|
+    t.integer "organization_id"
+    t.integer "follower_id"
+    t.boolean "receive_app_notifications"
+    t.boolean "receive_email"
+  end
+
+  add_index "organization_followers", ["follower_id"], name: "index_organization_followers_on_follower_id", using: :btree
+  add_index "organization_followers", ["organization_id"], name: "index_organization_followers_on_organization_id", using: :btree
 
   create_table "organizations", force: true do |t|
     t.string   "name"
