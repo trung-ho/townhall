@@ -1,9 +1,3 @@
-.row.voting-info.mobile
-  .col-xs-6.text-right
-    = days_left(question.end_date)
-  .col-xs-6.text-left
-    = pluralize(question.votes.count, 'Vote')
-
 .know-more-about-you-mobile
 
 - content_for :javascript_includes do
