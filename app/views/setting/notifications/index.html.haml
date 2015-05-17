@@ -10,7 +10,7 @@
 
   - @following_organizations.each do |following_organization|
     .row
-      .col-xs-4.color-info= following_organization.organization_name
+      .col-xs-4.color-info= link_to following_organization.organization_name, root_url(subdomain: following_organization.organization_slug)
       .col-xs-4
         .text-center
           = receive_app_notifications_button(following_organization)
