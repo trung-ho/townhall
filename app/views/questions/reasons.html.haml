@@ -1,5 +1,6 @@
 - votes_chart = @question.vote_percentages
-= image_tag @question.organization.banner.desktop, id: 'organization_banner', id: 'organization_banner'
+= link_to (image_tag @question.organization.banner.desktop, id: 'organization_banner', id: 'organization_banner'), root_url(subdomain: @question.organization.slug)
+
 .container#voting.voting
   .voting-container
     .question
