@@ -1,8 +1,8 @@
-class OrganizationFollowersController < ApplicationController
+class FollowersController < ApplicationController
   before_action :authenticate_user!
 
-  def toggle_receive_app_notifications
-    organization_follower = OrganizationFollower.find(params[:organization_follower_id])
+  def toggle_notifications
+    organization_follower = OrganizationFollower.find(params[:id])
     return false if organization_follower.follower != current_user
     organization_follower.toggle(:receive_app_notifications).save
 
@@ -12,8 +12,8 @@ class OrganizationFollowersController < ApplicationController
     render :json =>  @json
   end
 
-  def toggle_receive_email
-    organization_follower = OrganizationFollower.find(params[:organization_follower_id])
+  def toggle_email
+    organization_follower = OrganizationFollower.find(params[:id])
     return false if organization_follower.follower != current_user
     organization_follower.toggle(:receive_email).save
 

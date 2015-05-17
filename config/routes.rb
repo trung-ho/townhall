@@ -48,6 +48,11 @@ Rails.application.routes.draw do
           get :follow
         end
       end
+      resources :posts, only: [] do 
+        collection do 
+          get :privacy
+        end
+      end
     end
 
     resources :settings, only: [] do
@@ -56,9 +61,11 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :organization_followers, only: [] do 
-      get :toggle_receive_app_notifications
-      get :toggle_receive_email
+    resources :followers, only: [] do 
+      member do 
+        get :toggle_notifications
+        get :toggle_email
+      end
     end
 
     resources :feedbacks, only: [:new, :create]
