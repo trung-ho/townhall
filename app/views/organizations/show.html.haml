@@ -1,41 +1,53 @@
-/ %h2= "Questions from #{@organization.name}"
-/ #organization_banner{style: "background-image: url(#{image_path Question.first.cover_image.mobile})"}
+#organizations-show-container
+  / %h2= "Questions from #{@organization.name}"
+  / #organization_banner{style: "background-image: url(#{image_path Question.first.cover_image.mobile})"}
 
-#organization
-  = link_to (image_tag @organization.banner.desktop, id: 'organization_banner'), root_url(subdomain: @organization.slug)
+  #organization
+    = link_to (image_tag @organization.banner.desktop, id: 'organization_banner'), root_url(subdomain: @organization.slug)
 
-  .container
-    %ul.nav.nav-pills
-      %li.active{:role => "presentation"}
-        %a{:href => "#recent", :data => {:toggle => 'tab'}} Current
-      %li{:role => "presentation"}
-        %a{:href => "#popular", :data => {:toggle => 'tab'}} Popular
-      %li{:role => "presentation"}
-        %a{:href => "#past", :data => {:toggle => 'tab'}} Past
-      %li.pull-right
-        .share-icon
-          Better World
-          %span.icon
+    .container
+      %ul.nav.nav-pills
+        %li.active{:role => "presentation"}
+          %a{:href => "#recent", :data => {:toggle => 'tab'}} Current
+        %li{:role => "presentation"}
+          %a{:href => "#popular", :data => {:toggle => 'tab'}} Popular
+        %li{:role => "presentation"}
+          %a{:href => "#past", :data => {:toggle => 'tab'}} Past
+        %li.pull-right
+          .share-icon
+            Better World
+            %span.icon
 
-    .tab-content
-      #recent.tab-pane.active
-        %ul
-          = render partial: 'organizations/question', collection: @questions || render(partial: 'organizations/no_questions')
-      #popular.tab-pane
-        %ul
-          = render partial: 'organizations/question', collection: @pop_questions || render(partial: 'organizations/no_questions')
-      #past.tab-pane
-        %ul
-          = render(partial: 'organizations/question', collection: @old_questions) || render(partial: 'organizations/no_questions')
+      .tab-content
+        #recent.tab-pane.active
+          %ul
+            = render partial: 'organizations/question', collection: @questions || render(partial: 'organizations/no_questions')
+          - if @questions.size >= 5
+            .organization
+              .see-more.btn.btn-info
+                %span.glyphicon.glyphicon-search
+                &nbsp;&nbsp;&nbsp;See more
+        #popular.tab-pane
+          %ul
+            = render partial: 'organizations/question', collection: @pop_questions || render(partial: 'organizations/no_questions')
 
-    - content_for :before_footer do
-      .organization.main-content
-        .see-more.btn.btn-info
-          %span.glyphicon.glyphicon-search
-          &nbsp;&nbsp;&nbsp;See more
+          - if @pop_questions.size >= 5
+            .organization
+              .see-more.btn.btn-info
+                %span.glyphicon.glyphicon-search
+                &nbsp;&nbsp;&nbsp;See more
+        #past.tab-pane
+          %ul
+            = render(partial: 'organizations/question', collection: @old_questions) || render(partial: 'organizations/no_questions')
+          - if @old_questions.size >= 5
+            .organization
+              .see-more.btn.btn-info
+                %span.glyphicon.glyphicon-search
+                &nbsp;&nbsp;&nbsp;See more
+        
 
-- content_for :open_graph do
-  %meta{:content => @organization.name, :property => "og:title"}/
-  %meta{:content => "Visit #{@organization.name} on townhall", :property => "og:description"}/
-  %meta{:content => @organization.banner.desktop, :property => "og:image"}/
-  %meta{:content => "Townhallapp.io", :property => "og:site_name"}/
+  - content_for :open_graph do
+    %meta{:content => @organization.name, :property => "og:title"}/
+    %meta{:content => "Visit #{@organization.name} on townhall", :property => "og:description"}/
+    %meta{:content => @organization.banner.desktop, :property => "og:image"}/
+    %meta{:content => "Townhallapp.io", :property => "og:site_name"}/
