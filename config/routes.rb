@@ -51,6 +51,7 @@ Rails.application.routes.draw do
       resources :posts, only: [] do 
         collection do 
           get :privacy
+          get :faq
         end
       end
     end
