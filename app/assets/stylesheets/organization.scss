@@ -7,8 +7,19 @@
 }
 
 #organization {
-  .question-desc, .vote-now, .question_image.desktop, .share-icon { display: none; }
+  .question-desc, .question_image.desktop, .share-icon{ display: none; }
   .question_image { width: 100%; }
+  .vote-now {
+    display: inline-block;
+    color: #fff;
+  }
+  .days-left {
+    float: left;
+  }
+  .vote-count, .days-left {
+    line-height: 30px;
+    font-size: 16px;
+  }
 }
 
 .organization .see-more { display: none; }
