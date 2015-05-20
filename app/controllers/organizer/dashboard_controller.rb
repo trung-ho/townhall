@@ -6,7 +6,9 @@ module Organizer
       if @organization.nil?
         redirect_to new_organizer_organization_path
       else
-        @questions = @organization.questions 
+        @active_questions = @organization.questions.active
+        @draft_questions = @organization.questions.drafts 
+        @ended_questions = @organization.questions.ended
       end
     end
 

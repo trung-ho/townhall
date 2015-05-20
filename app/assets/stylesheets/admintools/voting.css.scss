@@ -1,0 +1,20 @@
+.admin-form {
+  .btn { max-width: 15em;}
+  .description {
+    height: 10em;
+  }
+  #reasons {
+    .nested-fields {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .btn-danger {
+      margin-top: -29px;
+      float: right;
+    }
+    .links .add_fields {
+      margin: 10px;
+    }
+
+  }
+}
