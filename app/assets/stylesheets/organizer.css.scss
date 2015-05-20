@@ -1,41 +1,9 @@
 /*
-*= require_tree ./admintools
-*= require_self
+*= require font-kit-rails/open-sans
+*= require admintools/voting
 */
 
-// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
-
-body {
-  padding-top: 80px;
-  background-color: #eee;
-}
-
-/* For the organizers interface */
-
-.form-horizontal .control-label{
-   text-align:left !important; 
-}
-
-select.select-date {
-  width: 30%;
-  margin-right: 10px;
-  float: left;
-}
-.select-date-wrapper{
-  select:first-of-type{
-    width: 45%;
-  }
-  select:nth-of-type(2){
-    width: 20%;
-  }
-  select:last-of-type{
-    margin-right: 0;
-  }
-}
-
-.form-horizontal .control-label{
-   text-align:left !important; 
-}
+@import "admintools/all";

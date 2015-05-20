@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  pool: 5
+  timeout: 5000
+  username: postgres
+  password: 
+
+development:
+  <<: *default
+  database: townhall_development
+
+test:
+  <<: *default
+  database: townhall_test

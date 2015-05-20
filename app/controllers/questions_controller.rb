@@ -2,6 +2,7 @@ class QuestionsController < ApplicationController
    before_action :set_question, only: [:show, :reasons, :result, :edit, :update, :destroy]
    before_filter :authenticate_user!, only: [:reasons, :result, :edit, :update, :destroy]
    before_filter :store_location
+   before_filter :set_as_visited
 
   def show
   end
@@ -50,5 +51,10 @@ class QuestionsController < ApplicationController
 
   def store_location
     session["user_return_to"] = request.original_url
+  end
+
+  def set_as_visited
+    @question.increase_unique_visitors  unless session["visited-#{@question.id}"]
+    session["visited-#{@question.id}"] = true
   end
 end
