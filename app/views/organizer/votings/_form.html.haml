@@ -6,7 +6,7 @@
   .form-group
     = f.label :description, :class => 'col-lg-2 control-label' 
     .col-lg-10
-      = f.text_area :description, label: 'Description', as: :text, class: 'form-control'
+      = f.text_area :description, label: 'Description', as: :text, class: 'form-control description'
   .row
     .col-md-6
       .form-group
@@ -39,8 +39,18 @@
         = f.check_box :pre_moderation
         = f.label :pre_moderation
   .form-group
-    .col-xs-2
-      = f.button :submit, class: 'btn btn-sm btn-default btn-block'
+    = f.button :submit, name: "voting[draft]", value: false, class: 'btn btn-sm btn-default' do
+      .fa.fa-thumbs-up
+      Publish
+
+    = f.button :submit, name: "voting[draft]", value: true, class: 'btn btn-sm btn-default' do
+      .fa.fa-edit
+      Save Draft
+    - if @voting.draft?
+      = link_to organization_question_path(@voting), class: 'btn btn-sm btn-default' do
+        .fa.fa-edit
+        Preview
+        
 :javascript  
   $(".dateable").datepicker({
                  prevText: '<i class="fa fa-chevron-left"></i>',

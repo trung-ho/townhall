@@ -22,6 +22,6 @@ module TownhallSocial
 
     # For Foundation 5
     config.assets.precompile += %w( vendor/modernizr )
-    config.exceptions_app = self.routes
+    config.exceptions_app = routes
   end
 end

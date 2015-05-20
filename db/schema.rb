@@ -132,6 +132,8 @@ ActiveRecord::Schema.define(version: 20150513072304) do
     t.hstore   "properties"
     t.string   "cover_image"
     t.string   "question_image"
+    t.integer  "unique_visitors", default: 0
+    t.boolean  "draft"
   end
 
   create_table "rankable_items", force: true do |t|
