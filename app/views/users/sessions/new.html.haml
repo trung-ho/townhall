@@ -1,4 +1,4 @@
-%h3.login_header.text-center Make your vote COUNT and UNLOCK cool features !
+%h3.login_header.text-center= "Welcome back. If you don’t have an account then #{link_to 'Register here', new_registration_path(resource_name)}!".html_safe
 .container.login
   .row
     .col-md-6.col-md-offset-3
@@ -26,9 +26,4 @@
               = f.check_box :remember_me, checked: true
               %span.check-sign
               %span.color-black.small-text.reason-content Remember me
-      .col-xs-12.text-center
-        %p.decorated
-          %span or
-        %p.no_account Don't have an account?
-        = link_to "Register", new_registration_path(resource_name), class: 'large-text'
 

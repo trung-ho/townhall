@@ -1,0 +1,38 @@
+.shared-addthis-container {
+  text-align: center;
+
+  h4 {
+    color: #fc6f4c;
+    font-size: 24px;
+    font-family: 'Lato', sans-serif;
+    position: relative;
+    display: inline-block;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 15px;
+
+    &:before, &:after {
+      position: absolute;
+      top: 0;
+      font-family: FontAwesome;
+      font-size: 20px;
+    }
+
+    &:before {
+      left: 0;
+      content: "\f087";
+      -ms-transform:rotate(20deg);     
+      -webkit-transform:rotate(20deg); 
+      transform:rotate(20deg);   
+    }
+
+    &:after {
+      top: 5px;
+      right: 0;
+      content: "\f064";
+      -ms-transform:rotate(150deg);     
+      -webkit-transform:rotate(150deg); 
+      transform:rotate(150deg);      
+    }
+  }
+}

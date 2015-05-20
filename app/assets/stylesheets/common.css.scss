@@ -1,7 +1,7 @@
 @import 'common_variables';
 
 body {
-  padding: 64px 0;
+  padding: 64px 0 0 0;
 }
 
 strong { font-weight: 700; }
@@ -276,8 +276,13 @@ input.form-control, textarea.form-control, select.form-control { background-colo
 h3.login_header {
   background-color: #ef3333;
   padding: 10px 20px 10px 20px;
-  color: white;
   font-weight: bold;
+  color: white;
+
+  a {
+    text-decoration: underline;
+    color: white;
+  }
 }
 .login {
   .forgot-password { line-height: 40px; }
