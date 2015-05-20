@@ -33,6 +33,16 @@ class User < ActiveRecord::Base
     organization_follower.save
   end
 
+  def age 
+    dob = Date.new(birth_year.to_i)
+    now = Time.now.utc.to_date
+    now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
+  end
+  
+  def formatted_location
+    location ? location.gsub(',', ' -') : 'n/a'
+  end
+  
   def main_organization
     organizations.last
   end

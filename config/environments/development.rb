@@ -1,13 +1,13 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-# http://sourcey.com/rails-4-omniauth-using-devise-with-twitter-facebook-and-linkedin/
-# The following code was added and commented out as part of the omniauth configuration
-# Lets just see if we need it
+  # http://sourcey.com/rails-4-omniauth-using-devise-with-twitter-facebook-and-linkedin/
+  # The following code was added and commented out as part of the omniauth configuration
+  # Lets just see if we need it
 
-config.app_domain = 'localhost:3000'
+  config.app_domain = 'localhost:3000'
 
-# Email
+  # Email
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default_url_options = { host: config.app_domain }
@@ -20,7 +20,6 @@ config.app_domain = 'localhost:3000'
     authentication: :plain,
     domain: 'smoothdevelopments.com.au'
   }
-
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -38,7 +37,7 @@ config.app_domain = 'localhost:3000'
   config.action_mailer.raise_delivery_errors = false
 
   # Set email default for Devise
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
