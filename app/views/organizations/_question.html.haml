@@ -14,9 +14,8 @@
       .voting_stats
         .days-left
           = days_left(question.end_date)
-        .divider
         .vote-count
           = pluralize(question.votes.count, 'Vote')
-      = link_to organization_question_url(question), class: 'vote-now btn btn-no pull-right' do
-        %span.glyphicon.glyphicon-ok
-        ote now
+        = link_to organization_question_url(question), class: 'vote-now btn btn-no pull-right' do
+          %span.glyphicon.glyphicon-ok
+          ote now
