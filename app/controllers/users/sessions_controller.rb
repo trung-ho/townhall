@@ -23,10 +23,10 @@ class Users::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.for(:sign_in) << :attribute
   # end
   def set_layout
-      self.class.layout 'application'
-      if RootSubdomain.matches?(request)
-        self.class.layout 'organizer'
-        logger.debug("Subdomain: #{request.subdomain}")
-      end
+    self.class.layout 'application'
+    if RootSubdomain.matches?(request)
+      self.class.layout 'organizer'
+      logger.debug("Subdomain: #{request.subdomain}")
     end
+  end
 end

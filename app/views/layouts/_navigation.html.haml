@@ -2,7 +2,7 @@
   .navbar-header
     = link_to 'Home', root_path, class: 'navbar-icon home', alt: 'home'
     = link_to 'Contact', '#contact-popup', class: 'navbar-icon contact', alt: 'contact', data: { toggle: 'popup' }
-    = link_to 'Follow', '#follow-popup', class: 'navbar-icon follow', alt: 'rss feed', data: { toggle: 'popup' }
+    = link_to 'Follow', '#follow-popup', class: 'navbar-icon follow follow-organization', alt: 'rss feed', data: { toggle: 'popup', href: follow_setting_notifications_url }
 
     #nav-toggle-btn.pull-right(data-toggle='offcanvas' data-target='#townhall-nav')
       .nav-toggle-icon
@@ -17,7 +17,7 @@
       %li.settings
         = link_to 'Settings', setting_user_path
       %li.notif
-        = link_to 'Notifications', notifications_settings_path
+        = link_to 'Notifications', setting_notifications_path
       %li.terms
         = link_to 'Terms of Use', terms_settings_path
       %li.submission
@@ -58,4 +58,4 @@
 
   .text-center
     You can change your preferences by going to
-    = link_to "@townhall notifications", notifications_settings_path
+    = link_to "@townhall notifications", setting_notifications_path

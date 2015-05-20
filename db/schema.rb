@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150511080235) do
+ActiveRecord::Schema.define(version: 20150513072304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,16 @@ ActiveRecord::Schema.define(version: 20150511080235) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "organization_followers", force: true do |t|
+    t.integer "organization_id"
+    t.integer "follower_id"
+    t.boolean "receive_app_notifications"
+    t.boolean "receive_email"
+  end
+
+  add_index "organization_followers", ["follower_id"], name: "index_organization_followers_on_follower_id", using: :btree
+  add_index "organization_followers", ["organization_id"], name: "index_organization_followers_on_organization_id", using: :btree
 
   create_table "organizations", force: true do |t|
     t.string   "name"

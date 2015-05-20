@@ -16,3 +16,5 @@
 //= require jasny-bootstrap.min
 //= require townhall
 //= require organization
+//= require toggle_button
+//= require follow
