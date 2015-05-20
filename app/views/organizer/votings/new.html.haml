@@ -1,25 +1,30 @@
-= form_for [:organizer, @voting], html: { role: 'form', class: 'form-horizontal', multipart: true} do |f|
-  .col-md-8
-    .panel
-      .panel-heading
-        %span.panel-title Info
-      = render partial: 'organizer/votings/form', locals: {f: f}   
-  .col-md-4#reasons
-    .panel
-      .panel-heading
-        %span.panel-title Reasons For
-      .reasons_for
-        = f.fields_for :reasons_for do |reasons_for|
-          = render 'reasons_for_fields', f: reasons_for
-        .links
-          = link_to_add_association 'Add another reason', f, :reasons_for, class: 'btn btn-default btn-xs'
-    .panel
-      .panel-heading
-        %span.panel-title Reasons Against
-      .reasons_against
-        = f.fields_for :reasons_against do |reasons_against|
-          = render 'reasons_for_fields', f: reasons_against
-        .links
-          = link_to_add_association 'Add another reason', f, :reasons_against, class: 'btn btn-default btn-xs'
+= render partial: 'organizer/shared/top_menu'
 
-      
+.container
+  %h3= @organization.name
+
+  = form_for [:organizer, @voting], html: { role: 'form', class: 'form-horizontal', multipart: true} do |f|
+    .col-md-8
+      .panel
+        .panel-heading
+          %span.panel-title Info
+        = render partial: 'organizer/votings/form', locals: {f: f}   
+    .col-md-4#reasons
+      .panel
+        .panel-heading
+          %span.panel-title Reasons For
+        .reasons_for
+          = f.fields_for :reasons_for do |reasons_for|
+            = render 'reasons_for_fields', f: reasons_for
+          .links
+            = link_to_add_association 'Add another reason', f, :reasons_for, class: 'btn btn-default btn-xs'
+      .panel
+        .panel-heading
+          %span.panel-title Reasons Against
+        .reasons_against
+          = f.fields_for :reasons_against do |reasons_against|
+            = render 'reasons_for_fields', f: reasons_against
+          .links
+            = link_to_add_association 'Add another reason', f, :reasons_against, class: 'btn btn-default btn-xs'
+
+        
