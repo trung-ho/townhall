@@ -1,6 +1,4 @@
 .container
-  %h3= @organization.name
-
   %ul.nav.nav-pills#status-tabs
     %li.active{:role => "presentation"}
       %a.tab-link{:href => "#active"} Active
@@ -12,39 +10,33 @@
   #status-tabs.tab-content
     #active.tab-pane.fade.active.in{"aria-labelledby" => "active-tab", :role => "tabpanel"}
       %table.table
-        %thead
-          %td Title
-          %td Unique hits
-          %td Votes
-          %td Engagement
-          %td Details
-          %td Download
+        = render partial: 'organizer/dashboard/table_header'
         = render partial: 'organizer/dashboard/question', collection: @active_questions
 
     #draft.tab-pane.fade{"aria-labelledby" => "draft-tab", :role => "tabpanel"}
       %table.table
-        %thead
-          %td Title
-          %td Unique hits
-          %td Votes
-          %td Engagement
-          %td Details
-          %td Download
+        = render partial: 'organizer/dashboard/table_header'
         = render partial: 'organizer/dashboard/question', collection: @draft_questions
     #ended.tab-pane.fade{"aria-labelledby" => "ended-tab", :role => "tabpanel"}
       %table.table
-        %thead
-          %td Title
-          %td Unique hits
-          %td Votes
-          %td Engagement
-          %td Details
-          %td Download
+        = render partial: 'organizer/dashboard/table_header'
         = render partial: 'organizer/dashboard/question', collection: @ended_questions
-    
-  = link_to new_organizer_voting_path, class: 'btn btn-default' do
-    .fa.fa-plus
-    New Voting
+  #new-question-block  
+    .col-sm-4.type-enabled
+      = link_to new_organizer_voting_path, class: 'btn-add-question' do
+        Add new voting question
+      = image_tag 'admin/question.png', class: 'add-question-image center-block'
+      %p This is a yes/no question. Participants can vote on reasons for and against, or add their own reasons.
+    .col-sm-4
+      = link_to new_organizer_voting_path, class: 'btn-add-question' do
+        Add new voting question
+      = image_tag 'admin/lock.png', class: 'add-question-image center-block'
+      %p You need to upgrade first to unlock this feature.
+    .col-sm-4
+      = link_to new_organizer_voting_path, class: 'btn-add-question' do
+        Add new voting question
+      = image_tag 'admin/lock.png', class: 'add-question-image center-block'
+      %p You need to upgrade first to unlock this feature.
 
 :javascript
   $(document).ready(function() {

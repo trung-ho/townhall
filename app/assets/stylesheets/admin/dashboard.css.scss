@@ -1,0 +1,56 @@
+.nav-pills a.tab-link  {
+  font-weight: bold;
+}
+
+#status-tabs {
+  li {
+    margin-right: 15px;
+    width: 120px; 
+  }
+  li a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .table {
+    td {
+      text-align: center;
+    }
+    td:first-child {
+      text-align: left;
+    }
+  }
+}
+
+#new-question-block {
+  margin-top: 50px;
+  a.btn-add-question {
+    display: block;
+    padding: 8px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid white;
+    border-radius: 7px;
+    background-color: #666;
+    &:hover {
+      color: white;
+      text-decoration: none;
+    }
+  }
+  img.add-question-image {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .type-enabled {
+    a.btn-add-question {
+      background-color: #c5dd37;
+      &:hover {background-color: darken(#c5dd37, 8%)}
+    }
+    p {
+      display: block;
+      padding: 10px;
+      border-radius: 10px;
+      background-color: #f0f6cd;
+    }
+  }
+}

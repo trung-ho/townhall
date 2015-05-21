@@ -6,4 +6,7 @@
   %td= question.votes.count
   %td= "#{question.engagement_percentage}%"
   %td= link_to 'View', report_organizer_question_path(question)
-  %td= link_to "report-q#{question.id}.csv", report_organizer_question_path(question, format: :csv)  
+  %td.download_button
+    = link_to report_organizer_question_path(question, format: :csv) do 
+      %i.fa.fa-download
+      CSV  
