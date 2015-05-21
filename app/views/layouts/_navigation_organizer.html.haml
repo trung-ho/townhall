@@ -1,0 +1,58 @@
+%nav.navbar.navbar-default.navbar-fixed-top.navbar-admin{"role" => "navigation"}
+  .navbar-header-border
+  .navbar-header
+    .nav-item.active
+      = link_to 'Questions', organizer_dashboard_index_path, class: 'tab-link'
+    .nav-item
+      = link_to 'Organization', edit_organizer_organization_path(@organization), class: 'tab-link'
+
+    #nav-toggle-btn.pull-right(data-toggle='offcanvas' data-target='#townhall-nav')
+      .nav-toggle-icon
+
+#townhall-nav.navmenu.navmenu-fixed-right.offcanvas
+  .logo-div
+    = image_tag("townhall-logo.png", class: 'logo')
+  %ul
+    - if user_signed_in?
+      %li.history
+        = link_to 'History', my_townhall_settings_path
+      %li.settings
+        = link_to 'Settings', setting_user_path
+      %li.notif
+        = link_to 'Notifications', setting_notifications_path
+      %li.terms
+        = link_to 'Terms of Use', terms_settings_path
+      %li.submission
+        = link_to 'Submission Policy', submission_policy_settings_path
+      %li.privacy
+        = link_to 'Privacy Policy', privacy_setting_posts_path
+      %li.privacy
+        = link_to 'FAQ', faq_setting_posts_path
+      %li.logout
+        = link_to 'Logout', destroy_user_session_path, :method => :delete
+    - else
+      %li
+        = link_to 'Login', new_user_session_path
+
+#contact-popup.popup
+  %h4=@organization.name.capitalize
+  .row
+    .col-xs-3 Phone:
+    .col-xs-9= @organization.phone || 'NA'
+  .row
+    .col-xs-3 Email:
+    .col-xs-9= @organization.email || 'NA'
+  .row
+    .col-xs-3 Website:
+    .col-xs-9= @organization.website || 'NA'
+  - if @organization.facebook.present? || @organization.twitter.present?
+    .row
+      .col-xs-12 Follow us on:
+    .row
+      .col-xs-12
+        - if @organization.facebook.present?
+          = link_to @organization.facebook do
+            = image_tag('facebook-color.png')
+        - if @organization.twitter.present?
+          = link_to @organization.twitter do
+            = image_tag('twitter-color.png')

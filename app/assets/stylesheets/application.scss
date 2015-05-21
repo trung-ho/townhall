@@ -10,6 +10,7 @@
 *= require desktop_organization
 *= require desktop_question
 *= require desktop_settings
+*= require admin/common
 */
 @import "bootstrap-sprockets";
 @import 'variables_n_overrides';

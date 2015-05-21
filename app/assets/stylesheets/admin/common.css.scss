@@ -1,0 +1,65 @@
+@import 'common_variables';
+@import 'variables_n_overrides';
+
+.navbar-admin {
+  position: relative;
+  height: 50px !important;
+  .navbar-header-border {
+    position: absolute;
+    top: 48px;
+    height: 2px;
+    width: 100%;
+    background-color: #eee;
+    z-index: -1;
+  }
+  .nav-item {
+    display: inline-block;
+    height: 50px;
+    margin: 0px 15px 0 15px;
+  }
+  a.tab-link {
+    display: block;
+    padding-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #aaa;
+  }
+  .nav-item.active {
+    border-bottom: 2px solid $brand-primary;
+    a.tab-link {
+      color: $brand-primary;
+    }
+  }
+}
+
+#townhall-nav {
+  .logo-div {
+    height: 40px !important;
+  }
+  img.logo {
+    margin-top: 15px !important;
+  }
+}
+
+/* Datapicker */
+#ui-datepicker-div {
+  background-color: #eee;
+  
+  select.select-date {
+    width: 30%;
+    margin-right: 10px;
+    float: left;
+  }
+  .select-date-wrapper{
+    select:first-of-type{
+      width: 45%;
+    }
+    select:nth-of-type(2){
+      width: 20%;
+    }
+    select:last-of-type{
+      margin-right: 0;
+    }
+  }
+  
+}

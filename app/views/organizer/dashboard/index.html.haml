@@ -1,9 +1,7 @@
-= render partial: 'organizer/shared/top_menu'
-
 .container
   %h3= @organization.name
 
-  %ul.nav.nav-tabs#status-tabs
+  %ul.nav.nav-pills#status-tabs
     %li.active{:role => "presentation"}
       %a.tab-link{:href => "#active"} Active
     %li{:role => "presentation"}

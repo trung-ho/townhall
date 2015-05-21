@@ -1,9 +1,11 @@
 /*
-*= require font-kit-rails/open-sans
+*= require font-awesome
+*= require admintools/custom
 *= require admintools/voting
 */
 
+@import 'admintools/variables_n_overrides';
+@import 'common_variables';
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "font-awesome";
-@import "admintools/all";
