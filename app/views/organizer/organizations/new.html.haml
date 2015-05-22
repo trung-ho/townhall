@@ -9,12 +9,18 @@
         .step
       
     %p Create your unique address for your townhall
+    %p Choose something that best represents your organization.
+    %p It's difficult to change this later, so take your time to creat what you want.
     
     #sign_in_form
       = form_for [:organizer, @organization] do |f|
-        = f.text_field :slug
-        = f.submit '.townhallapp.io'
-
+        .col-sm-8
+          = f.text_field :slug, class: 'form-control'
+        .col-sm-4
+          %label.our_site .townhallapp.io
+        .col-sm-12
+          %small.red Your custom url can only contain letters, numbers and dashes (and must start with a letter).
+        = f.submit 'Next', class: 'btn btn-yes'
   .col-sm-6.hidden-xs
     .signup_image= image_tag 'admin/featured-image.png'
 

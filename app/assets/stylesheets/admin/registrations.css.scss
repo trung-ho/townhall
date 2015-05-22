@@ -6,4 +6,41 @@
   .signup_image img {
     width: 100%;
   }
+  #steps {
+    h2 {margin-bottom: 0px;}
+  }
+  #steps .progress_bar {
+    margin-bottom: 15px;
+    .step {
+      display: inline-block;
+      margin-right: 10px;
+      width: 30%;
+      height: 5px;
+      background-color: #666;
+    }
+    .doing {
+      background-color: #3acccb;
+    }
+    .done {
+      background-color: #3acccb;
+    }
+  }
+
+  #sign_in_form {
+    .our_site {
+      min-width: 8em;
+      background-color: #3acccb;
+      border: 1px solid white;
+      border-radius: 5px;
+      padding: 8px 10px 5px 8px;
+      color: white;
+      font-weight: bold;
+    }
+    .btn-yes {
+      margin-top: 20px;
+      width: 8em;
+      font-weight: bold;
+    }
+  }
+
 }

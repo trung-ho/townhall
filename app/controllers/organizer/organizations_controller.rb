@@ -11,7 +11,7 @@ module Organizer
       @organization = current_user.organizations.new(organization_params)
       @organization.name = 'No name yet'
       if @organization.save
-        redirect_to  edit_organizer_organization_path(@organization)
+        redirect_to edit_organizer_organization_path(@organization)
       end
     end
 

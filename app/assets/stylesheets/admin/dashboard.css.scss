@@ -23,6 +23,13 @@
 
 #new-question-block {
   margin-top: 50px;
+  .col-sm-4:first-child {
+     padding-left: 0;
+  }
+  .col-sm-4:last-child {
+     padding-right: 0;
+  }
+
   a.btn-add-question {
     display: block;
     padding: 8px;
