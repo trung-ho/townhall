@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     end
 
     unauthenticated :user do
-      root 'organizer/pages#home'
+      root 'organizer/registrations#new'
     end
 
     resources :users
