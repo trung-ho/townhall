@@ -1,1 +1,20 @@
-= render partial: 'form'
+#admin_registrations
+  .col-sm-6
+    = image_tag 'townhall-logo.png'
+    #steps
+      %h2 Step 2 of 3
+      .progress_bar
+        .step.done
+        .step.doing
+        .step
+      
+    %p Create your unique address for your townhall
+    
+    #sign_in_form
+      = form_for [:organizer, @organization] do |f|
+        = f.text_field :slug
+        = f.submit '.townhallapp.io'
+
+  .col-sm-6.hidden-xs
+    .signup_image= image_tag 'admin/featured-image.png'
+

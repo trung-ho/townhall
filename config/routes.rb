@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   get '404', to: 'application#page_not_found'
 
   constraints RootSubdomain do
+    devise_scope :user do
+      get "/organizer/sign_in" => "organizer/sessions#new"
+      get "/organizer/sign_up" => "organizer/registrations#new"
+    end
+
     devise_for :admin_users, ActiveAdmin::Devise.config
     ActiveAdmin.routes(self)
 
@@ -29,6 +34,7 @@ Rails.application.routes.draw do
         get 'member_home'
       end
     end
+
   end
 
   constraints Subdomain do
