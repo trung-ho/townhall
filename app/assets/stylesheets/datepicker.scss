@@ -1,0 +1,27 @@
+.datepicker {
+  font-family: 'Lato', sans-serif;
+
+  .datepicker-days {
+    padding: 10px;
+  }
+
+  th, td {
+    cursor: pointer;
+
+    span {
+      display: inline-block; 
+      padding: 3px 4px;
+    }
+  }
+
+  .datepicker-switch, th.next, th.prev {
+    text-align: center;
+    color: #3acccb;
+    font-size: 16px;
+  }
+
+  td.day {
+    padding: 3px 10px;
+    text-align: right;
+  }
+}

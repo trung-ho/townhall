@@ -1,5 +1,6 @@
 module QuestionsHelper
   def days_left(day)
+    return if day.nil? 
     day = day.to_date
     if day > Date.today
       "#{ pluralize((day - Date.today).to_i, 'Day') } left"

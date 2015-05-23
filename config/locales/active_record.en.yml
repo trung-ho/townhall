@@ -3,3 +3,7 @@ en:
     attributes:
       user:
         gender: "Sex"
+      voting: 
+        title: 'Question'
+        question_image: 'Featured image'
+        options: 'Option'
