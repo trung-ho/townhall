@@ -1,43 +1,25 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {
-    omniauth_callbacks: 'users/omniauth_callbacks',
-    sessions: 'users/sessions',
-    registrations: 'users/registrations' }
-  match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
-  get '404', to: 'application#page_not_found'
 
   constraints RootSubdomain do
-    devise_scope :user do
-      get "/organizer/sign_in" => "organizer/sessions#new"
-      get "/organizer/sign_up" => "organizer/registrations#new"
-    end
-
-    devise_for :admin_users, ActiveAdmin::Devise.config
-    ActiveAdmin.routes(self)
-
-    # You can have the root of your site routed with "root"
-    authenticated :user do
-      root 'organizer/dashboard#index', as: :authenticated_root
-    end
-
-    unauthenticated :user do
-      root 'organizer/registrations#new'
-    end
-
-    resources :users
-
+    devise_for :admin_users
+    #, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
     namespace :organizer do
-      resources :dashboard
+      resources :dashboard, only: [:index]
       resources :organizations
       resources :pages do
         get 'home'
         get 'member_home'
       end
     end
-
+    
+    
+    root to: 'organizer/dashboard#index'
+    
+    match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
   end
 
   constraints Subdomain do
+    devise_for :users
     scope as: 'organization' do
       root 'organizations#show'
       resources :questions, only: [:show] do
@@ -96,4 +78,6 @@ Rails.application.routes.draw do
       resources :reasons
     end
   end
+  
+  get '404', to: 'application#page_not_found'
 end
