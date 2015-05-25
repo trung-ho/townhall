@@ -4,6 +4,9 @@ module Organizer
     
     def new
       @voting = Voting.new
+      @voting.reasons_for.new
+      @voting.reasons_against.new
+      @voting.reasons_maybe.new
     end
 
     def create
@@ -11,7 +14,9 @@ module Organizer
       @voting = organization.votings.new(voting_params)
 
       if @voting.save
-        redirect_to edit_organizer_voting_path(@voting)
+        redirect_to edit_organizer_voting_path(@voting), notice: 'Question was successfully created.'
+      else
+        render :new
       end
     end
 

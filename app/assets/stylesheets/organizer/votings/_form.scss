@@ -1,0 +1,94 @@
+.organizer-votings-form-container {
+  button {
+    &:focus, &:visited {
+      outline: none;
+    }
+  }
+  .photo-group {
+    position: relative;
+
+    .photo-wrap {
+      min-height: 240px;
+
+      .photo {
+        max-width: 100%;
+      }
+    }
+
+    .fileupload-wrap {
+      margin: 20px 0;
+
+      .fileupload {
+        position: absolute;
+        opacity: 0;
+        -moz-opacity: 0;
+        filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+      }
+
+      button {
+        background: url('icon-upload.png') no-repeat 10% 50% #fc6f4c;
+        font-size: 16px;
+        padding: 8px 20px 7px 34px;
+        width: 100%;
+        color: #fff;
+      }
+    }
+  } 
+
+  #reasons_for, #reasons_against, #reasons_maybe {
+    border: 2px solid #e7e7e2;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin: 20px 0;
+
+    h2 {
+      margin: 0 0 10px 0;
+      font-size: 25px;
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    ol {
+      margin: 0;
+      padding: 0;
+    }
+
+    input[type=text] {
+      margin: 10px 0;
+    }
+
+    .btn {
+      margin: 10px 0 5px 0;
+      width: 100%;
+      color: #fff;
+      background: #3acccb;
+      border: none;
+      padding: 10px 0;
+    }
+  }
+
+  #reasons_for h2 { color: #c5dd37 }
+
+  #reasons_against h2 { color: #fc6f4c }
+
+  #reasons_maybe h2 { color: #616161 }
+
+  #form-control {
+    margin-bottom: 30px;
+
+    .btn-block {
+      color: #fff;
+      font-size: 20px;
+      padding: 5px 10px;
+      margin: 5px 0;
+      background: #616161;
+
+      &.btn-publish {
+        background: #3acccb;
+      }
+    }
+  }
+}

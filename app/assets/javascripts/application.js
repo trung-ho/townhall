@@ -13,8 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require bootstrap-datepicker/core
 //= require jasny-bootstrap.min
 //= require townhall
 //= require organization
 //= require toggle_button
 //= require follow
+//= require file_upload_reader
+//= require cocoon

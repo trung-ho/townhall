@@ -74,6 +74,7 @@ gem 'carrierwave', '0.10.0'
 gem 'rmagick'
 gem "fog"
 gem 'enumerize'
+gem 'bootstrap-datepicker-rails'
 
 #for slugs
 gem 'friendly_id', '~> 5.1.0'

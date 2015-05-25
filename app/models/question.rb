@@ -10,6 +10,9 @@ class Question < ActiveRecord::Base
   scope :popular, ->  { active[0..0]  }
   scope :drafts, ->  { where(draft: true) }
 
+  validates :title,       presence: true
+  validates :description, presence: true
+
   def vote_percentages
     total = votes.count.to_f
     yes_count = votes.yes.count

@@ -16,9 +16,9 @@
 */
 @import "bootstrap-sprockets";
 @import 'variables_n_overrides';
-
 @import "bootstrap";
 @import "common";
+@import "datepicker";
 
 @import "toggle_button";
 
@@ -30,3 +30,7 @@
 @import "questions/show";
 
 @import "organizations/show";
+
+@import "organizer/votings/new";
+@import "organizer/votings/form";
+
