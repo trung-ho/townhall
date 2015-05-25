@@ -4,7 +4,7 @@ Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-  config.secret_key = 'fc43f76c211a68b0daf62648a6cc23af3aebe2f022fa5736088385d91fab9420b6e50e6c3a5072df55abc1bba461a0d04f5c30f71a94cb247ef5e3f27d3d00fb'
+  # config.secret_key = 'fc43f76c211a68b0daf62648a6cc23af3aebe2f022fa5736088385d91fab9420b6e50e6c3a5072df55abc1bba461a0d04f5c30f71a94cb247ef5e3f27d3d00fb'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -205,15 +205,15 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  config.scoped_views = false
+  # config.scoped_views = false
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
-  config.default_scope = :user
+  # config.default_scope = :user
 
   # Set this configuration to false if you want /users/sign_out to sign out
   # only the current scope. By default, Devise signs out all scopes.
-  config.sign_out_all_scopes = true
+  # config.sign_out_all_scopes = true
 
   # ==> Navigation configuration
   # Lists the formats that should be treated as navigational. Formats like
@@ -233,10 +233,10 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  #config.omniauth :facebook, '891069100935169', 'd190ec4326d34843f770aecbe995bf39'
-  #config.omniauth :twitter, 'k17pOXNcLFyseWop2Zy1JY7aM', 'KsXbRo0rjvZWmE96uZWuE84LSx7CZn7bbKNUCbLh5kdKlRJOb6'
-  #config.omniauth :linkedin, '75qdt36huds7ih', '5id5hSobIkby4lax'
-  #config.omniauth :google_oauth2, '649275840304-aonk5djio7rj7g09a5bf29qhg5jce5vl.apps.googleusercontent.com', 'I2IlvUVSrjqHc46g6kV66-L7'
+  config.omniauth :facebook, '891069100935169', 'd190ec4326d34843f770aecbe995bf39'
+  config.omniauth :twitter, 'k17pOXNcLFyseWop2Zy1JY7aM', 'KsXbRo0rjvZWmE96uZWuE84LSx7CZn7bbKNUCbLh5kdKlRJOb6'
+  config.omniauth :linkedin, '75qdt36huds7ih', '5id5hSobIkby4lax'
+  config.omniauth :google_oauth2, '649275840304-aonk5djio7rj7g09a5bf29qhg5jce5vl.apps.googleusercontent.com', 'I2IlvUVSrjqHc46g6kV66-L7'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
