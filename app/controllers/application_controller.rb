@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_filter :ensure_signup_complete, only: [:new, :create, :update, :destroy]
   before_filter :set_organization
+  layout :layout_by_resource
     
   def ensure_signup_complete
     # Ensure we don't go into an infinite loop
@@ -31,6 +32,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  protected
+
+  def layout_by_resource
+    if devise_controller? && resource_name == :admin_user
+      "registrations"
+    else
+      "application"
+    end
+  end
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   # protect_from_forgery with: :exception

@@ -1,10 +1,10 @@
 module Organizer
   class OrganizerController < ActionController::Base
     layout 'organizer'
-    before_action :set_organization
-
     before_action :authenticate_user!
-    authorize_resource :class => :OrganizerController
+    before_action :set_organization
+    #authorize_resource :class => :OrganizerController
+    
     before_action :redirect_to_subdomain
 
     def redirect_to_subdomain
