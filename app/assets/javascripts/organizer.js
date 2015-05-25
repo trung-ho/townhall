@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require bootstrap-sprockets
+//= require admintools/moment
 //= require cocoon
+//= require_tree ./admintools
