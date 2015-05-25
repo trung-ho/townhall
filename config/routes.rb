@@ -7,23 +7,12 @@ Rails.application.routes.draw do
   get '404', to: 'application#page_not_found'
 
   constraints RootSubdomain do
-    devise_scope :user do
-      get "/organizer/sign_in" => "organizer/sessions#new"
-      get "/organizer/sign_up" => "organizer/registrations#new"
-    end
-
     devise_for :admin_users, ActiveAdmin::Devise.config
     ActiveAdmin.routes(self)
 
     # You can have the root of your site routed with "root"
-    authenticated :user do
-      root 'organizer/dashboard#index', as: :authenticated_root
-    end
-
-    unauthenticated :user do
-      root 'organizer/registrations#new'
-    end
-
+    root 'organizer/dashboard#index'
+    
     resources :users
 
     namespace :organizer do
