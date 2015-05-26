@@ -1,0 +1,110 @@
+#organizer-organizations-edit-container {
+  h3 {
+    margin: 0;
+    color: #616161;
+    font-size: 24px;
+  }
+
+  .banner-wrapper {
+    margin-bottom: 20px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .btn {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+  }
+
+  .btn-export {
+    background: url('icon-export.png') no-repeat 10% 50% #c5dd37;
+    border: none;
+    color: #fff;
+    padding-left: 5%;
+  }
+
+  .btn-upload {
+    background: url('icon-upload.png') no-repeat 20% 50% #fc6f4c;
+    border: none;
+    color: #fff;
+    padding-left: 9%;
+    padding-right: 5%;
+    min-width: 115px;
+  }
+
+  .btn-edit {
+    background: url('icon-edit.png') no-repeat 20% 50% #3acccb;
+    border: none;
+    color: #fff;
+    padding-left: 9%;
+    padding-right: 5%;
+    min-width: 115px;
+  }
+
+  input[type=text] {
+    padding-top: 5px;
+    padding-bottom: 4px;
+  }
+
+  textarea {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+  }
+
+  .organisation-details {
+    .row {
+      margin-top: 40px;
+    }
+
+    table {
+      width: 90%;
+
+      label {
+        line-height: 29px;
+      }
+
+      span {
+        font-style: italic;
+      }
+
+      th, td {
+        vertical-align: top;
+        height: 70px;
+      }
+
+      th {
+        width: 90px;
+      }
+
+    }
+  }
+
+  .btn-submit, .btn-cancel {
+    min-width: 193px;
+    max-width: 100%;
+  }
+
+  .btn-submit {
+    border: none;
+    background: #3acccb;
+    color: #fff;
+  }
+
+  .form-controls {
+    margin: 0 0 30px 0;
+
+    .row {
+      margin-top: 0;
+    }
+  }
+
+  .btn-cancel {
+    border: none;
+    background: #616161;
+    color: #fff;
+  }
+}

@@ -1,2 +1,87 @@
-.container
-  = render partial: 'form'
+#organizer-organizations-edit-container.container.custom-theme
+  %h2 Your URL
+  = link_to root_url(subdomain: @organization.slug), root_url(subdomain: @organization.slug)
+
+  .break-line
+
+  .row 
+    .col-sm-9
+      %h3 Subscribers
+      .guilder
+        Your opt-in email address list that can be imported into your preferred email management tool.
+    .col-sm-3
+      = link_to 'Export CSV file', '#', class: 'btn btn-block btn-export'
+    .break-line
+
+  
+
+  = simple_form_for [:organizer, @organization], multipart: true, wrapper: :bootstrap_horizontal_form do |f|
+    %h3 Banner
+    .guilder
+      Your banner appears on all of your pages and needs to work on both the small screen (mobile) as well as desktop size. The banner needs to be 992 x 140 pixels.  This will be resized to fit on mobile, so less detail the better.
+    .photo-group
+      .photo-wrap.banner-wrapper
+        = image_tag 'have-your-say-banner.png', class: 'photo'
+      .row
+        .col-xs-6
+          .text-right
+            = link_to 'Edit', '#', class: 'btn btn-edit'
+        .col-xs-6
+          .text-left
+            .fileupload-wrap
+              %button{ class: 'btn btn-browse btn-upload' } Upload
+              = f.file_field :banner, class: 'fileupload'
+    
+    .break-line
+
+    %h3 Email
+    .guilder Your email address is where you will receive notifications regarding crowd contributed content.
+    .row
+      .col-md-6
+        = f.text_field :email
+    .break-line
+
+    .organisation-details
+      %h3 Organisation Details
+      .guilder The details for your organisation will appear in the menu for the participant to access.
+      = f.text_area :description
+
+      .row
+        .col-md-6
+          %table
+            %tr
+              %th= f.label :website
+              %td
+                = f.text_field :website
+                %span *required
+            %tr
+              %th= f.label :name
+              %td= f.text_field :name
+            %tr
+              %th= f.label :twitter
+              %td= f.text_field :twitter
+
+        .col-md-6
+          %table
+            %tr
+              %th= f.label :phone
+              %td= f.text_field :phone
+            %tr
+              %th= f.label :facebook
+              %td= f.text_field :facebook
+      
+      .form-controls
+        .row
+          .col-xs-6
+            .text-right
+              = f.button :submit, class: 'btn btn-lg btn-submit'
+          .col-xs-6
+            .text-left
+              = link_to 'Cancel', :back, class: 'btn btn-lg btn-cancel'
+
+        
+
+:coffeescript
+  $('.fileupload').each ->
+    new FileUpload({input: $(this)})
+
