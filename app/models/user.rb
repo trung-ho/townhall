@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   extend Enumerize
   ROLES = %w[organizer voter]
+  INDUSTRIES = ['Non-profit',  'Government',  'Media',  'Sports',  'Consumer Goods', 'Education',  'Other']
 
   TEMP_EMAIL_PREFIX = 'temp.email'
   TEMP_EMAIL_REGEX = /\Atemp.email/
@@ -9,8 +10,6 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook, :twitter, :linkedin, :google_oauth2]
-
-  before_create :set_role
 
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
   validates_acceptance_of :terms
@@ -128,8 +127,4 @@ class User < ActiveRecord::Base
     self.email && self.email !~ TEMP_EMAIL_REGEX
   end
 
-  private 
-    def set_role
-      self.role = ROLES[0]
-    end
 end

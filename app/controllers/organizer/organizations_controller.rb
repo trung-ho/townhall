@@ -1,5 +1,8 @@
 module Organizer
-  class OrganizationsController < OrganizerController
+  class OrganizationsController < ApplicationController
+    layout 'organizer'
+    before_action :authenticate_user!
+
     before_action :set_organization, only: [:show, :edit, :update, :destroy]
 
     def new
@@ -9,9 +12,11 @@ module Organizer
 
     def create
       @organization = current_user.organizations.new(organization_params)
-      @organization.name = 'No name yet'
+      set_user_as_admin
+
       if @organization.save
-        redirect_to edit_organizer_organization_path(@organization)
+        redirect_to details_path
+        #redirect_to organizer_dashboard_index_url(subdomain: current_user.main_organization)
       end
     end
 
@@ -27,13 +32,16 @@ module Organizer
     private
 
     def organization_params
-      params.require(:organization).permit(:name, :banner, :phone, :email, :website, :twitter, :facebook, :slug)
+      params.require(:organization).permit(:name, :description, :banner, :phone, :email, :website, :twitter, :facebook, :slug)
     end
 
     def set_organization
       @organization = current_user.organizations.friendly.find(params[:id])
     end
   
+    def set_user_as_admin
+      current_user.update_attributes(role: 'organizer')  
+    end
   end
 
 end

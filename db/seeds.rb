@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+u = User.create(email: 'demo@townhallapp.io', password: '123456', role: 'organizer')
+
+o = u.organizations.create(name: 'better-world')

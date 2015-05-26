@@ -14,14 +14,13 @@ Rails.application.routes.draw do
     root 'organizer/dashboard#index'
     
     resources :users
-
+    get 'start_trial', to: 'organizer/pages#start_trial'
+    get 'details', to: 'organizer/pages#details'
+    
     namespace :organizer do
       resources :dashboard
       resources :organizations
-      resources :pages do
-        get 'home'
-        get 'member_home'
-      end
+      resources :users
     end
 
   end

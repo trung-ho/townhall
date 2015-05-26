@@ -1,15 +1,15 @@
 module Organizer
   class PagesController <  ActionController::Base
-    layout 'organizer'
+    layout 'registrations'
     before_action :authenticate_user!, only: [:member_home]
-    
-    def home
+
+    def start_trial
+
     end
 
-    def member_home
-    	if user_signed_in?
-    		@user = current_user
-    	end
+    def details
+        @organization = current_user.main_organization
     end
+
   end
 end

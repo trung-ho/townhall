@@ -13,8 +13,6 @@
       = link_to 'Export CSV file', '#', class: 'btn btn-block btn-export'
     .break-line
 
-  
-
   = simple_form_for [:organizer, @organization], multipart: true, wrapper: :bootstrap_horizontal_form do |f|
     %h3 Banner
     .guilder
@@ -42,7 +40,7 @@
     .break-line
 
     .organisation-details
-      %h3 Organisation Details
+      %h3 Description
       .guilder The details for your organisation will appear in the menu for the participant to access.
       = f.text_area :description
 
