@@ -6,7 +6,7 @@
         .col-md-2
           %label Your URL
         .col-md-10
-          - url = root_url(subdomain: @organization.slug)
+          - url = organization_question_url(@voting)
           = link_to url, url, target: 'blank'
         .break-line
     

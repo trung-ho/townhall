@@ -43,4 +43,8 @@ class Question < ActiveRecord::Base
   def increase_unique_visitors
     update_attributes(unique_visitors: unique_visitors + 1)
   end
+
+  def to_param
+    "#{id}-#{title}"
+  end
 end
