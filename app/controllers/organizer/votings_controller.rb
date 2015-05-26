@@ -10,14 +10,25 @@ module Organizer
     end
 
     def create
+      if params[:voting][:draft] == 'preview'
+        @preview = true 
+        params[:voting][:draft] = true
+      end
+      
       organization = current_user.organizations.last
       @voting = organization.votings.new(voting_params)
 
       if @voting.save
-        redirect_to edit_organizer_voting_path(@voting), notice: 'Question was successfully created.'
+        if @preview == true
+          redirect_to organization_question_url(@voting)
+        else
+          redirect_to edit_organizer_voting_path(@voting), notice: 'Question was successfully created.'
+        end
+
       else
         render :new
       end
+
     end
 
     def edit
@@ -43,6 +54,7 @@ module Organizer
                                   :start_date, :end_date, :crowd_content, :pre_moderation, :draft, 
                                   :question_image,
                                   reasons_for_attributes: [:id, :name, :_destroy],
+                                  reasons_maybe_attributes: [:id, :name, :_destroy],
                                   reasons_against_attributes: [:id, :name, :_destroy] )
     end
 

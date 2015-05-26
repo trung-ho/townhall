@@ -134,21 +134,26 @@
 
       #form-control
         .row
-          .col-md-4
-            = f.button :submit, name: "voting[draft]", value: true, class: 'btn btn-block' do
-              Save Draft
-          .col-md-4
-            - if @voting.draft? && @voting.persisted?
-              = link_to organization_question_path(@voting), class: 'btn btn-block' do
-                Preview
-          .col-md-4
-            = f.button :submit, name: "voting[draft]", value: false, class: 'btn btn-block btn-publish' do
-              Publish
+          - if @voting.draft || @voting.new_record?
+            .col-md-4
+              = f.button :submit, name: "voting[draft]", value: true, class: 'btn btn-block' do
+                Save Draft
 
-        
-        
-      
-    
+            .col-md-4
+              - if @voting.draft? && @voting.persisted?
+                = link_to organization_question_path(@voting), class: 'btn btn-block' do
+                  Preview
+              - else
+                = f.button :submit, name: "voting[draft]", value: 'preview', class: 'btn btn-block' do
+                  Preview
+
+            .col-md-4
+              = f.button :submit, name: "voting[draft]", value: false, class: 'btn btn-block btn-publish' do
+                Publish
+          - else
+            .col-md-4
+              = f.button :submit, name: "voting[draft]", value: false, class: 'btn btn-block btn-publish' do
+                Update
 
 :coffeescript
   $('.fileupload').each ->
