@@ -11,11 +11,11 @@ module Organizer
 
     def create
       @organization = current_user.organizations.new(organization_params)
-      @organization.name = 'No name yet'
       set_user_as_admin
 
       if @organization.save
-        redirect_to organizer_dashboard_index_url(subdomain: current_user.main_organization)
+        redirect_to details_path
+        #redirect_to organizer_dashboard_index_url(subdomain: current_user.main_organization)
       end
     end
 

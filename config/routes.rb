@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     
     resources :users
     get 'start_trial', to: 'organizer/pages#start_trial'
+    get 'details', to: 'organizer/pages#details'
     
     namespace :organizer do
       resources :dashboard

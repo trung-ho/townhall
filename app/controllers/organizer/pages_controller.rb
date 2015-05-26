@@ -7,5 +7,8 @@ module Organizer
 
     end
 
+    def details
+    end
+    
   end
 end
