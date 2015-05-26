@@ -45,6 +45,6 @@ class Question < ActiveRecord::Base
   end
 
   def to_param
-    "#{id}-#{title}"
+    "#{id}"
   end
 end
