@@ -32,7 +32,7 @@ module Organizer
     private
 
     def organization_params
-      params.require(:organization).permit(:name, :banner, :phone, :email, :website, :twitter, :facebook, :slug)
+      params.require(:organization).permit(:name, :description, :banner, :phone, :email, :website, :twitter, :facebook, :slug)
     end
 
     def set_organization

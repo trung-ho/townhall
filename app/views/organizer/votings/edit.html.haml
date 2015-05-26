@@ -1,8 +1,15 @@
 #organizer-votings-edit-container.custom-theme
   .container
-    %h1 VOTING QUESTION
-    
+
     = semantic_form_for [:organizer, @voting], html: { role: 'form', class: 'form-horizontal', multipart: true } do |f|
+      .row
+        .col-md-2
+          %label Your URL
+        .col-md-10
+          - url = root_url(subdomain: @organization.slug)
+          = link_to url, url, target: 'blank'
+        .break-line
+    
       = render partial: 'organizer/votings/form', locals: {f: f}   
       
  
