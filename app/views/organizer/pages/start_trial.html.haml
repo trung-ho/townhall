@@ -1,0 +1,19 @@
+#admin_registrations
+  .col-sm-6
+    = image_tag 'townhall-logo.png'
+    #steps
+      %h2 Step 1 of 3
+      .progress_bar
+        .step.step_1.doing
+        .step.step_2
+        .step.step_2
+      
+    %p Okay, let's get started.
+    %p Setting up takes less than a minute and we don't need your credit card.
+    
+   
+    = link_to new_organizer_organization_path,  class: 'btn btn-yes large-text btn-block'  do
+      Get started!
+   
+  .col-sm-6.hidden-xs
+    .signup_image= image_tag 'admin/featured-image.png'
