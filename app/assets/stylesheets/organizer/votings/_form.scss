@@ -1,9 +1,5 @@
 .organizer-votings-form-container {
-  button {
-    &:focus, &:visited {
-      outline: none;
-    }
-  }
+  
   .photo-group {
     position: relative;
 
@@ -17,13 +13,6 @@
 
     .fileupload-wrap {
       margin: 20px 0;
-
-      .fileupload {
-        position: absolute;
-        opacity: 0;
-        -moz-opacity: 0;
-        filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
-      }
 
       button {
         background: url('icon-upload.png') no-repeat 10% 50% #fc6f4c;
