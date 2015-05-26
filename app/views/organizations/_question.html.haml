@@ -17,5 +17,4 @@
         .vote-count
           = pluralize(question.votes.count, 'Vote')
         = link_to organization_question_url(question), class: 'vote-now btn btn-no pull-right' do
-          %span.glyphicon.glyphicon-ok
-          ote now
+          Vote now

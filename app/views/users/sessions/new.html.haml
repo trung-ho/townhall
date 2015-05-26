@@ -35,32 +35,26 @@
       .signup_image= image_tag 'admin/featured-image.png'
 
 - else 
-  %h3.login_header.text-center= "Welcome back. If you don’t have an account then #{link_to 'Register here', new_registration_path(resource_name)}!".html_safe
-  .container.login
-    .row
-      .col-md-6.col-md-offset-3
-        - if flash[:alert]
-          .text-center.error.color-no.text-italic.large-text= flash[:alert]
-
-        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-          = f.hidden_field :role, value: @role
-          = devise_error_messages!
+  #sign_in_form
+    = simple_form_for(resource, as: resource_name, url: session_path(resource_name), wrapper: :bootstrap_horizontal_form)  do |user_form|
+      .row
+        .col-sm-6.col-sm-offset-3
+          %h1 Sign in to townhall
+          %br
+          = user_form.input       :email
+          = user_form.input       :password
           
-          .row.form-group
-            .col-xs-4.large-text
-              = f.label :email, "Email:"
-            .col-xs-8
-              = f.email_field :email, autofocus: true, required: true, class: 'form-control'
-          .row.form-group
-            .col-xs-4.large-text
-              = f.label :password, "Password:"
-            .col-xs-8
-              = f.password_field :password, autocomplete: "off", required: true, class: 'form-control'
-          .row.form-group
-            .col-xs-8.col-xs-offset-2.text-center
-              = f.submit "Log in", class: 'btn btn-info large-text login_button'
-              %label.reason.checkbox.info
-                = f.check_box :remember_me, checked: true
-                %span.check-sign
-                %span.color-black.small-text.reason-content Remember me
-
+          = user_form.button      :submit, 'Sign in',  class: 'btn btn-yes large-text btn-block'
+          .has-error 
+            = user_form.error :terms
+          
+          %label.reason.checkbox.info
+            = user_form.check_box :remember_me, checked: true
+            %span.check-sign
+            %span.color-black.small-text.reason-content Remember me
+          .col-xs-12.text-center
+            %p.decorated
+              %span or
+            %p.no_account Already have an account?
+            %b= link_to "Register", new_registration_path(resource_name), class: 'large-text'
+          

@@ -23,6 +23,12 @@ Rails.application.routes.draw do
       resources :users
     end
 
+    resources :settings, only: [] do
+      collection do
+        get :terms, :my_townhall, :privacy, :submission_policy
+      end
+    end
+
   end
 
   constraints Subdomain do
