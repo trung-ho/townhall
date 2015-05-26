@@ -2,18 +2,31 @@
   .col-sm-6
     = image_tag 'townhall-logo.png'
     #steps
-      %h2 Step 1 of 3
+      %h2 Step 3 of 3
       .progress_bar
-        .step.step_1.doing
-        .step.step_2
-        .step.step_2
-      
-    %p Okay, let's get started.
-    %p Setting up takes less than a minute and we don't need your credit card.
+        .step.step_1.done
+        .step.step_2.done
+        .step.step_3.doing
     
-   
-    = link_to new_organizer_organization_path,  class: 'btn btn-yes large-text btn-block'  do
-      Get started!
+    %p Almost there! We just need a couple of more details an then you are set to go.
+
+    = simple_form_for [:organizer, current_user], wrapper: :bootstrap_horizontal_form do |u|
+      .row
+        .col-md-12
+          = u.input       :first_name
+          = u.input       :last_name
+          = u.input       :industry, collection: User::INDUSTRIES
+          
+          %p The following information appears publicly as part of your Townhall.
+          = simple_fields_for :organization, current_user.main_organization, wrapper: :bootstrap_horizontal_form do |org|
+            = org.input       :name
+            = org.input       :website
+            = org.input       :phone
+            = org.input       :email
+            = org.input       :facebook
+            = org.input       :twitter 
+            
+          = u.submit 'Submit', class: 'btn btn-yes'
    
   .col-sm-6.hidden-xs
     .signup_image= image_tag 'admin/featured-image.jpg'

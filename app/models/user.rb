@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   extend Enumerize
   ROLES = %w[organizer voter]
+  INDUSTRIES = ['Non-profit',  'Government',  'Media',  'Sports',  'Consumer Goods', 'Education',  'Other']
 
   TEMP_EMAIL_PREFIX = 'temp.email'
   TEMP_EMAIL_REGEX = /\Atemp.email/

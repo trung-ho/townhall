@@ -8,7 +8,8 @@ module Organizer
     end
 
     def details
+        @organization = current_user.main_organization
     end
-    
+
   end
 end
