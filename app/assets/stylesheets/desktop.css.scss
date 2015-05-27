@@ -57,25 +57,7 @@
   }
 
   #townhall-nav {
-    width: 190px !important;
-    position: absolute;
-    top: -64px;
-    right: 0;
-    z-index: 10001;
-    border: none;
-    border-radius: 0;
-    box-shadow: none !important;
-    cursor: pointer;
-    padding: 0 !important;
-    .logo-div {
-      border: none !important;
-      text-align: right;
-      margin-right: 30px;
-    }
-    ul.dropdown-menu {
-      right: 0;
-      border-radius: 0;
-    }
+    top: -64px !important;
   }
 
   #contact-popup { left: 173px !important; }

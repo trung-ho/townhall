@@ -6,12 +6,13 @@
     
     / .btn.btn-yes.beta_sticker.pull-right BETA
       
-    #nav-toggle-btn.pull-right(data-toggle='offcanvas' data-target='#townhall-nav')
+    #nav-toggle-btn.pull-right(data-toggle='offcanvas' data-target='#townhall-nav-mobile')
       .nav-toggle-icon
 
 #townhall-nav.navmenu.navmenu-fixed-right.offcanvas
   .logo-div
     = image_tag("townhall-logo.png", class: 'logo')
+    
   %ul
     - if user_signed_in?
       %li.history
