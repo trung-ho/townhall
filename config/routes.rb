@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {
-    omniauth_callbacks: 'users/omniauth_callbacks',
-    sessions: 'users/sessions',
-    registrations: 'users/registrations' }
+  devise_for :users, 
+    :path => '', :path_names => {:sign_in => 'sign_in', :sign_out => 'logout', :sign_up => 'register'},
+    controllers: {
+      omniauth_callbacks: 'users/omniauth_callbacks',
+      sessions: 'users/sessions',
+      registrations: 'users/registrations' }
+
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
   get '404', to: 'application#page_not_found'
 
@@ -10,7 +13,12 @@ Rails.application.routes.draw do
     devise_for :admin_users, ActiveAdmin::Devise.config
     ActiveAdmin.routes(self)
 
-    # You can have the root of your site routed with "root"
+    unauthenticated do
+      devise_scope :user do
+        root to: 'users/registrations#new', as: 'unauthenticated'
+      end
+    end
+
     root 'organizer/dashboard#index'
     
     resources :users
