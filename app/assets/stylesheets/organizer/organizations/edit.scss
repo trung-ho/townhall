@@ -83,6 +83,14 @@
     }
   }
 
+  .fileupload-wrap {
+    overflow: hidden;
+
+    #organization_banner {
+      width: 100%;
+    }
+  }
+
   .btn-submit, .btn-cancel {
     min-width: 193px;
     max-width: 100%;
