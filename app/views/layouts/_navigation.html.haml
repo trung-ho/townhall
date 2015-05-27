@@ -3,7 +3,9 @@
     = link_to 'Home', root_path, class: 'navbar-icon home', alt: 'home'
     = link_to 'Contact', '#contact-popup', class: 'navbar-icon contact', alt: 'contact', data: { toggle: 'popup' }
     = link_to 'Follow', '#follow-popup', class: 'navbar-icon follow follow-organization', alt: 'rss feed', data: { toggle: 'popup', href: follow_setting_notifications_url }
-
+    
+    .btn.btn-yes.beta_sticker.pull-right BETA
+      
     #nav-toggle-btn.pull-right(data-toggle='offcanvas' data-target='#townhall-nav')
       .nav-toggle-icon
 
