@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if current_user.update(user_params)
         format.html { redirect_to @user, notice: 'Your profile was successfully updated.' }
-        format.json { head :no_content }
+        format.js {  }
       else
         format.html { render action: 'edit' }
         format.json { render json: @user.errors, status: :unprocessable_entity }

@@ -7,11 +7,10 @@
       margin-top: 30px;
 
       h1 {
-        margin-top: -15px;
         font-size: 24px;
         font-weight: bold;
         &:hover { color: $color-info; }
-        padding-right: 4px;
+        //padding-right: 4px;
         position: relative;
       }
       .share-icon {
@@ -24,7 +23,9 @@
         right: 0;
       }
       .img { height: 240px; img { height: 100%; } }
-      .question-content { margin-top: -20px; }
+      .question-content { 
+        // margin-top: -20px; 
+      }
       .vote-actions .btn-vote {
         position: relative;
         .glyphicon {
@@ -36,9 +37,9 @@
     }
 
     .chart-result {
-      margin-top: 15px;
-      border: 1px solid #ccc;
-      padding: 30px 0;
+      margin-top: 0px;
+      // border: 1px solid #ccc;
+      padding: 0px 0;
       .title { font-size: 24px; font-weight: bold; font-style: normal; margin-bottom: 15px; }
     }
 
@@ -50,7 +51,7 @@
     #add-reason-container { margin-top: 50px; }
 
     #know-more-about-you {
-      margin-top: -15px;
+      margin-top: 10px;
       border: 1px solid #ccc;
       padding: 30px 15px;
       h2 { text-align: left !important; }
@@ -62,23 +63,23 @@
       .col-xs-6:first-child { border: none !important; }
     }
 
-    .reason-list {
-      margin-top: 50px;
-      h3 {
-        font-style: normal;
-        font-weight: bold;
-        font-size: 20px;
-        text-align: center;
-        padding: 7px;
-        margin-bottom: 30px;
-      }
-      .vote-type { text-transform: none; }
-      &.yes, &.no, &.maybe { color: $color-text; }
-      &.yes h3 { background-color: $color-yes; }
-      &.no h3 { background-color: $color-no; }
-      &.maybe h3 { background-color: $color-grey-bg; }
-      .count { font-size: 20px; }
-    }
+    // .reason-list {
+    //   margin-top: 50px;
+    //   h3 {
+    //     font-style: normal;
+    //     font-weight: bold;
+    //     font-size: 20px;
+    //     text-align: center;
+    //     padding: 7px;
+    //     margin-bottom: 30px;
+    //   }
+    //   .vote-type { text-transform: none; }
+    //   &.yes, &.no, &.maybe { color: $color-text; }
+    //   &.yes h3 { background-color: $color-yes; }
+    //   &.no h3 { background-color: $color-no; }
+    //   &.maybe h3 { background-color: $color-grey-bg; }
+    //   .count { font-size: 20px; }
+    // }
 
     .social-networks { display: none; }
 
@@ -88,6 +89,7 @@
     }
 
     .right-col {
+      margin-top: -25px;
       margin-right: -15px;
       @include right-col;
     }

@@ -16,10 +16,13 @@
 
   - if question.crowd_content?
     #add-reason-container
-      %hr.mobile
+      %hr
 
-      %h3.text-center.mobile Please tell us why you voted this way:
-      %h1.desktop Or you can add your own:
+      - if reasons.any?
+        %h3.text-center Or you can add your own reason to this list:
+      - else
+        %h3.text-center Please tell us why you voted this way:
+      / %h1.desktop Or you can add your own:
 
       .form-group.add-more-reason
         = text_field_tag :add_reason, "", placeholder: "60 characters limit", class: 'form-control', maxlength: 60
