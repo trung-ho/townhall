@@ -7,3 +7,5 @@ en:
         title: 'Question'
         question_image: 'Featured image'
         options: 'Option'
+      organization:
+        name: 'Organization name'

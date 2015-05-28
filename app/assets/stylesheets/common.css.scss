@@ -59,7 +59,7 @@ label { font-weight: 300; }
   }
 }
 
-#townhall-nav, .settings-nav {
+#townhall-nav, #townhall-nav-mobile, .settings-nav {
   width: 250px;
   background: #fff;
   padding: 0px 15px 25px 0;
@@ -130,6 +130,14 @@ label { font-weight: 300; }
       background-size: auto 100px;
       &:hover {
         background: image-url('icon-menu-privacy.png') $color-info no-repeat 0 -50px;
+        background-size: auto 100px;
+      }
+    }
+    &.faq a {
+      background: image-url('icon-menu-faq.png') no-repeat 0 0;
+      background-size: auto 100px;
+      &:hover {
+        background: image-url('icon-menu-faq.png') $color-info no-repeat 0 -50px;
         background-size: auto 100px;
       }
     }

@@ -6,7 +6,7 @@
     .nav-item
       = link_to 'Organization', edit_organizer_organization_path(@organization), class: 'tab-link'
 
-    #nav-toggle-btn.pull-right(data-toggle='offcanvas' data-target='#townhall-nav')
+    #nav-toggle-btn.pull-right(data-toggle='offcanvas' data-target='#townhall-nav-mobile')
       .nav-toggle-icon
 
 #townhall-nav.navmenu.navmenu-fixed-right.offcanvas
@@ -26,7 +26,7 @@
         = link_to 'Submission Policy', submission_policy_settings_path
       %li.privacy
         = link_to 'Privacy Policy', privacy_setting_posts_path
-      %li.privacy
+      %li.faq
         = link_to 'FAQ', faq_setting_posts_path
       %li.logout
         = link_to 'Logout', destroy_user_session_path, :method => :delete

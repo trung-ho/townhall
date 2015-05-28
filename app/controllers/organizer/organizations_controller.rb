@@ -17,6 +17,8 @@ module Organizer
       if @organization.save
         redirect_to details_path
         #redirect_to organizer_dashboard_index_url(subdomain: current_user.main_organization)
+      else 
+        render :new, layout:  'registrations'  
       end
     end
 
