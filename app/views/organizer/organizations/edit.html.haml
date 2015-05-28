@@ -21,14 +21,10 @@
       .photo-wrap.banner-wrapper
         = image_tag 'have-your-say-banner.png', class: 'photo'
       .row
-        .col-xs-6
-          .text-right
-            = link_to 'Edit', '#', class: 'btn btn-edit'
-        .col-xs-6
-          .text-left
-            .fileupload-wrap
-              %button{ class: 'btn btn-browse btn-upload' } Upload
-              = f.file_field :banner, class: 'fileupload'
+        .text-center
+          .fileupload-wrap
+            %button{ class: 'btn btn-browse btn-upload' } Upload
+            = f.file_field :banner, class: 'fileupload'
     
     .break-line
 
