@@ -9,7 +9,7 @@
 
   .row
     .col-xs-3 Name:
-    .col-xs-9= current_user.name.present? ? current_user.name : "[No field name in User]"
+    .col-xs-9= current_user.name.present? ? current_user.name : "Anonymous"
 
   .row
     .col-xs-3 Email:
@@ -21,12 +21,12 @@
 
   .row
     .col-xs-3 Birth year:
-    .col-xs-9= current_user.birth_year.present? ? current_user.birth_year : "[No field age in User]"
+    .col-xs-9= current_user.birth_year.present? ? current_user.birth_year : "Not available"
 
   .row
     .col-xs-3 Location:
-    .col-xs-9= current_user.location.present? ? current_user.location : "[No field location in User]"
+    .col-xs-9= current_user.location.present? ? current_user.location : "Not available"
 
   .row
     .col-xs-3 Sex:
-    .col-xs-9= current_user.gender.present? ? current_user.gender_text : "[No field sex in User]"
+    .col-xs-9= current_user.gender.present? ? current_user.gender_text : "Not available"
