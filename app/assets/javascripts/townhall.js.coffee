@@ -19,6 +19,7 @@ $(document).ready ->
   bindMenuSlider = ->
     mobileNav.find('.logo-div').on 'click', ->
       mobileNav.offcanvas('hide')
+      
 
     desktopNav.find('.logo-div').attr('data-toggle', 'dropdown')
     desktopNav.find('.logo-div').attr('data-related-target', '#townhall-nav')
