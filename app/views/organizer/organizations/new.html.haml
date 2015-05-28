@@ -13,9 +13,11 @@
     %p It's difficult to change this later, so take your time to creat what you want.
     
     #sign_in_form
-      = form_for [:organizer, @organization] do |f|
+      = semantic_form_for [:organizer, @organization] do |f|
         .col-sm-8
           = f.text_field :slug, class: 'form-control'
+          = f.semantic_errors :slug
+          -aksdjas
         .col-sm-4
           %label.our_site .townhallapp.io
         .col-sm-12
