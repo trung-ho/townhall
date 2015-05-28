@@ -1,6 +1,6 @@
 #organizer-organizations-edit-container.container.custom-theme
   %h2 Your URL
-  = link_to root_url(subdomain: @organization.slug), root_url(subdomain: @organization.slug)
+  = link_to root_url(subdomain: @organization.slug), root_url(subdomain: @organization.slug), class: 'my-link'
 
   .break-line
 
@@ -13,13 +13,14 @@
       = link_to 'Export CSV file', '#', class: 'btn btn-block btn-export'
     .break-line
 
-  = simple_form_for [:organizer, @organization], multipart: true, wrapper: :bootstrap_horizontal_form do |f|
+  = semantic_form_for [:organizer, @organization], multipart: true, wrapper: :bootstrap_horizontal_form do |f|
     %h3 Banner
     .guilder
       Your banner appears on all of your pages and needs to work on both the small screen (mobile) as well as desktop size. The banner needs to be 992 x 140 pixels.  This will be resized to fit on mobile, so less detail the better.
     .photo-group
       .photo-wrap.banner-wrapper
-        = image_tag 'have-your-say-banner.png', class: 'photo'
+        = image_tag @organization.banner.url, class: 'photo'
+        = f.semantic_errors :banner
       .row
         .text-center
           .fileupload-wrap
@@ -33,12 +34,14 @@
     .row
       .col-md-6
         = f.text_field :email
+        = f.semantic_errors :email
     .break-line
 
     .organisation-details
       %h3 Description
       .guilder The details for your organisation will appear in the menu for the participant to access.
       = f.text_area :description
+      = f.semantic_errors :description
 
       .row
         .col-md-6
@@ -47,22 +50,31 @@
               %th= f.label :website
               %td
                 = f.text_field :website
+                = f.semantic_errors :website
                 %span *required
             %tr
               %th= f.label :name
-              %td= f.text_field :name
+              %td
+                = f.text_field :name
+                = f.semantic_errors :name
             %tr
               %th= f.label :twitter
-              %td= f.text_field :twitter
+              %td
+                = f.text_field :twitter
+                = f.semantic_errors :twitter
 
         .col-md-6
           %table
             %tr
               %th= f.label :phone
-              %td= f.text_field :phone
+              %td
+                = f.text_field :phone
+                = f.semantic_errors :phone
             %tr
               %th= f.label :facebook
-              %td= f.text_field :facebook
+              %td
+                = f.text_field :facebook
+                = f.semantic_errors :facebook
       
       .form-controls
         .row

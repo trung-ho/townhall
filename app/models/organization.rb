@@ -10,4 +10,6 @@ class Organization < ActiveRecord::Base
   has_many :votings
   has_many :rankings
   has_many :ideas
+
+  validates :website, presence: true
 end
