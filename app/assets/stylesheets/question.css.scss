@@ -60,14 +60,17 @@
   h2 {
     font-weight: bold;
   }
+
   .bar {
     height: 40px;
     border-radius: 0 8px 8px 0;
     padding-left: 5px;
+    margin-bottom: 8px;
+
   }
-  .yes .bar { background-color: $color-yes; }
-  .no .bar { background-color: $color-no; }
-  .maybe .bar { background-color: $color-grey-bg; }
+  .yes .bar { background-color: lighten($color-yes, 10%); }
+  .no .bar { background-color: lighten($color-no, 10%); }
+  .maybe .bar { background-color: lighten($color-grey-bg, 10%); }
   .row { position: relative; }
   .percentage {
     position: absolute;
@@ -125,7 +128,7 @@
       background: image-url('crowd-icon.png') no-repeat center center;
       background-size: 20px auto;
     }
-    .reason { width: calc(100% - 80px); color: $color-text; vertical-align: top; }
+    .reason { width: calc(100% - 80px); color: $color-text; vertical-align: middle; }
   }
 
   &.yes { color: $color-yes; }
