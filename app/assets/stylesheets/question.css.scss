@@ -70,7 +70,7 @@
   }
   .yes .bar { background-color: lighten($color-yes, 10%); }
   .no .bar { background-color: lighten($color-no, 10%); }
-  .maybe .bar { background-color: lighten($color-grey-bg, 10%); }
+  .maybe .bar { background-color: $color-grey-bg; }
   .row { position: relative; }
   .percentage {
     position: absolute;
