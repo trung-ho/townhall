@@ -78,6 +78,7 @@ gem 'bootstrap-datepicker-rails'
 
 #for slugs
 gem 'friendly_id', '~> 5.1.0'
+gem 'active_link_to'
 
 group :development do
   gem 'rails_layout'

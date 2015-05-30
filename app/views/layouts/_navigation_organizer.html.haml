@@ -1,10 +1,10 @@
 %nav.navbar.navbar-default.navbar-fixed-top.navbar-admin{"role" => "navigation"}
   .navbar-header-border
   .navbar-header
-    .nav-item.active
-      = link_to 'Questions', organizer_dashboard_index_path, class: 'tab-link'
     .nav-item
-      = link_to 'Organization', edit_organizer_organization_path(@organization), class: 'tab-link'
+      = active_link_to 'Questions', organizer_dashboard_index_path, class: 'tab-link'
+    .nav-item
+      = active_link_to 'Organization', edit_organizer_organization_path(@organization), class: 'tab-link'
 
     #nav-toggle-btn.pull-right(data-toggle='offcanvas' data-target='#townhall-nav-mobile')
       .nav-toggle-icon
