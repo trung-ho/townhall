@@ -27,22 +27,21 @@
             =  form_for Vote.new, url: organization_question_votes_path(@question) do |f|
               .vote-actions
                 .row
-                  .col-xs-12
-                    .action
-                      %label.btn.btn-vote.btn-yes
-                        .glyphicon.glyphicon-ok.desktop-inline
-                        Yes
-                        = f.radio_button :vote_type, Vote::YES
-                    .action(type="submit")
-                      %label.btn.btn-vote.btn-maybe
-                        .glyphicon.glyphicon-minus.desktop-inline
-                        Maybe
-                        = f.radio_button :vote_type, Vote::MAYBE
-                    .action
-                      %label.btn.btn-vote.btn-no
-                        .glyphicon.glyphicon-remove.desktop-inline
-                        No
-                        = f.radio_button :vote_type, Vote::NO
+                  .action.col-xs-4
+                    %label.btn.btn-vote.btn-yes
+                      .glyphicon.glyphicon-ok.desktop-inline
+                      Yes
+                      = f.radio_button :vote_type, Vote::YES
+                  .action.col-xs-4(type="submit")
+                    %label.btn.btn-vote.btn-maybe
+                      .glyphicon.glyphicon-minus.desktop-inline
+                      Maybe
+                      = f.radio_button :vote_type, Vote::MAYBE
+                  .action.col-xs-4
+                    %label.btn.btn-vote.btn-no
+                      .glyphicon.glyphicon-remove.desktop-inline
+                      No
+                      = f.radio_button :vote_type, Vote::NO
             / %label.checkbox.info.text-center
             /   = check_box_tag :more_info, true, true
             /   %span.check-sign
