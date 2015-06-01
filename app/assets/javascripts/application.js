@@ -21,3 +21,5 @@
 //= require follow
 //= require file_upload_reader
 //= require cocoon
+//= require gmaps
+//= require popup_opener

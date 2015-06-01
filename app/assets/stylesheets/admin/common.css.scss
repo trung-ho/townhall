@@ -24,6 +24,11 @@
     font-size: 20px;
     font-weight: bold;
     color: #aaa;
+
+    &.active {
+      color: $brand-primary;
+      text-decoration: underline;
+    }
   }
   .nav-item.active {
     border-bottom: 2px solid $brand-primary;

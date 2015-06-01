@@ -1,0 +1,11 @@
+#terms-container.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close(aria-label="Close" data-dismiss="modal" type="button")
+          %span(aria-hidden="true")  &times;
+        %h2.modal-title Terms of Use
+      .modal-body
+        = render 'shared/terms'
+      .modal-footer
+        %button.btn.btn-primary(data-dismiss="modal" type="button")  Close

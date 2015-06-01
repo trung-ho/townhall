@@ -51,7 +51,7 @@
           = user_form.input       :password
           %span.color-black.small-text.reason-content
             By registering you are accepting the townhall 
-            = link_to 'Terms of Use', "#"
+            = link_to 'Terms of Use', "#terms-container", class: 'popup-opener'
           .has-error 
             = user_form.error :terms
           
@@ -67,3 +67,5 @@
               %span or
             %p.no_account Already have an account?
             %b= link_to "Sign in", new_session_path(resource_name), class: 'large-text'
+
+= render 'popups/terms'

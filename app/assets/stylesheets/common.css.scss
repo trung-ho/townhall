@@ -79,16 +79,17 @@ label { font-weight: 300; }
       display: block;
       width: 100%;
       height: 100%;
-      &:hover { text-decoration: none; }
+      &:hover, &.active { 
+        text-decoration: none; 
+        color: #fff; 
+      }
     }
-    &:hover {
-      a { color: #fff; }
-    }
+    
 
     &.history a {
       background: image-url('icon-menu-history.png') no-repeat 0 0;
       background-size: auto 100px;
-      &:hover {
+      &:hover, &.active {
         background: image-url('icon-menu-history.png') $color-info no-repeat 0 -50px;
         background-size: auto 100px;
       }
@@ -96,7 +97,7 @@ label { font-weight: 300; }
     &.settings a {
       background: image-url('icon-menu-settings.png') no-repeat 0 0;
       background-size: auto 100px;
-      &:hover {
+      &:hover, &.active {
         background: image-url('icon-menu-settings.png') $color-info no-repeat 0 -50px;
         background-size: auto 100px;
       }
@@ -104,7 +105,7 @@ label { font-weight: 300; }
     &.notif a {
       background: image-url('icon-menu-notification.png') no-repeat 0 0;
       background-size: auto 100px;
-      &:hover {
+      &:hover, &.active {
         background: image-url('icon-menu-notification.png') $color-info no-repeat 0 -50px;
         background-size: auto 100px;
       }
@@ -112,7 +113,7 @@ label { font-weight: 300; }
     &.terms a {
       background: image-url('icon-menu-term.png') no-repeat 0 0;
       background-size: auto 100px;
-      &:hover {
+      &:hover, &.active {
         background: image-url('icon-menu-term.png') $color-info no-repeat 0 -50px;
         background-size: auto 100px;
       }
@@ -120,7 +121,7 @@ label { font-weight: 300; }
     &.submission a {
       background: image-url('icon-menu-submission.png') no-repeat 0 0;
       background-size: auto 100px;
-      &:hover {
+      &:hover, &.active {
         background: image-url('icon-menu-submission.png') $color-info no-repeat 0 -50px;
         background-size: auto 100px;
       }
@@ -128,7 +129,7 @@ label { font-weight: 300; }
     &.privacy a {
       background: image-url('icon-menu-privacy.png') no-repeat 0 0;
       background-size: auto 100px;
-      &:hover {
+      &:hover, &.active {
         background: image-url('icon-menu-privacy.png') $color-info no-repeat 0 -50px;
         background-size: auto 100px;
       }
@@ -136,7 +137,7 @@ label { font-weight: 300; }
     &.faq a {
       background: image-url('icon-menu-faq.png') no-repeat 0 0;
       background-size: auto 100px;
-      &:hover {
+      &:hover, &.active {
         background: image-url('icon-menu-faq.png') $color-info no-repeat 0 -50px;
         background-size: auto 100px;
       }
@@ -144,7 +145,7 @@ label { font-weight: 300; }
     &.logout a {
       background: image-url('icon-menu-logout.png') no-repeat 0 0;
       background-size: auto 100px;
-      &:hover {
+      &:hover, &.active {
         background: image-url('icon-menu-logout.png') $color-info no-repeat 0 -50px;
         background-size: auto 100px;
       }
