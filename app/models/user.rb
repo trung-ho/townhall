@@ -127,4 +127,11 @@ class User < ActiveRecord::Base
     self.email && self.email !~ TEMP_EMAIL_REGEX
   end
 
+  def generate_password(attr={})
+   require 'securerandom'
+   generated_password = SecureRandom.urlsafe_base64(6)
+   self.password = generated_password
+   self.password_confirmation = generated_password
+  end
+
 end
