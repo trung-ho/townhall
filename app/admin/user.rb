@@ -11,6 +11,9 @@ ActiveAdmin.register User do
     column :last_name
     column :gender
     column :email
+    column :organization do |user|
+      (user.organizations.map{ |o| o.name }).join(', ').html_safe
+    end
     actions
   end
 
