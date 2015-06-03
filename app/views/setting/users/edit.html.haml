@@ -9,7 +9,7 @@
     = user_form.input       :email
     = user_form.input       :password, input_html: { autocomplete: :off }
     = user_form.input       :birth_year
-    = user_form.input       :location
+    = user_form.input       :location, placeholder: "Where do you live?"
     = user_form.input       :gender
     .text-right
       = user_form.button      :submit
