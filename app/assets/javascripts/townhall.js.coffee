@@ -4,7 +4,7 @@ $(document).ready ->
   desktopNav = $('#townhall-nav')
   mobileNav = desktopNav.clone()
   mobileNav.attr('id', 'townhall-nav-mobile')
-  mobileNav.insertAfter(desktopNav)
+  mobileNav.insertBefore($('#contact-popup'))
 
   bindTogglePopup = ->
     $('[data-toggle="popup"]').on 'click', (e) ->

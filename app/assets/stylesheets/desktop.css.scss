@@ -60,9 +60,14 @@
       display: none;
     }
   }
+  img.logo {
+    margin-top: 7px;
+  }
 
-  #townhall-nav {
-    top: -64px !important;
+  #townhall-nav.dropdown{
+    position: absolute;
+    right: 30px;
+    top: 10px;
   }
 
   #contact-popup { left: 173px !important; }
