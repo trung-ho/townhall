@@ -9,30 +9,30 @@
     #nav-toggle-btn.pull-right(data-toggle='offcanvas' data-target='#townhall-nav-mobile')
       .nav-toggle-icon
 
-#townhall-nav.navmenu.navmenu-fixed-right.offcanvas
-  .logo-div
-    = image_tag("townhall-logo.png", class: 'logo')
-  %ul
-    - if user_signed_in?
-      %li.history
-        = link_to 'History', my_townhall_settings_path
-      %li.settings
-        = link_to 'Settings', setting_user_path
-      %li.notif
-        = link_to 'Notifications', setting_notifications_path
-      %li.terms
-        = link_to 'Terms of Use', terms_settings_path
-      %li.submission
-        = link_to 'Submission Policy', submission_policy_settings_path
-      %li.privacy
-        = link_to 'Privacy Policy', privacy_setting_posts_path
-      %li.faq
-        = link_to 'FAQ', faq_setting_posts_path
-      %li.logout
-        = link_to 'Logout', destroy_user_session_path, :method => :delete
-    - else
-      %li
-        = link_to 'Login', new_user_session_path
+  #townhall-nav.navmenu.navmenu-fixed-right.offcanvas
+    .logo-div
+      = image_tag("townhall-logo.png", class: 'logo')
+    %ul
+      - if user_signed_in?
+        %li.history
+          = link_to 'History', my_townhall_settings_path
+        %li.settings
+          = link_to 'Settings', setting_user_path
+        %li.notif
+          = link_to 'Notifications', setting_notifications_path
+        %li.terms
+          = link_to 'Terms of Use', terms_settings_path
+        %li.submission
+          = link_to 'Submission Policy', submission_policy_settings_path
+        %li.privacy
+          = link_to 'Privacy Policy', privacy_setting_posts_path
+        %li.faq
+          = link_to 'FAQ', faq_setting_posts_path
+        %li.logout
+          = link_to 'Logout', destroy_user_session_path, :method => :delete
+      - else
+        %li
+          = link_to 'Login', new_user_session_path
 
 #contact-popup.popup
   %h4=@organization.name.capitalize
