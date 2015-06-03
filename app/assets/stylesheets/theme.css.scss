@@ -112,9 +112,15 @@
   }
 }
 
+
+#townhall-nav-mobile.offcanvas{
+  position: fixed;
+  overflow-x: hidden;
+  width: 200px;
+}
 #townhall-nav, #townhall-nav-mobile {
   width: 190px !important;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   z-index: 10001;
