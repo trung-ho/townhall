@@ -36,14 +36,14 @@
       color: $brand-primary;
     }
   }
-}
+  #townhall-nav, #townhall-nav-mobile {
+    .logo-div {
+      height: 40px !important;
+    }
+    img.logo {
+      margin-top: 7px;
+    }
+  }
 
-#townhall-nav, #townhall-nav-mobile {
-  .logo-div {
-    height: 40px !important;
-  }
-  img.logo {
-    margin-top: 15px !important;
-  }
 }
 
