@@ -1,5 +1,5 @@
 .know-more-about-you-mobile
-
+%script{:src => "http://maps.googleapis.com/maps/api/js?libraries=places", :type => "text/javascript"}
 :javascript
   $(document).ready(function() {
     $('#submit-info').on('click', function() {
@@ -17,6 +17,6 @@
    var autocomplete = new google.maps.places.Autocomplete(input, options);
 
   }
-  $(function() {
-   initializeAutocomplete();
+  $(window).load(function(){
+    initializeAutocomplete();
   });
