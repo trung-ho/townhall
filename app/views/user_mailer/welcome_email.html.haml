@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h1
+      Dear Anonymous
+    %p
+      Thanks for signing up to townhall and making your vote count.
+      Here’s your dynamically created password:-
+    %p
+      = "Username: #{ @user.email }"
+      %br
+      = "Password: #{ @user.password }"
+    %p
+      You can change it to something easier to remember by going to your Settings in the app:-
+      %br
+      = link_to 'http://betterworld.townhallapp.io/setting/user', 'http://betterworld.townhallapp.io/setting/user'
+      
+    %p
+      We’re in BETA right now, so we’d love to hear if you encountered any issues, or if you can suggest ways we can improve.
+
+      %br
+      = link_to 'http://betterworld.townhallapp.io/feedbacks/new', 'http://betterworld.townhallapp.io/feedbacks/new'

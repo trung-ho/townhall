@@ -60,19 +60,17 @@ Rails.application.configure do
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default_url_options = { host: 'townhallapp.io' }
   config.action_mailer.smtp_settings = {
-    address: 'mail.townhallapp.io',
-    port: '587',
-    enable_starttls_auto: true,
-    domain: 'townhallapp.io',
-    user_name: 'noreply@townhallapp.io',
-    password: 'matchbox69',
-    authentication: :plain,
-    openssl_verify_mode: 'none'
+    :port =>           '587',
+    :address =>        'smtp.mandrillapp.com',
+    :user_name =>      ENV['MANDRILL_USERNAME'],
+    :password =>       ENV['MANDRILL_APIKEY'],
+    :domain =>         'heroku.com',
+    :authentication => :plain
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
