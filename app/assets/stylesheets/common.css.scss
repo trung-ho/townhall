@@ -151,10 +151,6 @@ label { font-weight: 300; }
       }
     }
   }
-  .beta_sticker {
-    font-weight: black;
-    color: white;
-  }
   .logo-div { 
     height: 42px; 
     border-bottom: none;
@@ -164,6 +160,20 @@ label { font-weight: 300; }
     margin-left: 10px;
     margin-top: 15px;
   }
+}
+
+#beta_label {
+  position: absolute;
+  width: 6em;
+  height: 20px;
+  top: 0px;
+  left: 50%;
+  z-index: 99999;
+  font-weight: bold;
+  color: #fff;
+  background-color: #fc6f4c;
+  text-align: center;
+  border-radius: 0 0 10px 10px;
 }
 
 /* FOR LOGO */
