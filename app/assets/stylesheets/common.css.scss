@@ -292,6 +292,12 @@ label { font-weight: 300; }
 
 input.form-control, textarea.form-control, select.form-control { background-color: $color-grey-bg; }
 
+.orange_tooltip {
+  display: block;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f0f6cd;
+}
 /* CONTACT & FOLLOW POPUP */
 #contact-popup, #follow-popup {
   color: #000;
