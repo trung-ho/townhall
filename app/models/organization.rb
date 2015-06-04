@@ -11,5 +11,7 @@ class Organization < ActiveRecord::Base
   has_many :rankings
   has_many :ideas
 
-  validates :slug, :uniqueness => true
+  validates :slug, uniqueness: true
+  validates_format_of :slug, :with => /^[a-z0-9-]+$/, multiline: true, :message => "can't contain any spaces or special characters"
+
 end
