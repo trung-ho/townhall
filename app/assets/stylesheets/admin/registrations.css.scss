@@ -27,20 +27,21 @@
   }
 
   #sign_in_form {
+    .no_left_grid {
+      margin-left: 0;
+    }
+
     .our_site {
-      min-width: 8em;
-      background-color: #3acccb;
-      border: 1px solid white;
-      border-radius: 5px;
-      padding: 8px 10px 5px 8px;
-      color: white;
+      color: #3acccb;
       font-weight: bold;
+      line-height: 30px;
     }
     .btn-yes {
       margin-top: 20px;
       width: 8em;
       font-weight: bold;
     }
+
   }
 
 }
