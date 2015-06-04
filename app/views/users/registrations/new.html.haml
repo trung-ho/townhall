@@ -19,18 +19,18 @@
               = user_form.input       :email
               = user_form.input       :password
               %label.reason.checkbox.info
-                = user_form.check_box :remember_me, checked: true
-                %span.check-sign
-                %span.color-black.small-text.reason-content Remember me
-              %label.reason.checkbox.info
-                = user_form.check_box :terms
-                %span.check-sign
                 %span.color-black.small-text.reason-content
                   By registering you are accepting the townhall
                   = link_to 'Terms of Use', root_path
               .has-error 
                 = user_form.error :terms
               = user_form.button      :submit, 'Register',  class: 'btn btn-yes large-text btn-block'
+              
+              %label.reason.checkbox.info
+                = user_form.check_box :remember_me, checked: true
+                %span.check-sign
+                %span.color-black.small-text.reason-content Remember me
+              
               .col-xs-12.text-center
                 %p.decorated
                   %span or
