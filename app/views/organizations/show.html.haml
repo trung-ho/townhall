@@ -21,7 +21,8 @@
       .tab-content
         #recent.tab-pane.active
           %ul
-            = render partial: 'organizations/question', collection: @questions || render(partial: 'organizations/no_questions')
+            = render partial: 'organizations/question', collection: @questions 
+          = render(partial: 'organizations/no_questions') if @questions.length < 1
           - if @questions.size >= 5
             .organization
               .see-more.btn.btn-info
@@ -29,8 +30,8 @@
                 &nbsp;&nbsp;&nbsp;See more
         #popular.tab-pane
           %ul
-            = render partial: 'organizations/question', collection: @pop_questions || render(partial: 'organizations/no_questions')
-
+            = render partial: 'organizations/question', collection: @pop_questions 
+          = render(partial: 'organizations/no_questions') if @questions.length < 1
           - if @pop_questions.size >= 5
             .organization
               .see-more.btn.btn-info
