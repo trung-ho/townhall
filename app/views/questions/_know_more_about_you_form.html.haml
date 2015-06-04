@@ -24,13 +24,13 @@
         .col-xs-5
           = f.label :birth_year, 'Your birth year:'
         .col-xs-7
-          = f.text_field :birth_year,  class: 'form-control'
+          = f.select :birth_year, options_for_select(1920..2010), { prompt: "Year" },  class: 'form-control'
     - if current_user.location.nil?
       .form-group.row
         .col-xs-5
           = f.label :location, 'Your location:'
         .col-xs-7
-          = f.text_field :location, class: 'form-control'
+          = f.text_field :location, class: 'form-control', placeholder: "Where do you live?"
     .row
       .col-xs-12.text-center.submit-btn
         = f.submit "Submit", class: 'btn btn-info large-text', id: 'submit-info'
