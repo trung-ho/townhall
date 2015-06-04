@@ -24,7 +24,7 @@
         .col-xs-5
           = f.label :birth_year, 'Your birth year:'
         .col-xs-7
-          = f.select :birth_year, options_for_select(0..100), { prompt: "Year" },  class: 'form-control'
+          = f.select :birth_year, options_for_select(1920..2010), { prompt: "Year" },  class: 'form-control'
     - if current_user.location.nil?
       .form-group.row
         .col-xs-5
