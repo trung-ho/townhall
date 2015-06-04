@@ -40,6 +40,10 @@ label { font-weight: 300; }
   a.follow {
     background: image-url('follow-icon.png') 0 0 no-repeat;
   }
+  a.admin {
+    background: image-url('edit-icon.png') 0 0 no-repeat;
+    background-size: 64px;
+  }
   img {
     width: 30px;
   }
