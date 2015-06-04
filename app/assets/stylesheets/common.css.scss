@@ -150,6 +150,14 @@ label { font-weight: 300; }
         background-size: auto 100px;
       }
     }
+    &.login a {
+      background: image-url('icon-menu-logout.png') no-repeat 0 0;
+      background-size: auto 100px;
+      &:hover, &.active {
+        background: image-url('icon-menu-logout.png') $color-info no-repeat 0 -50px;
+        background-size: auto 100px;
+      }
+    }
   }
   .logo-div { 
     height: 42px; 

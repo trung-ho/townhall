@@ -29,7 +29,7 @@
         %li.logout
           = active_link_to 'Logout', destroy_user_session_path, :method => :delete
       - else
-        %li
+        %li.login
           = active_link_to 'Login', new_user_session_path
 
 #contact-popup.popup
