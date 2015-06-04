@@ -15,7 +15,7 @@ class Users::SessionsController < Devise::SessionsController
   end
   
   private 
-    def configure_sign_up_params
+    def configure_sign_in_params
       devise_parameter_sanitizer.for(:sign_in) << [:remember_me]
     end
 

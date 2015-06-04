@@ -16,15 +16,20 @@
         = simple_form_for(resource, as: resource_name, url: session_path(resource_name), wrapper: :bootstrap_horizontal_form)  do |user_form|
           .row
             .col-md-12
+              .has-error 
+                - flash.each do |name, msg|
+                  .alert.alert-danger= msg
+              %br
               = user_form.input       :email
               = user_form.input       :password
+             
+
               %label.reason.checkbox.info
                 = user_form.check_box :remember_me, checked: true
                 %span.check-sign
                 %span.color-black.small-text.reason-content Remember me
               = user_form.button      :submit, 'Sign in',  class: 'btn btn-yes large-text btn-block'
-              .has-error 
-                = user_form.error :terms
+             
               .col-xs-12.text-center
                 %p.decorated
                   %span or
@@ -41,17 +46,22 @@
         .col-sm-6.col-sm-offset-3
           %h1 Sign in to townhall
           %br
+          .has-error 
+            - flash.each do |name, msg|
+              .alert.alert-danger= msg
+          %br
           = user_form.input       :email
           = user_form.input       :password
-          
+
+
           = user_form.button      :submit, 'Sign in',  class: 'btn btn-yes large-text btn-block'
-          .has-error 
-            = user_form.error :terms
-          
+
           %label.reason.checkbox.info
             = user_form.check_box :remember_me, checked: true
             %span.check-sign
             %span.color-black.small-text.reason-content Remember me
+            %span.color-black.small-text.reason-content.pull-right
+              = link_to 'Forgot your password?', new_user_password_path
           .col-xs-12.text-center
             %p.decorated
               %span or

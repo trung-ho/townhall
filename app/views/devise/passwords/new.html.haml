@@ -1,0 +1,21 @@
+#sign_in_form
+  = simple_form_for(resource, as: resource_name, url: password_url(resource_name), wrapper: :bootstrap_horizontal_form)  do |user_form|
+    .row
+      .col-sm-6.col-sm-offset-3
+        %h1 Password reset
+        %br
+        = user_form.input       :email
+
+        .has-error 
+          - flash.each do |name, msg|
+            .alert.alert-danger= msg
+
+        = user_form.button      :submit, 'Send me reset password instructions',  class: 'btn btn-yes large-text btn-block'
+
+        %br
+        
+        .col-xs-12.text-center
+          %p.decorated
+            %span or
+          %p.no_account Don't have an account?
+          %b= link_to "Register", new_registration_path(resource_name), class: 'large-text'
