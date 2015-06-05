@@ -2,7 +2,7 @@
   %h1= "Data Report: #{@organization.name}"
   .row
     .col-md-4.col-md-offset-4
-      = link_to 'Print Report', '#', class: 'btn btn-block btn-print'
+      = link_to 'Print Report', report_organizer_question_path(@question, format: :csv), class: 'btn btn-block btn-print'
 
   .question.row
     .col-md-5
