@@ -42,9 +42,7 @@
   %meta{:content => organization_question_url(@question), :property => "og:url"}/
   
   %script(type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552382ec71ce23e0" 
-          async="async" 
-          data-url="#{organization_question_url(@question)}"
-          data-title="#{@question.title}")
+          async="async")
 
 :javascript
   $(document).ready(function() {
