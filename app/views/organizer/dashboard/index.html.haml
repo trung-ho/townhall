@@ -21,7 +21,7 @@
       %table.table
         = render partial: 'organizer/dashboard/table_header'
         = render partial: 'organizer/dashboard/question', collection: @ended_questions
-    - if current_user.questions.all.count < 1
+    - if @organization.questions.all.count < 1
       %p.orange_tooltip
         Congratulations! You're now in the townhall dashboard where you can create questions and view the results. Start a new question below. Once published you'll see the a summary of key statistics and download or view the reports. Go into the Organization tab to customize the way your townhall appears
   #new-question-block  
