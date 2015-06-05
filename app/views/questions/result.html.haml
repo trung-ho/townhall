@@ -34,6 +34,18 @@
 
   = render partial: 'questions/footer', locals: { question: @question, show_know_more_about_you: true }
 
+- content_for :open_graph do
+  %meta{:content => @question.title, :property => "og:title"}/
+  %meta{:content => @question.description.truncate(300), :property => "og:description"}/
+  %meta{:content => @question.question_image.desktop, :property => "og:image"}/
+  %meta{:content => "townhallapp.io", :property => "og:site_name"}/
+  %meta{:content => organization_question_url(@question), :property => "og:url"}/
+  
+  %script(type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552382ec71ce23e0" 
+          async="async" 
+          data-url="#{organization_question_url(@question)}"
+          data-title="#{@question.title}")
+
 :javascript
   $(document).ready(function() {
     var chart = "#{ j(render(partial: 'chart', locals: { votes_chart: votes_chart })) }";
