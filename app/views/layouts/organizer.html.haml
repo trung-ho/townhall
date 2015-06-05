@@ -2,7 +2,7 @@
 %html
   %head
     = render 'layouts/header'
-    = render 'shared/olark'
+    = render 'shared/olark' if Rails.env.production?
   %body
     #beta_label BETA
     
