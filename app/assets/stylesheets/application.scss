@@ -19,6 +19,7 @@
 @import "bootstrap";
 @import "common";
 @import "datepicker";
+@import "circle_chart";
 @import "theme";
 
 @import "toggle_button";
@@ -34,6 +35,7 @@
 
 @import "organizer/votings/new";
 @import "organizer/votings/form";
-
 @import "organizer/organizations/edit";
+@import "organizer/questions/report";
+@import "organizer/questions/detailed_stats";
 

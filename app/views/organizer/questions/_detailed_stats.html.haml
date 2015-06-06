@@ -1,20 +1,51 @@
-%h3 
-  = "#{vote_type} votes" 
-  %small= @question.votes.send(vote_type).count
-%h4 Gender breakdown
-%p 
-  Female votes: 
-  = @question.gendered_votes('female', vote_type).count
-%p
-  Male votes:
-  = @question.gendered_votes('male', vote_type).count
-%p
-  Unknown votes:
-  = @question.gendered_votes('unknown', vote_type).count
- 
-%h4 
-  Locations
-  %ul
-    - @question.top_locations(vote_type).each do |loc|
-      %li= "#{loc[0]} (#{loc[1]})" unless loc[0].nil?
-       
+.organizer-questions-detailed_stats-conatiner.toggle-vote-detail
+  %h3.toggle-detail{ class: "#{vote_type} #{status}" }
+    %span.glyphicon.glyphicon-circle-arrow-up
+    %span.glyphicon.glyphicon-circle-arrow-down
+    = "#{@question.votes.send(vote_type).count} voted \"#{vote_type.capitalize}\"" 
+  
+  .row.detail
+    .col-md-5
+      %h4 People
+      .row.circle-chart-container
+        .col-sm-5
+          .text-center
+            .circle-chart{ title: "Gender" }
+              %ul
+                %li{ amount: @question.gendered_votes('male', vote_type).count } Male
+                %li{ amount: @question.gendered_votes('female', vote_type).count } Female
+                %li{ amount: @question.gendered_votes('unknown', vote_type).count } Unknown
+        .col-sm-7
+          .guilder
+
+      - top_locations = @question.top_locations(vote_type)
+      - if top_locations.any? 
+        .row.circle-chart-container
+          .col-sm-5
+            .text-center
+              .circle-chart{ title: "Location" }
+                %ul
+                  - top_locations.each do |loc|
+                    %li{ amount: loc[1] }= loc[0] || 'Unknown'
+          .col-sm-7
+            .guilder
+      .row.circle-chart-container
+        .col-sm-5
+          .text-center
+            .circle-chart{ title: "Age" }
+              %ul
+                %li{ amount: @question.reasons_with_stats[vote_type.to_sym][:age][:a] } Under 25
+                %li{ amount: @question.reasons_with_stats[vote_type.to_sym][:age][:b] } 25-34
+                %li{ amount: @question.reasons_with_stats[vote_type.to_sym][:age][:c] } 35-44
+                %li{ amount: @question.reasons_with_stats[vote_type.to_sym][:age][:d] }  45-54
+                %li{ amount: @question.reasons_with_stats[vote_type.to_sym][:age][:e] }  55+
+        .col-sm-7
+          .guilder
+    .col-md-7
+      %h4 REASONS
+      - @question.reasons_with_stats[vote_type.to_sym][:reasons].each do |row|
+        - name = Reason.find(row[0]).name
+        - count = row[1]
+        %p= "#{count} #{name}"
+
+           

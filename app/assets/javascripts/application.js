@@ -22,3 +22,5 @@
 //= require file_upload_reader
 //= require cocoon
 //= require popup_opener
+//= require circle_chart
+//= require toggle_vote_detail
