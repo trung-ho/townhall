@@ -141,7 +141,7 @@
 
             .col-md-4
               - if @voting.draft? && @voting.persisted?
-                = link_to organization_question_path(@voting), class: 'btn btn-block' do
+                = link_to organization_question_path(@voting), class: 'btn btn-block', target: 'blank' do
                   Preview
               - else
                 = f.button :submit, name: "voting[draft]", value: 'preview', class: 'btn btn-block' do
@@ -162,5 +162,6 @@
   $('input.date_picker').datepicker({
     format: 'yyyy-mm-dd'
   });
-
+  $('button[value = "preview"]').click ->
+    $('form:first').attr "target", "blank"
           

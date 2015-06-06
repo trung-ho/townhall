@@ -47,8 +47,15 @@
                 &nbsp;&nbsp;&nbsp;See more
         
 
+  - content_for :title do
+    = @organization.name
+  - content_for :description do
+    = @organization.description || nil
+  
+
   - content_for :open_graph do
-    %meta{:content => @organization.name, :property => "og:title"}/
-    %meta{:content => "Visit #{@organization.name} on townhall", :property => "og:description"}/
-    %meta{:content => @organization.banner.desktop, :property => "og:image"}/
-    %meta{:content => "Townhallapp.io", :property => "og:site_name"}/
+    %meta{:content => @organization.name, :property => "og:title"}
+    %meta{:content => (@organization.description ||"Visit #{@organization.name} on townhall"), :property => "og:description"}
+    %meta{:content => @organization.banner.desktop, :property => "og:image"}
+    %meta{:content => "townhallapp.io", :property => "og:site_name"}
+    %meta{:content => request.url, :property => "og:url"}
