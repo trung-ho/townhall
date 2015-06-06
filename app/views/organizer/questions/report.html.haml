@@ -38,6 +38,6 @@
 
   .clr
 
-  = render partial: 'organizer/questions/detailed_stats', locals: {vote_type: 'yes', status: 'show'} 
-  = render partial: 'organizer/questions/detailed_stats', locals: {vote_type: 'maybe', status: ''} 
-  = render partial: 'organizer/questions/detailed_stats', locals: {vote_type: 'no', status: ''} 
+  = render partial: 'organizer/questions/detailed_stats', locals: {vote_type: Vote::YES, status: 'show'} 
+  = render partial: 'organizer/questions/detailed_stats', locals: {vote_type: Vote::NO, status: ''} 
+  = render partial: 'organizer/questions/detailed_stats', locals: {vote_type: Vote::MAYBE, status: ''} 

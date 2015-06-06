@@ -34,17 +34,18 @@
           .text-center
             .circle-chart{ title: "Age" }
               %ul
-                %li{ amount: 12 } Under 25
-                %li{ amount: 15 } 25-34
-                %li{ amount: 25 } 35-44
-                %li{ amount: 8 }  45-54
-                %li{ amount: 8 }  55+
+                %li{ amount: @question.reasons_with_stats[vote_type.to_sym][:age][:a] } Under 25
+                %li{ amount: @question.reasons_with_stats[vote_type.to_sym][:age][:b] } 25-34
+                %li{ amount: @question.reasons_with_stats[vote_type.to_sym][:age][:c] } 35-44
+                %li{ amount: @question.reasons_with_stats[vote_type.to_sym][:age][:d] }  45-54
+                %li{ amount: @question.reasons_with_stats[vote_type.to_sym][:age][:e] }  55+
         .col-sm-7
           .guilder
     .col-md-7
       %h4 REASONS
-      %p 19  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-      %p 16  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nislut aliquip ex
-      %p 11  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore
+      - @question.reasons_with_stats[vote_type.to_sym][:reasons].each do |row|
+        - name = Reason.find(row[0]).name
+        - count = row[1]
+        %p= "#{count} #{name}"
 
            
