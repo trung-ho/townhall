@@ -14,4 +14,8 @@ class Organization < ActiveRecord::Base
   validates :slug, uniqueness: true
   validates_format_of :slug, :with => /^[a-z0-9-]+$/, multiline: true, :message => "can't contain any spaces or special characters"
 
+  def slug= slug
+    super(slug.try(:downcase))
+  end
+
 end
