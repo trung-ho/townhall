@@ -27,19 +27,20 @@
       .form-group.add-more-reason
         = text_field_tag :add_reason, "", placeholder: "60 characters limit", class: 'form-control', maxlength: 60
 
-      .text-center.submit-btn
-        = f.submit "Submit", class: 'btn btn-info large-text'
+  .text-center.submit-btn
+    = f.submit "Submit", class: 'btn btn-info large-text'
 
   :javascript
     $(document).ready(function() {
       //First triggers the ajax post, then submits the form.
-      $('input:submit').on('click', function(e) {
-        e.preventDefault();
-        trigger_ajax();
-        $('#add-reason-container').fadeOut( "slow" );
-        $('input:submit').fadeOut( "slow" );
-        return nil;
-      });
+      - if question.crowd_content?
+        $('input:submit').on('click', function(e) {
+          e.preventDefault();
+          trigger_ajax();
+          $('#add-reason-container').fadeOut( "slow" );
+          $('input:submit').fadeOut( "slow" );
+          return nil;
+        });
 
       $("form").keypress(function(e) {
         if (e.which == 13) {
