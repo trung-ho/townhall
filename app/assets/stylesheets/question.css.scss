@@ -7,7 +7,7 @@
 
 
 .voting {
-  margin-top: -20px;
+  margin-top: 0px;
   padding-bottom: 20px;
   font-size: 17px;
 
@@ -31,7 +31,12 @@
   .checkbox.info { font-style: italic; font-size: 14px; }
 
   .voting-info {
-    margin-top: 20px;
+    padding: 10px;
+    text-transform: uppercase;
+    font-style: italic;
+    background-color: #ddd;
+    height: 47px;
+    border: 1px solid #aaa;
     text-transform: uppercase;
     font-style: italic;
     .col-xs-6:first-child { border-right: 1px solid $text-color; }

@@ -7,6 +7,12 @@
       .row
         .col-xs-12
           .right-col
+            %h1
+              = @question.title
+              / .share-icon.desktop
+            .question-content
+              = @question.description
+
             .know-more-about-you-desktop
             .chart-result-desktop
 
@@ -16,16 +22,12 @@
           .left-col.desktop
             .img
               = image_tag @question.question_image.desktop, id: 'question_image'
-            %h1
-              = @question.title
-              / .share-icon.desktop
-            .question-content
-              = @question.description
             .voting-info.clearfix
               .col-xs-6.text-right
                 .row= days_left(@question.end_date)
               .col-xs-6.text-left
                 .row= pluralize(@question.votes.count, 'Vote')
+              
 
           .chart-result-mobile
 

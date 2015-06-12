@@ -11,10 +11,10 @@
           .left-col.desktop
             .img
               = image_tag @question.question_image.desktop, id: 'question_image'
-            %h1
-              = @question.title
-            .question-content
-              = @question.description
+            / %h1
+            /   = @question.title
+            / .question-content
+            /   = @question.description
             .voting-info.clearfix
               .col-xs-6.text-right
                 .row= days_left(@question.end_date)

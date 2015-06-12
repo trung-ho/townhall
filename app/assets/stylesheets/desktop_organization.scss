@@ -30,7 +30,7 @@
         margin-top: -15px;
         font-weight: bold;
       }
-      .voting_stats { @include left-col; border: none; }
+      .voting_stats { @include left-col; }
       .img {
         @include left-col;
         display: inline-block;

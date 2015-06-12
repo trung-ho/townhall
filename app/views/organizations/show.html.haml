@@ -5,7 +5,7 @@
   #organization
     = link_to (image_tag @organization.banner.desktop, id: 'organization_banner'), root_url(subdomain: @organization.slug)
 
-    .container
+    .container.voting
       %ul.nav.nav-pills
         %li.active{:role => "presentation"}
           %a{:href => "#recent", :data => {:toggle => 'tab'}} Current
