@@ -53,9 +53,9 @@ module Organizer
       params.require(:voting).permit(:title, :description, 
                                   :start_date, :end_date, :crowd_content, :pre_moderation, :draft, 
                                   :question_image,
-                                  reasons_for_attributes: [:id, :name, :_destroy],
-                                  reasons_maybe_attributes: [:id, :name, :_destroy],
-                                  reasons_against_attributes: [:id, :name, :_destroy] )
+                                  reasons_for_attributes: [:id, :name, :status, :_destroy],
+                                  reasons_maybe_attributes: [:id, :name, :status, :_destroy],
+                                  reasons_against_attributes: [:id, :name, :status, :_destroy] )
     end
 
   end

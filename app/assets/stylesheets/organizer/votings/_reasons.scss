@@ -1,0 +1,50 @@
+.organizer-votings-reasons-container {
+  .links {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  #reasons_for, #reasons_maybe, #reasons_against {
+    padding-bottom: 0;
+    background-color: #fefefe;
+
+    .add_fields {
+      width: 200px;
+      margin: 0 auto;
+      max-width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+
+      .glyphicon {
+        top: 2px;
+        left: -10px;
+      }
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+
+  .reason-group {
+    padding: 10px 0;
+    border-top: 1px solid #e7e7e2;
+
+    li {
+      padding: 0;
+      display: block;
+    }
+  }
+
+  #reasons_for .add_fields {
+    background-color: #c5dd37;
+  }
+
+  #reasons_maybe .add_fields {
+    background-color: #616161;
+  }
+
+  #reasons_against .add_fields {
+    background-color: #fc6f4c;
+  }
+}

@@ -101,35 +101,14 @@
 
   .row
     .col-md-2
-      %label Add your reasons:
+      %label Your reasons:
     .col-md-8
       .guilder You can add some reasons to get the list started. These will appear without the crowd contributed icon.
 
-      #reasons_for
-        %h2 Yes
-        .fields_for
-          = f.semantic_fields_for :reasons_for do |rs|
-            = rs.text_field  :name
-            = rs.semantic_errors :name
-          .links
-            = link_to_add_association 'Add more', f, :reasons_for, class: 'btn btn-default'
-      #reasons_maybe
-        %h2 Maybe
-        .fields_for
-          = f.semantic_fields_for :reasons_maybe do |rs|
-            = rs.text_field  :name
-            = rs.semantic_errors :name
-          .links
-            = link_to_add_association 'Add more', f, :reasons_maybe, class: 'btn btn-default'
-      #reasons_against
-        %h2 No
-        .fields_for
-          = f.semantic_fields_for :reasons_against do |rs|
-            = rs.text_field  :name
-            = rs.semantic_errors :name
-          .links
-            = link_to_add_association 'Add more', f, :reasons_against, class: 'btn btn-default'
+  = render partial: 'reasons', locals: { f: f }
 
+  .row
+    .col-md-8.col-md-offset-2
       #form-control
         .row
           - if @voting.draft || @voting.new_record?
@@ -149,7 +128,7 @@
               = f.button :submit, name: "voting[draft]", value: false, class: 'btn btn-block btn-publish' do
                 Publish
           - else
-            .col-md-4
+            .col-md-4.col-md-offset-4
               = f.button :submit, name: "voting[draft]", value: false, class: 'btn btn-block btn-publish' do
                 Update
 
