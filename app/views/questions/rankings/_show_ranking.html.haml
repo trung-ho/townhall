@@ -1,0 +1,62 @@
+= link_to (image_tag @organization.banner.desktop, id: 'organization_banner'), root_url(subdomain: @organization.slug)
+
+.container#voting.voting
+  .banner_container
+    .banner_img
+  .voting-container
+    .question
+      .row
+        .col-xs-12
+          .right-col
+            .row
+              .col-md-11
+                %h1= @question.title
+            / .share-icon.desktop
+          .left-col
+            .img
+              = image_tag @question.question_image.desktop, id: 'question_image'
+            .voting-info.desktop
+              .col-xs-6.text-right
+                .row= days_left(@question.end_date)
+              .col-xs-6.text-left
+                .row= pluralize(@question.votes.count, 'Vote')
+          .right-col
+            .question-content
+              = @question.description
+            
+            %h2 Choose your top three flavours
+            =  form_for Vote.new, url: organization_question_votes_path(@question) do |f|
+              = f.hidden_field :reason_ids
+
+              %ul
+                = render partial: 'questions/rankings/item', collection: @question.rankable_items
+
+              = f.submit
+
+    = render partial: 'questions/footer', locals: { question: @question }
+
+:javascript
+  $(document).ready(function() {
+    var ordered_items = [];
+
+    $('input.css-checkbox').on('click', function(e) {
+      var item_id = e.target.id;
+      
+      if ($.inArray ( item_id, ordered_items ) > -1 ) { 
+        ordered_items = [];
+        $('input:checkbox').removeAttr('checked');
+      }
+      else {
+        ordered_items.push(item_id) 
+      }
+
+      $('#vote_reason_ids').val( ordered_items.join(',') );
+    });
+  });
+- if session[:voted]
+  :javascript
+    $(document).ready(function() {
+      vote = '"#{session[:voted]}"';
+      $('input[value=' + vote +']').prop('checked', true);
+      $('form').submit();
+    })

@@ -1,16 +1,6 @@
-= form_for [:organizer, @ranking], html: { role: 'form', class: 'form-horizontal', multipart: true} do |f|
-  .col-md-8
-    .panel
-      .panel-heading
-        %span.panel-title Info
-      = render partial: 'organizer/votings/form', locals: {f: f}   
-  .col-md-4#reasons
-    .panel
-      .panel-heading
-        %span.panel-title Rankable items
-      .rankable_items
-        = f.fields_for :rankable_items do |rankable_items|
-          = render 'rankable_items_fields', f: rankable_items
-        .links
-          = link_to_add_association 'Add one more', f, :rankable_items, class: 'btn btn-default btn-xs'
-          
+#organizer-votings-new-container.custom-theme
+  .container
+    %h1 ADD A CHOOSER QUESTION
+    
+    = render partial: 'organizer/rankings/form'
+

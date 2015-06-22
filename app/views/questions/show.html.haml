@@ -1,8 +1,9 @@
-
 #questions-show-container
   - case @question.type
   - when Question::VOTING
     = render partial: 'questions/show_voting'
+  - when Question::RANKING
+    = render partial: 'questions/rankings/show_ranking'
 
   - content_for :title do
     = @question.title

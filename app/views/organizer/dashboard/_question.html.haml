@@ -1,12 +1,27 @@
-%tr
-  %td
-    %i.fa.fa-edit  
-    =link_to question.title, edit_polymorphic_path([:organizer,question])
-  %td= question.unique_visitors
-  %td= question.votes.count
-  %td= "#{question.engagement_percentage}%"
-  %td= link_to 'View', report_organizer_question_path(question)
-  %td.download_button
-    = link_to report_organizer_question_path(question, format: :csv) do 
-      %i.fa.fa-download
-      CSV  
+- if question.is_a?(Voting)
+  %tr
+    %td
+      %i.fa.fa-edit  
+      =link_to question.title, edit_polymorphic_path([:organizer,question])
+    %td= question.unique_visitors
+    %td= question.votes.count
+    %td= "#{question.engagement_percentage}%"
+    %td= link_to 'View', report_organizer_question_path(question)
+    %td.download_button
+      = link_to report_organizer_question_path(question, format: :csv) do 
+        %i.fa.fa-download
+        CSV  
+
+- else
+  %tr
+    %td
+      %i.fa.fa-edit  
+      =link_to question.title, edit_polymorphic_path([:organizer,question])
+    %td= question.unique_visitors
+    %td= question.votes.count
+    %td= "#{question.engagement_percentage}%"
+    %td= link_to 'View', report_organizer_question_path(question)
+    %td.download_button
+      = link_to report_organizer_question_path(question, format: :csv) do 
+        %i.fa.fa-download
+        CSV  

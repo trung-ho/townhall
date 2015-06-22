@@ -8,7 +8,13 @@ class VotesController < ApplicationController
     session[:voted] = nil 
 
     if @vote.save
-      redirect_to organization_question_reasons_path(@question)
+      case @question.type
+        when Question::VOTING
+          redirect_to organization_question_reasons_path(@question)
+        when Question::RANKING
+          @vote.update_cached_rankings
+          redirect_to organization_question_result_path(@question)
+      end
     end
   end
 

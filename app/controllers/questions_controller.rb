@@ -33,14 +33,18 @@ class QuestionsController < ApplicationController
   end
 
   def result
-    @reasons_for =     @question.reasons_for.all
-    @reasons_against = @question.reasons_against.all
-
     @total_votes =       @question.total_votes
-    @positive_votes =    @question.positive_votes.count
-    @negative_votes =    @question.negative_votes.count
+    
+    if @question ==  Question::VOTING  
+      @reasons_for =     @question.reasons_for.all
+      @reasons_against = @question.reasons_against.all
+      
+      @positive_votes =    @question.positive_votes.count
+      @negative_votes =    @question.negative_votes.count
 
-    @reasons_stats  =    @question.reasons_with_stats
+      @reasons_stats  =    @question.reasons_with_stats
+    end
+    
   end
 
   private

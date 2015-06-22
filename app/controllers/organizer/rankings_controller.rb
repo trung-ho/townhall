@@ -23,7 +23,7 @@ module Organizer
       if @ranking.update(ranking_params)
         #binding.pry
 
-        redirect_to organizer_dashboard_index_path, notice: 'Question was successfully updated.'
+        redirect_to edit_organizer_ranking_path(@ranking), notice: 'Question was successfully updated.'
       else
         render :edit
       end
@@ -37,7 +37,7 @@ module Organizer
 
     def ranking_params
       params.require(:ranking).permit(:title, :description, 
-                                  :start_date, :end_date, :crowd_content, :pre_moderation,
+                                  :start_date, :end_date, :crowd_content, :pre_moderation, :draft,
                                   :cover_image,
                                   rankable_items_attributes: [:id, :name, :_destroy] )
     end

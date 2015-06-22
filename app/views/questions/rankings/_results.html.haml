@@ -1,0 +1,5 @@
+%ul
+  - @question.rankable_items.order(points: :desc).each do |item|
+    %li
+      = item.name
+      = "with #{item.points} points"
