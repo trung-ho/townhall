@@ -39,6 +39,7 @@ module Organizer
       params.require(:ranking).permit(:title, :description, 
                                   :start_date, :end_date, :crowd_content, :pre_moderation, :draft,
                                   :cover_image,
+                                  :question_image,
                                   rankable_items_attributes: [:id, :name, :_destroy] )
     end
 
