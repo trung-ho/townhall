@@ -1,0 +1,52 @@
+- add_more = '<span class="glyphicon glyphicon-plus-sign"></span>Add more'.html_safe
+.organizer-votings-reasons-container
+  .row
+    .col-md-4
+      #reasons_for
+        %h2 Yes
+        .fields_for
+          .links
+            = link_to_add_association add_more, f, :reasons_for, class: 'btn btn-default', 'data-association-insertion-node' => '#reasons_for_node' 
+
+              
+          #reasons_for_node
+          = f.semantic_fields_for :reasons_for do |rs|
+            .reason-group
+              - if rs.object.new_record?
+                = rs.text_field  :name, placeholder: '60 characters limit'
+                = rs.semantic_errors :name
+              - else
+                %p= rs.object.name
+                = rs.input  :status, as: :select, label: false, input_html: {class: 'form-control'}
+              
+    .col-md-4
+      #reasons_maybe
+        %h2 Maybe
+        .fields_for
+          .links
+            = link_to_add_association add_more, f, :reasons_maybe, class: 'btn btn-default', 'data-association-insertion-node' => '#reasons_maybe_node'
+          #reasons_maybe_node
+          = f.semantic_fields_for :reasons_maybe do |rs|
+            .reason-group
+              - if rs.object.new_record?
+                = rs.text_field  :name, placeholder: '60 characters limit'
+                = rs.semantic_errors :name
+              - else
+                %p= rs.object.name
+                = rs.input  :status, as: :select, label: false, input_html: {class: 'form-control'}
+
+    .col-md-4
+      #reasons_against
+        %h2 No
+        .fields_for
+          .links
+            = link_to_add_association add_more, f, :reasons_against, class: 'btn btn-default', 'data-association-insertion-node' => '#reasons_against_node'
+          #reasons_against_node
+          = f.semantic_fields_for :reasons_against do |rs|
+            .reason-group
+              - if rs.object.new_record?
+                = rs.text_field  :name, placeholder: '60 characters limit'
+                = rs.semantic_errors :name
+              - else
+                %p= rs.object.name
+                = rs.input  :status, as: :select, label: false, input_html: {class: 'form-control'}
