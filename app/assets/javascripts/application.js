@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jcheckbox
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker/core
 //= require jasny-bootstrap.min

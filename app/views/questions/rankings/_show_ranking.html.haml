@@ -25,13 +25,21 @@
               = @question.description
             
             %h2 Choose your top three flavours
+            .note
+              Make your selection by tapping the boxes below in order of your choice.
             =  form_for Vote.new, url: organization_question_votes_path(@question) do |f|
               = f.hidden_field :reason_ids
 
-              %ul
+              %ul.ranking-list
                 = render partial: 'questions/rankings/item', collection: @question.rankable_items
 
-              = f.submit
+              .row
+                .col-xs-10.col-xs-offset-2
+                  .row
+                    .col-md-6
+                      = link_to 'Clear', '#', class: 'btn btn-block btn-clear'
+                    .col-md-6
+                      = f.submit 'Submit', class: 'btn btn-block btn-submit'
 
     = render partial: 'questions/footer', locals: { question: @question }
 
@@ -43,7 +51,7 @@
       var item_id = e.target.id;
       
       if ($.inArray ( item_id, ordered_items ) > -1 ) { 
-        ordered_items = [];
+        ordered_items.splice( $.inArray(item_id, ordered_items), 1 );
         $('input:checkbox').removeAttr('checked');
       }
       else {
@@ -52,6 +60,13 @@
 
       $('#vote_reason_ids').val( ordered_items.join(',') );
     });
+
+    $('.btn-clear').click(function() {
+      $('.checkboxHandler.active').each(function() {
+        $(this).click()
+      });
+      return false;
+    })
   });
 - if session[:voted]
   :javascript

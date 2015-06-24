@@ -1,3 +1,61 @@
 #questions-show-container {
   padding-bottom: 30px;
+  color: #616161;
+
+  h1, h2 {
+    margin: 20px 0 15px 0;
+
+    &, a {
+      font-size: 30px;
+      color: #616161;
+      font-weight: normal;
+    }
+  }
+
+  .question-content {
+    margin: 15px 0;
+    font-size: 20px;
+    padding-bottom: 0;
+  }
+
+  .note {
+    font-size: 14px;
+    background: #c4f0ef;
+    padding: 4px 10px;
+  }
+
+  ul.ranking-list {
+    list-style: none;
+    margin: 20px 0;
+    padding: 0;
+
+    li {
+      margin: 0;
+      padding: 0;
+
+      .row {
+        margin-left: 0;
+        margin-right: 0;
+
+        .col-xs-2, .col-xs-10 {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+    }
+  }
+
+  .btn-block {
+    font-size: 20px;
+  }
+
+  .btn-clear {
+    background: #fc6f4c;
+    color: #fff;
+  }
+
+  .btn-submit {
+    background: #3acccb;
+    color: #fff;
+  }
 }
