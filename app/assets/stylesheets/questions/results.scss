@@ -1,0 +1,15 @@
+#chooser_results {
+  list-style: none;
+  padding-left: 0;
+  li { 
+    padding: 5px;
+    background-color: #e5f0a7; 
+    margin-bottom: 5px;
+  } 
+  li:nth-child(-n+3) {
+    background-color: #c5dd37;
+  }
+  span.bold {
+    font-weight: bold;
+  }
+}

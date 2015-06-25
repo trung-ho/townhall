@@ -1,5 +1,7 @@
-%ul
+%ul#chooser_results
   - @question.rankable_items.order(points: :desc).each do |item|
-    %li
-      = item.name
-      = "with #{item.points} points"
+    %li.row
+      .col-xs-1
+        %span.bold= "#{item.points} "
+      .col-xs-11
+        = item.name

@@ -24,7 +24,8 @@
             .question-content
               = @question.description
             
-            %h2 Choose your top three flavours
+            %hr
+            %h3 Choose your top three flavours
             .note
               Make your selection by tapping the boxes below in order of your choice.
             =  form_for Vote.new, url: organization_question_votes_path(@question) do |f|
