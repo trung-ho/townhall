@@ -15,9 +15,11 @@
             .know-more-about-you-desktop
             .chart-result-desktop
 
-            %h3.mobile Here are the results:
+            %hr
+            %h3 Thanks for choosing. Here are the top 3 selected:
             .results-desktop
 
+            = render 'shared/addthis'
           .left-col.desktop
             .img
               = image_tag @question.question_image.desktop, id: 'question_image'
@@ -31,7 +33,6 @@
           .chart-result-mobile
 
   .results-mobile
-
 
   = render partial: 'questions/footer', locals: { question: @question, show_know_more_about_you: true }
 

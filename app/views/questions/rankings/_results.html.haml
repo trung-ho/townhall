@@ -1,7 +1,7 @@
 %ul#chooser_results
-  - @question.rankable_items.order(points: :desc).each do |item|
+  - @question.rankable_items.order(points: :desc).each_with_index do |item, index|
     %li.row
       .col-xs-1
-        %span.bold= "#{item.points} "
+        %span.bold= "#{(index + 1) unless index > 2} "
       .col-xs-11
         = item.name
