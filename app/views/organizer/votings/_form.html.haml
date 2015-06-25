@@ -118,7 +118,7 @@
 
             .col-md-4
               - if @voting.draft? && @voting.persisted?
-                = link_to organization_question_path(@voting), class: 'btn btn-block', target: 'blank' do
+                = link_to organization_question_path(@voting), class: 'btn btn-block' do
                   Preview
               - else
                 = f.button :submit, name: "voting[draft]", value: 'preview', class: 'btn btn-block' do

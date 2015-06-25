@@ -1,0 +1,77 @@
+- votes_chart = @question.vote_percentages
+= link_to (image_tag @organization.banner.desktop, id: 'organization_banner'), root_url(subdomain: @organization.slug)
+
+.container#voting.voting
+  .voting-container
+    .question
+      .row
+        .col-xs-12
+          .right-col
+            %h1
+              = @question.title
+              / .share-icon.desktop
+            .question-content
+              = @question.description
+
+            .know-more-about-you-desktop
+            .chart-result-desktop
+
+            %h3.italic.mobile Here are the results:
+            .results-desktop
+
+          .left-col.desktop
+            .img
+              = image_tag @question.question_image.desktop, id: 'question_image'
+            .voting-info.clearfix
+              .col-xs-6.text-right
+                .row= days_left(@question.end_date)
+              .col-xs-6.text-left
+                .row= pluralize(@question.votes.count, 'Vote')
+              
+
+          .chart-result-mobile
+
+  .results-mobile
+
+
+  = render partial: 'questions/footer', locals: { question: @question, show_know_more_about_you: true }
+
+- content_for :open_graph do
+  %meta{:content => @question.title, :property => "og:title"}/
+  %meta{:content => @question.description.truncate(300), :property => "og:description"}/
+  %meta{:content => @question.question_image.desktop, :property => "og:image"}/
+  %meta{:content => "townhallapp.io", :property => "og:site_name"}/
+  %meta{:content => organization_question_url(@question), :property => "og:url"}/
+  
+  %script(type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-552382ec71ce23e0" 
+          async="async")
+
+:javascript
+  $(document).ready(function() {
+    var chart = "#{ j(render(partial: 'chart', locals: { votes_chart: votes_chart })) }";
+
+    var results = "#{ j(render(partial: 'results', locals: { question: @question })) }";
+
+    if (window.innerWidth < DESKTOP_MIN_WIDTH) {
+      $('.chart-result-mobile').append(chart);
+      $('.results-mobile').append(results);
+    } else {
+      $('.chart-result-desktop').append(chart);
+      $('.results-desktop').prepend(results);
+    }
+  });
+
+- if user_attributes_missing?(current_user)
+  :javascript
+    $(document).ready(function() {
+      var knowMoreAboutYou = "#{ j(render(partial: 'know_more_about_you_form', locals: { question: @question })) }";
+
+      if (window.innerWidth < DESKTOP_MIN_WIDTH) {
+        $('.know-more-about-you-mobile').append(knowMoreAboutYou);
+      } else {
+        $('.know-more-about-you-desktop').prepend(knowMoreAboutYou);
+      }
+      $( "form:first" ).submit(function() {
+        $('.know-more-about-you-mobile').hide();
+      });
+    });

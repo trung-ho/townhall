@@ -7,11 +7,18 @@ module Organizer
     end
 
     def create
+      if params[:ranking][:draft] == 'preview'
+        @preview = true 
+        params[:ranking][:draft] = true
+      end
+
       organization = current_user.organizations.last
       @ranking = organization.rankings.new(ranking_params)
 
       if @ranking.save
-        redirect_to edit_organizer_ranking_path(@ranking)
+        redirect_to organization_question_url(@ranking)
+      else
+        render :new
       end
     end
 
@@ -20,10 +27,15 @@ module Organizer
     end
     
     def update
+      draft = @ranking.draft?
+
       if @ranking.update(ranking_params)
         #binding.pry
-
-        redirect_to organizer_dashboard_index_path, notice: 'Question was successfully updated.'
+        if draft
+          redirect_to organization_question_url(@ranking)
+        else
+          redirect_to edit_organizer_ranking_path(@ranking), notice: 'Question was successfully updated.'
+        end
       else
         render :edit
       end
@@ -37,8 +49,9 @@ module Organizer
 
     def ranking_params
       params.require(:ranking).permit(:title, :description, 
-                                  :start_date, :end_date, :crowd_content, :pre_moderation,
+                                  :start_date, :end_date, :crowd_content, :pre_moderation, :draft,
                                   :cover_image,
+                                  :question_image,
                                   rankable_items_attributes: [:id, :name, :_destroy] )
     end
 

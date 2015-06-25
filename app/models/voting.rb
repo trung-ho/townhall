@@ -13,14 +13,19 @@ class Voting < Question
   has_many :users, through: :votes
   store_accessor :properties, :crowd_content, :pre_moderation
 
-  def crowd_content?
-    self.crowd_content == "1"
+  def vote_percentages
+    total = votes.count.to_f
+    yes_count = votes.yes.count
+    no_count = votes.no.count
+    maybe_count = votes.maybe.count
+    base_width = [yes_count, no_count, maybe_count].max.to_f
+    {
+      yes: { percent: ((yes_count/total).round(2) * 100).to_i, width: ((yes_count/base_width).round(2) * 100).to_i },
+      no: { percent: ((no_count/total).round(2) * 100).to_i, width: ((no_count/base_width).round(2) * 100).to_i },
+      maybe: { percent: ((maybe_count/total).round(2) * 100).to_i, width: ((maybe_count/base_width).round(2) * 100).to_i }
+    }
   end
-
-  def total_votes
-     votes.count
-  end
-
+  
   def positive_votes
     votes.where(vote_type: Vote::YES)
   end

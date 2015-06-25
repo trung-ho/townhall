@@ -1,0 +1,148 @@
+= semantic_form_for [:organizer, @ranking], html: { role: 'form', class: 'form-horizontal', multipart: true} do |f|
+  .organizer-votings-form-container
+    .row
+      .col-md-2
+        = f.label :title
+      .col-md-10
+        .row
+          .col-md-9
+            = f.text_field :title
+            = f.semantic_errors :title
+          .col-md-3
+            .required
+              *REQUIRED
+        .guilder
+          Your question should be short and clear. This will be the call to action for people to participate. 
+          %br
+          We recommend adding a “?” at the end of your question.
+      .break-line
+
+    .row
+      .col-md-2
+        = f.label :description
+      .col-md-10
+        .row
+          .col-md-9
+            = f.text_area :description
+            = f.semantic_errors :description
+          .col-md-3
+            .required
+              *REQUIRED
+        .guilder
+          Tell your audience a little about why you're asking this question. What will be the outcomes? How will their vote make a difference?
+      .break-line
+
+    .row
+      .col-md-10.col-md-offset-2
+        .row
+          .col-md-6
+            .row
+              .col-md-3
+                = f.label :start_date
+              .col-md-9
+                .input-date
+                  = f.text_field :start_date, class: 'date_picker'
+                  = f.semantic_errors :start_date
+          .col-md-6
+            .row
+              .col-md-3
+                = f.label :end_date
+              .col-md-9
+                .input-date
+                  = f.text_field :end_date, class: 'date_picker'
+                  = f.semantic_errors :end_date
+            
+        .guilder
+          The start and end dates can be set to automatically manage when your question is live and when it is finished.
+      
+      .break-line
+
+    .row
+      .col-md-2
+        = f.label :question_image
+      .col-md-5
+        .photo-group
+          .photo-wrap
+            = image_tag f.object.question_image.url, class: 'photo'
+          .fileupload-wrap
+            .row
+              .col-xs-8
+                %input{type: "text", readonly: true, class: 'inputfile'}
+              .col-xs-4
+                %button{ class: 'btn btn-browse' } Upload
+            = f.file_field :question_image, class: 'fileupload'
+            = f.semantic_errors :question_image
+      .col-md-5
+        .guilder
+          %p Images should be landscape as portrait images will be cropped on Facebook.  
+          %p Images are best at 472 pixels by 394 pixels in size.  
+          %p Larger images will be resized.  
+          %p If you can't get your image exactly those dimensions then try and keep it as a 4 x 3 ratio.
+
+      .break-line
+
+    .row
+      .col-md-2
+        = f.label :options
+      .col-md-10
+        .row
+          .col-md-6
+            %label.reason.checkbox.info.crowd_content
+              = f.check_box :crowd_content
+              %span.check-sign
+              %span.color-black.small-text.reason-content Crowd contributed
+            .guilder 
+              Selecting this option allows participants to add their own option to the list
+          .col-md-6
+            %label.reason.checkbox.info
+              = f.check_box :pre_moderation
+              %span.check-sign
+              %span.color-black.small-text.reason-content Pre-moderation
+            .guilder You can choose to have all crowd contributed content sent by email to someone in your team to decide if it is suitable to publish.
+
+      .break-line
+
+    .row
+      .col-md-2
+        %label Options
+      .col-md-8
+        .guilder Enter the items that users can rank
+
+        #reasons_for
+          .fields_for
+            = f.semantic_fields_for :rankable_items do |rs|
+              = rs.text_field  :name
+              = rs.semantic_errors :name
+            .links
+              = link_to_add_association 'Add more', f, :rankable_items, class: 'btn btn-default'
+        
+        #form-control
+          .row
+            - if @ranking.draft || @ranking.new_record?
+              .col-md-4
+                = f.button :submit, name: "ranking[draft]", value: true, class: 'btn btn-block' do
+                  Save Draft
+
+              .col-md-4
+                - if @ranking.draft? && @ranking.persisted?
+                  = link_to organization_question_path(@ranking), class: 'btn btn-block' do
+                    Preview
+                - else
+                  = f.button :submit, name: "ranking[draft]", value: 'preview', class: 'btn btn-block' do
+                    Preview
+
+              .col-md-4
+                = f.button :submit, name: "ranking[draft]", value: false, class: 'btn btn-block btn-publish' do
+                  Publish
+            - else
+              .col-md-4
+                = f.button :submit, name: "ranking[draft]", value: false, class: 'btn btn-block btn-publish' do
+                  Update
+
+:coffeescript
+  $('.fileupload').each ->
+    new FileUpload({input: $(this)})
+
+  $('input.date_picker').datepicker({
+    format: 'yyyy-mm-dd'
+  });     

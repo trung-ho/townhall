@@ -19,12 +19,7 @@ module Organizer
       @voting = organization.votings.new(voting_params)
 
       if @voting.save
-        if @preview == true
-          redirect_to organization_question_url(@voting)
-        else
-          redirect_to edit_organizer_voting_path(@voting), notice: 'Question was successfully created.'
-        end
-
+        redirect_to organization_question_url(@voting)
       else
         render :new
       end
@@ -36,8 +31,14 @@ module Organizer
     end
     
     def update
+      draft = @voting.draft?
+
       if @voting.update(voting_params)
-        redirect_to organizer_dashboard_index_path, notice: 'Question was successfully updated.'
+        if draft
+          redirect_to organization_question_url(@voting)        
+        else
+          redirect_to organizer_dashboard_index_path, notice: 'Question was successfully updated.'
+        end
       else
         render :edit
       end

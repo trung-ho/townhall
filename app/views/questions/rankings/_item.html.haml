@@ -1,0 +1,8 @@
+%li
+  %span.select_option
+    .row
+      .col-xs-2
+        %input.css-checkbox.jcheckbox{:name => item.id, :type => "checkbox", id: item.id}/
+      .col-xs-10
+        %label.css-label.radGroup1{:for => item.id}= item.name
+    
