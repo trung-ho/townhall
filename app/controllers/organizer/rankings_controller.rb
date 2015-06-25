@@ -27,10 +27,15 @@ module Organizer
     end
     
     def update
+      draft = @ranking.draft?
+
       if @ranking.update(ranking_params)
         #binding.pry
-
-        redirect_to edit_organizer_ranking_path(@ranking), notice: 'Question was successfully updated.'
+        if draft
+          redirect_to organization_question_url(@ranking)
+        else
+          redirect_to edit_organizer_ranking_path(@ranking), notice: 'Question was successfully updated.'
+        end
       else
         render :edit
       end
