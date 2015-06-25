@@ -6,7 +6,7 @@
     margin: 20px 0 15px 0;
 
     &, a {
-      font-size: 30px;
+      //font-size: 30px;
       color: #616161;
       font-weight: normal;
     }
@@ -42,6 +42,9 @@
           padding-right: 0;
         }
       }
+    }
+    li label {
+      padding-top: 10px;
     }
   }
 

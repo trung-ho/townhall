@@ -62,11 +62,16 @@
     });
 
     $('.btn-clear').click(function() {
-      $('.checkboxHandler.active').each(function() {
-        $(this).click()
-      });
+      clear_all();
       return false;
     })
+
+    function clear_all() {
+      $('.checkboxHandler').removeClass('active');
+      $('.checkboxHandler span').text('');
+      $('input:checkbox').removeAttr('checked');
+      ordered_items = [];
+    }
   });
 - if session[:voted]
   :javascript
