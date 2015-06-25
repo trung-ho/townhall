@@ -1,4 +1,6 @@
 class Voting < Question
+  
+
   has_many :reasons_for,     -> { where reason_type: Reason::FOR     }, class_name: 'Reason'
   has_many :reasons_against, -> { where reason_type: Reason::AGAINST }, class_name: 'Reason'
   has_many :reasons_maybe, -> { where reason_type: Reason::MAYBE }, class_name: 'Reason'

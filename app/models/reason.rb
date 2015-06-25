@@ -1,4 +1,6 @@
 class Reason < ActiveRecord::Base
+  extend Enumerize
+
   REASON_TYPES = {
     yes: FOR = 'for',
     no: AGAINST = 'against',
@@ -8,4 +10,6 @@ class Reason < ActiveRecord::Base
   validates :name, length: { maximum: 60 }
 
   belongs_to :voting
+
+  enumerize :status, in: [:pending, :active], default: :pending
 end
