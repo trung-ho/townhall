@@ -1,3 +1,12 @@
+- if @question.draft?
+  .row
+    .col-xs-2
+      %hr
+      Previewing
+      = link_to edit_organizer_ranking_path(@question), class: 'btn btn-xs btn-yes' do
+        %span.glyphicon.glyphicon-pencil
+        Back to edit
+      %hr
 = link_to (image_tag @organization.banner.desktop, id: 'organization_banner'), root_url(subdomain: @organization.slug)
 
 .container#voting.voting

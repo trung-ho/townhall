@@ -125,7 +125,7 @@
 
               .col-md-4
                 - if @ranking.draft? && @ranking.persisted?
-                  = link_to organization_question_path(@ranking), class: 'btn btn-block', target: 'blank' do
+                  = link_to organization_question_path(@ranking), class: 'btn btn-block' do
                     Preview
                 - else
                   = f.button :submit, name: "ranking[draft]", value: 'preview', class: 'btn btn-block' do

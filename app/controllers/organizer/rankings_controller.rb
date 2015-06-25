@@ -7,11 +7,18 @@ module Organizer
     end
 
     def create
+      if params[:ranking][:draft] == 'preview'
+        @preview = true 
+        params[:ranking][:draft] = true
+      end
+
       organization = current_user.organizations.last
       @ranking = organization.rankings.new(ranking_params)
 
       if @ranking.save
-        redirect_to edit_organizer_ranking_path(@ranking)
+        redirect_to organization_question_url(@ranking)
+      else
+        render :new
       end
     end
 
