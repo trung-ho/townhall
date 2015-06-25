@@ -34,7 +34,7 @@
               = @question.description
             
             %hr
-            %h3 Choose your top three flavours
+            %h3 Choose your top three
             .note
               Make your selection by tapping the boxes below in order of your choice.
             =  form_for Vote.new, url: organization_question_votes_path(@question) do |f|
@@ -53,36 +53,6 @@
 
     = render partial: 'questions/footer', locals: { question: @question }
 
-:javascript
-  $(document).ready(function() {
-    var ordered_items = [];
-
-    $('input.css-checkbox').on('click', function(e) {
-      var item_id = e.target.id;
-      
-      if ($.inArray ( item_id, ordered_items ) > -1 ) { 
-        ordered_items.splice( $.inArray(item_id, ordered_items), 1 );
-        $('input:checkbox').removeAttr('checked');
-      }
-      else {
-        ordered_items.push(item_id) 
-      }
-
-      $('#vote_reason_ids').val( ordered_items.join(',') );
-    });
-
-    $('.btn-clear').click(function() {
-      clear_all();
-      return false;
-    })
-
-    function clear_all() {
-      $('.checkboxHandler').removeClass('active');
-      $('.checkboxHandler span').text('');
-      $('input:checkbox').removeAttr('checked');
-      ordered_items = [];
-    }
-  });
 - if session[:voted]
   :javascript
     $(document).ready(function() {
